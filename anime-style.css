@@ -1,7 +1,7 @@
 /* Root Variables for Consistency */
 :root {
     --squush-primary-brand-color-accent-purple: #7b61ff;
-    --squush-main-background-dark-theme-color-primary: #0a0b10;
+    --squush-main-background-dark-theme-color-primary: #101010;/*#0a0b10*/
     --squush-sidebar-and-card-background-semi-transparent: rgba(20, 21, 28, 0.8);
     --squush-text-color-primary-white-high-emphasis: #ffffff;
     --squush-text-color-secondary-gray-medium-emphasis: #b3b3b3;
@@ -17,14 +17,15 @@
     min-height: 100vh;
 }
 .squush-streaming-platform-movies-page-main-content-layout-wrapper-container {
-    padding: 20px;
+    padding: 10px;
+    padding-top: 5px;
     background-color: var(--squush-main-background-dark-theme-color-primary);
     color: var(--squush-text-color-primary-white-high-emphasis);
     font-family: 'Inter', sans-serif;
     min-height: 100vh;
 }
 .squush-anime-top{
-    margin-top: -15px;
+    margin-top: -5px;
     margin-bottom: 10px;
 }
 .squush-anime-top-text{
@@ -38,7 +39,6 @@
 .squush-anime-search{
     border: none;
     box-shadow: none;
-    background: #13141a;
     margin-left: 200px;
 }
 .squush-anime-search-btn{
@@ -67,7 +67,8 @@
     font-family: 'Poppins', sans-serif;
 }
 .Text-Content-Anime h2:nth-child(2){
-    font-size: 15px;
+    font-size: 14px;
+    margin-top: -15px;
     position: absolute;
     right: 25px;
     color: #5f8bf2;
@@ -104,12 +105,12 @@
 
 /*Squush Steps Content Start*/
 .Anime-Steps-Content{
-    height: 240px;
+    height: 250px;
     display: flex;
     margin-top: 5px;
     border-radius: 10px;
     position: relative;
-    background: url("https://static0.gamerantimages.com/wordpress/wp-content/uploads/2025/01/jujutsu-kaisen-theme.jpg")center/cover;
+    background: url("https://wallpapers.com/images/hd/jujutsu-kaisen-4k-anime-characters-hccbh0fp7rl24yd0.jpg")center/cover;
 }
 .Anime-Steps{
     flex-grow: 1;
@@ -243,12 +244,46 @@
 }
 .Dr-Stone{
     margin-top: 10px;
-    background: url("https://wallpaperaccess.com/full/1740958.jpg")center/cover;
+    background: url("https://images3.alphacoders.com/119/1191360.jpg")center/cover;
 }
 .Dragon-Ball{
     margin-top: 10px;
     background: url("https://4kwallpapers.com/images/wallpapers/dragon-ball-super-4480x2520-21220.jpg")center/cover;
 }
+.Demon-Slayer{
+    margin-top: 10px;
+     background: url("https://4kwallpapers.com/images/wallpapers/demon-slayer-1920x1200-10716.jpg")center/cover;
+}
+.Super-Cube{
+    margin-top: 10px;
+    background: url("https://image.tmdb.org/t/p/w780/89qSKhLrJOUhp6xgbqgSTpzblbA.jpg")center/cover;
+}
+.Dr-Stoner{
+    margin-top: 10px;
+    background: url("https://wallpaperaccess.com/full/4115818.jpg")center/cover;
+}
+.Solo-Level{
+    margin-top: 10px;
+    background: url("https://wallpaperaccess.com/full/3231246.png")center/cover;
+}
+.On-Titans{
+    margin-top: 10px;
+    background: url("https://wallpaperaccess.com/full/2725441.jpg")center/cover;
+}
+.The-Shadow{
+    margin-top: 10px;
+    background: url("https://th.bing.com/th/id/OIP.vYB1cfJbsr7rz_cVHN_TMAHaEs?w=235&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3") center/cover;
+}
+.Demon-King{
+    margin-top: 10px;
+    background: url("https://wallpaperbat.com/img/9708056-the-misfit-of-demon-king-academy.png") center/cover;
+}
+/*
+https://wallpaperaccess.com/full/4115818.jpg
+https://th.bing.com/th/id/OIP.JRvjw9aINPFxaDVXXyZrYgHaF8?w=226&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3
+https://wallpaperaccess.com/full/2725441.jpg
+https://th.bing.com/th/id/OIP.vYB1cfJbsr7rz_cVHN_TMAHaEs?w=235&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3
+https://wallpaperbat.com/img/9708074-misfit-of-the-demon-king-academy-x.jpg*/
 .Anime-footer {
     margin: auto; 
     padding: 30px 16px;
@@ -274,4 +309,11 @@
     .squush-anime-search-btn{
         margin-left: 10px;
     }
+}
+.Squush-Scroll,.Squush-Scroll-Text{
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+.Demon-text h2:nth-child(2){
+    font-size: 14px;
 }

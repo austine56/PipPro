@@ -1541,7 +1541,7 @@ https://wallpaperbat.com/img/9708074-misfit-of-the-demon-king-academy-x.jpg*/
 }
 </style>
 <script src="main.js">
-     const data = [
+    const data = [
     "Super Cube","My Hero Academia","Attack on Titan",
     "Demon Slayer","Jujutsu Kaisen","Solo Leveling","Dr Stone","Dragon Ball",
     "Eminence in Shadow","Demon King Academia","Blinding Light",
@@ -1603,51 +1603,61 @@ function closeModal() {
 
 function openAcademia(){
      document.getElementById("myHero").style.display="block";
+     document.getElementById("removeAcademia").style.display="none";
      document.getElementById("mytextHero").style.display="block";
      document.getElementById("mysectionHero").style.display="flex";
 }
 function openKaisen(){
      document.getElementById("myKaisen").style.display="block";
+     document.getElementById("removeKaisen").style.display="none";
      document.getElementById("mytextKaisen").style.display="block";
      document.getElementById("mysectionKaisen").style.display="flex";
 }
 function openDragon(){
      document.getElementById("myDragon").style.display="block";
+     document.getElementById("removeDragon").style.display="none";
      document.getElementById("mytextDragon").style.display="block";
      document.getElementById("mysectionDragon").style.display="flex";
 }
 function openDemon(){
      document.getElementById("mySlayer").style.display="block";
+     document.getElementById("removeSlayer").style.display="none";
      document.getElementById("mytextSlayer").style.display="block";
      document.getElementById("mysectionSlayer").style.display="flex";
 }
 function openCube(){
      document.getElementById("myCube").style.display="block";
+     document.getElementById("removeCube").style.display="none";
      document.getElementById("mytextCube").style.display="block";
      document.getElementById("mysectionCube").style.display="flex";
 }
 function openStoner(){
      document.getElementById("myStoner").style.display="block";
+     document.getElementById("removeStone").style.display="none";
      document.getElementById("mytextStoner").style.display="block";
      document.getElementById("mysectionStoner").style.display="flex"; 
 }
 function openSolo(){
      document.getElementById("mySolo").style.display="block";
+     document.getElementById("removeSolo").style.display="none";
      document.getElementById("mytextSolo").style.display="block";
      document.getElementById("mysectionSolo").style.display="flex"; 
 }
 function openTitans(){
      document.getElementById("myTitans").style.display="block";
+     document.getElementById("removeTitans").style.display="none";
      document.getElementById("mytextTitans").style.display="block";
      document.getElementById("mysectionTitans").style.display="flex"; 
 }
 function openShadow(){
      document.getElementById("myShadow").style.display="block";
+     document.getElementById("removeShadow").style.display="none";
      document.getElementById("mytextShadow").style.display="block";
      document.getElementById("mysectionShadow").style.display="flex"; 
 }
 function openKing(){
      document.getElementById("myKing").style.display="block";
+     document.getElementById("removeKing").style.display="none";
      document.getElementById("mytextKing").style.display="block";
      document.getElementById("mysectionKing").style.display="flex"; 
 }
@@ -2669,7 +2679,7 @@ function showAnimePage() {
 
 
                 <div class="Scroll-Content Squush-Scroll">
-          <div class="Section">
+          <div class="Section" onclick="closeBody(),showAnimePage(),openKaisen()" id="removeKaisen">
                <div>
                     <a>Jujustu Kaisen</a>
                     <a><p>Episode 15</p></a>
@@ -2677,7 +2687,7 @@ function showAnimePage() {
                     <i class="fa-solid fa-download"></i>
                </div>
           </div>
-          <div class="Section">
+          <div class="Section" onclick="closeBody(),showAnimePage(),openAcademia()"id="removeAcademia">
                <div>
                     <a>My Hero Academia</a>
                     <a><p>Episode 19</p></a>
@@ -2685,7 +2695,7 @@ function showAnimePage() {
                     <i class="fa-solid fa-download"></i>               
                </div>
           </div>
-          <div class="Section">
+          <div class="Section" onclick="closeBody(),showAnimePage(),openCube()" id="removeCube">
                <div>
                     <a>Super Cube</a>
                     <a><p>Episode 22</p></a>
@@ -2693,7 +2703,7 @@ function showAnimePage() {
                     <i class="fa-solid fa-download"></i>               
                </div>
           </div>
-          <div class="Section">
+          <div class="Section" onclick="closeBody(),showAnimePage(),openStoner()" id="removeStone">
                <div>
                     <a>Dr Stone</a>
                     <a><p>Episode 13</p></a>
@@ -2701,7 +2711,7 @@ function showAnimePage() {
                     <i class="fa-solid fa-download"></i>             
                </div>
           </div>
-          <div class="Section">
+          <div class="Section" onclick="closeBody(),showAnimePage(),openSolo()" id="removeSolo">
                <div>
                     <a>Solo Leveling</a>
                     <a><p>Episode 11</p></a>
@@ -2709,7 +2719,7 @@ function showAnimePage() {
                     <i class="fa-solid fa-download"></i>              
                </div>
           </div>       
-          <div class="Section">
+          <div class="Section" onclick="closeBody(),showAnimePage(),openTitans()" id="removeTitans">
                <div>
                     <a>Attack On Titans</a>
                     <a><p>Episode 82</p></a>
@@ -2717,7 +2727,7 @@ function showAnimePage() {
                     <i class="fa-solid fa-download"></i>               
                </div>
           </div>
-          <div class="Section">
+          <div class="Section" onclick="closeBody(),showAnimePage(),openDragon()" id="removeDragon">
                <div>
                     <a>Dragon Ball Super</a>
                     <a><p>Episode 73</p></a>
@@ -2725,7 +2735,7 @@ function showAnimePage() {
                     <i class="fa-solid fa-download"></i>               
                </div>
           </div>
-          <div class="Section">
+          <div class="Section" onclick="closeBody(),showAnimePage(),openDemon()" id="removeSlayer">
                <div>
                     <a>Demons Slayer</a>
                     <a><p>Episode 24</p></a>
@@ -2733,7 +2743,7 @@ function showAnimePage() {
                     <i class="fa-solid fa-download"></i>        
                </div>
           </div>
-          <div class="Section">
+          <div class="Section" onclick="closeBody(),showAnimePage(),openShadow()" id="removeShadow">
                <div>
                     <a>Eminence in Shadow</a>
                     <a><p>Episode 12</p></a>
@@ -2741,7 +2751,7 @@ function showAnimePage() {
                     <i class="fa-solid fa-download"></i>               
                </div>
           </div>
-          <div class="Section">
+          <div class="Section" onclick="closeBody(),showAnimePage(),openKing()" id="removeKing">
                <div>
                     <a>Demon King Academia</a>
                     <a><p>Episode 11</p></a>

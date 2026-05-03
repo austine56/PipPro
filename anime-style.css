@@ -10,7 +10,7 @@
 
 /* Main Container for the Anime Navigation View */
 .squush-streaming-platform-anime-page-main-content-layout-wrapper-container {
-    padding: 20px;
+    padding: 10px;
     background-color: var(--squush-main-background-dark-theme-color-primary);
     color: var(--squush-text-color-primary-white-high-emphasis);
     font-family: 'Inter', sans-serif;

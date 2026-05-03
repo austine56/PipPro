@@ -261,7 +261,7 @@ body{
     border: none;
     outline: none;
     background: #1f1f1f;
-    color: white;
+    color: rgb(255, 255, 255);
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     padding-left: 35px;
     margin-left: 230px;
@@ -737,8 +737,9 @@ body{
     right: 1px;
     top: 138px;
     opacity: 0;
+    display: none;
     font-size: 10px;
-    animation: Zer0 5s step-end;
+    animation: Zer 5s step-end;
     position: absolute;
     color: #ffffff;
 }
@@ -759,9 +760,10 @@ body{
 .Watch-Text div a:nth-child(2){
     right: 1px;
     top: 148px;
+    display: none;
     font-size: 10px;
     font-weight: 600;
-    animation: Hundred 5s step-end;
+    animation: Hundre 5s step-end;
     position: absolute;
     color: #ffffff;
 }
@@ -1170,8 +1172,8 @@ body{
         margin-left: 20px;
     }
     .Sign_Bar_Container{
-        width: 99%;
+        width: 96%;
         margin-top: 50px;
-        margin-left: -2%;
+        margin-left: 2%;
     }
 }

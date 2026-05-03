@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="anime-style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squush - Download Anime & Music</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+    <!--Sidebar Background-->
+    <div class="overlay" id="overlay" onclick="closeModal()"></div>
+    <div class="align">
+    <div class="Sign_Bar_Container"  id="modal">
+     <div class="Sign_Index">
+        <h2 class="Signin_Text">Sign in</h2>
+        <a class="User_Name">User Name</a>
+        <input type="text" class="User_Name_Text">
+        <a class="Password">Password</a>
+        <input type="password" class="Password_Text">
+        <div class="Ask_Container">
+        <input type="checkbox" class="Checkbox_Text">
+        <a class="Remember_Text">Remember Me</a>
+        <a class="Forgot_Text">Forgot password?</a>
+     </div>
+        <button class="Submit">Submit</button>
+        <div class="Socail_Signin">
+        <img src="https://static.vecteezy.com/system/resources/previews/018/930/573/original/tiktok-logo-tikok-icon-transparent-tikok-app-logo-free-png.png" class="Tik_Image_Bar">
+        <img src="https://th.bing.com/th/id/R.9f5f5c1d57fcfe6daee8f39baa005393?rik=p1OHALg49xNUJQ&pid=ImgRaw&r=0" class="Youtube_Image_Bar">
+        <img src="https://cdn.punchng.com/wp-content/uploads/2023/07/24084806/Twitter-new-logo.jpeg" class="Twitter_Image_Bar">
+         </div>
+     </div>
+     </div>
+    </div> 
+    <!-- The container where content will change -->
+<main id="main-content">
+    <!-- Home page content starts here by default -->
+</main>
+<script src="main.js">
+     const data = [
+    "Super Cube","My Hero Academia","Attack on Titan",
+    "Demon Slayer","Jujutsu Kaisen","Solo Leveling","Dr Stone","Dragon Ball",
+    "Eminence in Shadow","Demon King Academia","Blinding Light",
+    "Sunflower","Save You Tears","Ocean Eyes","Apt","Apature",
+    "Spy X Family", "Lofi Beats", "Cyberpunk","Turning Red","Your Idol","Watch Party Hub"
+];
+function showSuggestions() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let suggestionsBox = document.getElementById("suggestions");
+
+    suggestionsBox.innerHTML = "";
+
+    if (input === "") {
+        suggestionsBox.style.display = "none";
+        return;
+    }
+
+    let filtered = data.filter(item => item.toLowerCase().includes(input));
+
+    if (filtered.length === 0) {
+        suggestionsBox.style.display = "none";
+        return;
+    }
+
+    filtered.forEach(item => {
+        let div = document.createElement("div");
+        div.innerText = item;
+
+        div.onclick = () => {
+            document.getElementById("searchInput").value = item;
+            suggestionsBox.style.display = "none";
+        };
+
+        suggestionsBox.appendChild(div);
+    });
+
+    suggestionsBox.style.display = "block";
+}
+
+function toggleTheme() {
+    document.body.classList.toggle("dark");
+
+    let icon = document.getElementById("icon");
+    if (document.body.classList.contains("dark")) {
+        icon.innerText = "";
+    } else {
+        icon.innerText = "";
+    }
+}
+
+function openModal() {
+    document.getElementById("modal").style.display = "block";
+    document.getElementById("overlay").style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+}
+
+
+
+function showAnimePage() {
+    const mainContent = document.getElementById('main-content');
+    
+    mainContent.innerHTML = `
+        <div class="squush-streaming-platform-anime-page-main-content-layout-wrapper-container" id="animePage">
+               <div class="Top squush-anime-top">
+               <h2 class="squush-anime-top-text">Squush Anime</h2>
+     <i class="fa-solid fa-magnifying-glass squush-anime-search-btn"></i>
+     <input type="text" 
+        id="searchInput" onkeyup="showSuggestions()" class="search-box squush-anime-search" placeholder="Search anime...">
+        <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-chart-line move"></i></i></span>
+                <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid  fa-download"></i></i></span>
+     <i class="fa-solid fa-bell"></i>
+     <button   onclick="closeAnimePage()" class="Login">Back</button>
+     <i class="fa-solid fa-arrow-right"></i>
+     </div>
+
+    <div class="Background squush-anime-clip-head">
+     <div class="Anime-Steps-Content squush-anime-clip">
+          <div class="Anime-Steps">
+               <div class="Anime-Steps-Set"> 
+               <h2>Jujustu Kaisen</h2>
+               <a>Itadori, The Strongest Sorcerer. Experience All Episodes In High Quality.</a>
+               <p><button>▶ Watch Now</button>
+               <button>Download All</button>
+               </div>
+          </div>
+     </div>
+  </div>
+
+         <div class="Text-Content-Anime ">
+          <h2>Download Now</h2>
+          <h2>View all</h2>
+            </div>
+
+                   <div class="Anime-Scroll-Content">
+          <div class="Anime-Section">
+               <div>
+                    <a>Jujustu Kaisen</a>
+                    <a><p>Episode 01</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                          <div class="Anime-Section">
+               <div>
+                    <a>Jujustu Kaisen</a>
+                    <a><p>Episode 02</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                          <div class="Anime-Section">
+               <div>
+                    <a>Jujustu Kaisen</a>
+                    <a><p>Episode 03</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                          <div class="Anime-Section">
+               <div>
+                    <a>Jujustu Kaisen</a>
+                    <a><p>Episode 04</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                          <div class="Anime-Section">
+               <div>
+                    <a>Jujustu Kaisen</a>
+                    <a><p>Episode 05</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                                          <div class="Anime-Section">
+               <div>
+                    <a>Jujustu Kaisen</a>
+                    <a><p>Episode 06</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                                          <div class="Anime-Section">
+               <div>
+                    <a>Jujustu Kaisen</a>
+                    <a><p>Episode 07</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                                          <div class="Anime-Section">
+               <div>
+                    <a>Jujustu Kaisen</a>
+                    <a><p>Episode 08</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                                          <div class="Anime-Section">
+               <div>
+                    <a>Jujustu Kaisen</a>
+                    <a><p>Episode 09</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                                          <div class="Anime-Section">
+               <div>
+                    <a>Jujustu Kaisen</a>
+                    <a><p>Episode 10</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+              </div>
+
+            <div class="Anime-Steps-Content Dr-Stone">
+          <div class="Anime-Steps">
+               <div class="Anime-Steps-Set"> 
+               <h2>My Hero Academia</h2>
+               <a>Izuku Midoriya Unlocks All For One!. Experience All Episodes In High Quality.</a>
+               <p><button>▶ Watch Now</button>
+               <button>Download All</button>
+               </div>
+          </div>
+     </div>
+
+         <div class="Text-Content-Anime">
+          <h2>Download Now</h2>
+          <h2>View all</h2>
+            </div>
+
+                   <div class="Anime-Scroll-Content">
+          <div class="Anime-Section">
+               <div>
+                    <a>My Hero Academia</a>
+                    <a><p>Episode 01</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                          <div class="Anime-Section">
+               <div>
+                    <a>My Hero Academia</a>
+                    <a><p>Episode 02</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                          <div class="Anime-Section">
+               <div>
+                    <a>My Hero Academia</a>
+                    <a><p>Episode 03</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                                          <div class="Anime-Section">
+               <div>
+                    <a>My Hero Academia</a>
+                    <a><p>Episode 04</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                                          <div class="Anime-Section">
+               <div>
+                    <a>My Hero Academia</a>
+                    <a><p>Episode 05</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                                          <div class="Anime-Section">
+               <div>
+                    <a>My Hero Academia</a>
+                    <a><p>Episode 06</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                                          <div class="Anime-Section">
+               <div>
+                    <a>My Hero Academia</a>
+                    <a><p>Episode 07</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                                          <div class="Anime-Section">
+               <div>
+                    <a>My Hero Academia</a>
+                    <a><p>Episode 08</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                                          <div class="Anime-Section">
+               <div>
+                    <a>My Hero Academia</a>
+                    <a><p>Episode 09</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                                          <div class="Anime-Section">
+               <div>
+                    <a>My Hero Academia</a>
+                    <a><p>Episode 10</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                </div>
+
+         <div class="Anime-Steps-Content Dragon-Ball">
+          <div class="Anime-Steps">
+               <div class="Anime-Steps-Set"> 
+               <h2>Dragon Ball Super</h2>
+               <a>Goku With The Quest Of Unlimited Power. Experience All Episodes In High Quality.</a>
+               <p><button>▶ Watch Now</button>
+               <button>Download All</button>
+               </div>
+          </div>
+     </div>
+
+            <div class="Text-Content-Anime">
+          <h2>Download Now</h2>
+          <h2>View all</h2>
+            </div>
+
+            
+                   <div class="Anime-Scroll-Content">
+          <div class="Anime-Section">
+               <div>
+                    <a>Dragon Ball Super</a>
+                    <a><p>Episode 01</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                          <div class="Anime-Section">
+                          <div>
+                                    <a>Dragon Ball Super</a>
+                    <a><p>Episode 02</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                          <div class="Anime-Section">
+                          <div>
+                                    <a>Dragon Ball Super</a>
+                    <a><p>Episode 03</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                          <div class="Anime-Section">
+                          <div>
+                                    <a>Dragon Ball Super</a>
+                    <a><p>Episode 04</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                          <div class="Anime-Section">
+                          <div>
+                                    <a>Dragon Ball Super</a>
+                    <a><p>Episode 05</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                          <div class="Anime-Section">
+                          <div>
+                                    <a>Dragon Ball Super</a>
+                    <a><p>Episode 06</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                          <div class="Anime-Section">
+                          <div>
+                                    <a>Dragon Ball Super</a>
+                    <a><p>Episode 07</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                          <div class="Anime-Section">
+                          <div>
+                                    <a>Dragon Ball Super</a>
+                    <a><p>Episode 08</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                          <div class="Anime-Section">
+                          <div>
+                                    <a>Dragon Ball Super</a>
+                    <a><p>Episode 09</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                                          <div class="Anime-Section">
+                          <div>
+                                    <a>Dragon Ball Super</a>
+                    <a><p>Episode 10</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+                     </div>
+                </div>
+                </div>
+            <div class="Anime-footer">
+    <div><h4>MovieBox</h4><p>Streaming UI website.</p></div>
+    <div><h4>Explore</h4><p>Trending Anime.</p></div>
+    <div><h4>Developed by</h4><p>Adamson Augustine.</p></div>
+  </div>
+                <div class="Anime-copyrights">© 2025 Sqaush Demo</div>
+        </div>
+    `;
+}
+function closeAnimePage() {
+    document.getElementById("animePage").style.display ="none";
+    document.getElementById("bodyTab").style.display ="block";
+}
+function showMoviesPage() {
+     const mainContent = document.getElementById('main-content');
+     mainContent.innerHTML = `
+          <div class="squush-streaming-platform-movies-page-main-content-layout-wrapper-container" id="moviesPage">
+                              <div class="Top squush-anime-top">
+               <h2 class="squush-anime-top-text">Squush Movies</h2>
+     <i class="fa-solid fa-magnifying-glass squush-anime-search-btn"></i>
+     <input type="text" 
+        id="searchInput" onkeyup="showSuggestions()" class="search-box squush-anime-search" placeholder="Search movies...">
+        <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon move"></i></span>
+                <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-chart-line"></i></i></span>
+     <i class="fa-solid fa-bell"></i>
+     <button   onclick="closeMoviesPage()" class="Login">Back</button>
+     <i class="fa-solid fa-arrow-right"></i>
+     </div>
+
+          </div>
+    `;
+}
+function closeMoviesPage() {
+    document.getElementById("moviesPage").style.display ="none";
+    document.getElementById("bodyTab").style.display ="block";
+}
+function openBody(){
+    document.getElementById("bodyTab").style.display ="block";
+}
+function closeBody() {
+    document.getElementById("bodyTab").style.display = "none";
+    document.getElementById("footMargin").style.display="none";
+}
+</script>
+ <div class="Content-Container">
+         <h2>🎶Squush</h2>
+    <div class="Contents">
+        <div class="Content">
+    <i class="fa-solid fa-house"></i>
+        <a onclick="openBody()">Home</a> 
+        </div>
+        <div class="Content" onclick="closeBody()">
+    <i onclick="showAnimePage()"class="fa-solid fa-video"></i>
+        <a  onclick="showAnimePage()" style="cursor: pointer;">Anime</a> 
+        </div>
+          <div class="Content" onclick="closeBody()">
+     <i class="fa-solid fa-clapperboard"></i>
+        <a onclick="showMoviesPage()" style="cursor: pointer;">Movies</a> 
+        </div>
+              <div class="Content">
+     <i class="fa-brands fa-spotify"></i>
+        <a>Songs</a> 
+        </div>
+             <div class="Content">
+     <i class="fa-solid fa-compact-disc"></i>          
+        <a>Albums</a> 
+        </div>
+             <div class="Content">
+     <i class="fa-solid fa-chart-line"></i>          
+        <a>Top Charts</a> 
+        </div>
+             <div class="Content">
+     <i class="fa-solid fa-shuffle"></i>          
+        <a>Playlists</a> 
+        </div>
+             <div class="Content">
+     <i class="fa-solid fa-heart"></i>          
+        <a>Favorites</a> 
+        </div>
+             <div class="Content">
+     <i class="fa-solid fa-download"></i>          
+        <a>Downloads</a> 
+          </div>
+     <!--Recent Content-->
+          <div class="Recents">
+        <a class="Recent-Tab">Recently Played</a>
+        <i class="fa-solid fa-x"></i>
+          </div>
+               <div class="Cards">
+                    <div class="Card-1"></div>
+                         <h5>Jujutsu Kaisen</h5>
+                         <a>Episode 12</a>
+                         <div class="Card-2"></div>
+                         <h6>Attack On Titans</h6>
+                         <p>Episode 82</p>
+                         <div class="Card-3"></div>
+                         <h4>Blinding Light</h4>
+                         <h3>The Weekend</h3>
+                    </div>
+                </div>
+          <!--Music Player-->
+     <div class="Music-Player">
+          <div class="Sets">
+               <div class="Card">
+                         <h5>Blinding Light</h5>
+                         <a>The Weekend</a></div>
+                         <i class="fa-solid fa-shuffle"></i>
+               </div>
+               <div class="progress-content">
+               <span class="time-1">1:45</span>
+               <input type="range" class="progress" value="50"/>
+               <span class="time-2">3:20</span>
+          </div>
+          <div class="controls">
+               <i class="fa-solid fa-backward"></i>
+               <div>
+               <i class="fa-solid fa-play"></i>
+               </div>
+               <i class="fa-solid fa-forward"></i>
+          </div>
+          </div>   
+  </div>
+  <!--Main Content-->
+  <div class="Body" id="bodyTab">
+  <div class="Background">
+     <div class="Top">
+     <i class="fa-solid fa-magnifying-glass"></i>
+     <input type="text" 
+        id="searchInput" onkeyup="showSuggestions()" class="search-box" placeholder="Search...">
+        <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon move"></i></span>
+                <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></span>
+     <i class="fa-solid fa-bell"></i>
+     <button  onclick="openModal()" class="Login">Login</button>
+     <i class="fa-solid fa-arrow-right"></i>
+     </div>
+        <div class="Navlinks">
+            <div class="Nav">
+                   <b onclick="openBody()"></b><a>Home</a></b>
+                   <b onclick="closeBody()"><a onclick="showAnimePage()">Anime</a></b>
+                   <b onclick="closeBody()"><a onclick="showMoviesPage()">Movies</a></b>
+                   <b onclick="closeBody()"><a onclick="showAboutPage()">About</a></b>
+            </div>
+        </div>
+     <div class="Steps-Content">
+          <div class="Steps">
+               <div class="Steps-Set"> 
+               <h2>Gojo Saturu</h2>
+               <a>The Strongest Sorcerer. Experience All Episodes In High Quality.</a>
+               <p><button>▶ Watch Now</button>
+               <button>Download All</button>
+               </div>
+          </div>
+     </div>
+  </div>
+       <div id="suggestions" class="suggestions"></div>
+    <!-- Theme Icon -->
+         <span id="icon" class="icon" onclick="toggleTheme()"></span>
+  <!--Text Content-->
+     <div class="Text-Content">
+          <h2>Trending Now</h2>
+          <h2>View all</h2>
+  </div>
+  <!--Scroll Content-->
+       <div class="Scroll-Content">
+          <div class="Section">
+               <div>
+                    <a>Jujustu Kiasen</a>
+                    <a><p>Episode 15</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>
+               </div>
+          </div>
+          <div class="Section">
+               <div>
+                    <a>My Hero Academia</a>
+                    <a><p>Episode 19</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>               
+               </div>
+          </div>
+          <div class="Section">
+               <div>
+                    <a>Super Cube</a>
+                    <a><p>Episode 22</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>               
+               </div>
+          </div>
+          <div class="Section">
+               <div>
+                    <a>Dr Stone</a>
+                    <a><p>Episode 13</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>             
+               </div>
+          </div>
+          <div class="Section">
+               <div>
+                    <a>Solo Leveling</a>
+                    <a><p>Episode 11</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>              
+               </div>
+          </div>       
+          <div class="Section">
+               <div>
+                    <a>Attack On Titans</a>
+                    <a><p>Episode 82</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>               
+               </div>
+          </div>
+          <div class="Section">
+               <div>
+                    <a>Dragon Ball Super</a>
+                    <a><p>Episode 73</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>               
+               </div>
+          </div>
+          <div class="Section">
+               <div>
+                    <a>Demons Slayer</a>
+                    <a><p>Episode 24</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>        
+               </div>
+          </div>
+          <div class="Section">
+               <div>
+                    <a>Eminence in Shadow</a>
+                    <a><p>Episode 12</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>               
+               </div>
+          </div>
+          <div class="Section">
+               <div>
+                    <a>Demon King Academia</a>
+                    <a><p>Episode 11</p></a>
+                    <button>Download</button>
+                    <i class="fa-solid fa-download"></i>               
+               </div>
+          </div>
+  </div>
+  <!--Latest Songs-->
+  <div class="Text-Content">
+     <h2>Latest Songs</h2>
+     <h2>View all</h2>
+  </div>
+  <div class="Songs-Container">
+     <div class="Song-Tabs">
+          <div>
+               <a>Blinding Light</a>
+               <a><p>The Weekend</p></a>
+               <a>3:20</a>
+          </div>
+     </div>
+     <div class="Song-Tabs">
+          <div>
+               <a>Sunflower</a>
+               <a><p>Post Malone</p></a>
+               <a>2:38</a>
+          </div>
+     </div>
+     <div class="Song-Tabs">
+          <div>
+               <a>Save Your Tears</a>
+               <a><p>The Weekend</p></a>
+               <a>3:01</a>
+          </div>
+     </div>
+     <div class="Song-Tabs">
+          <div>
+               <a>Ocean Eyes</a>
+               <a><p>Billie Eilish</p></a>
+               <a>3:21</a>
+          </div>
+     </div>
+     <div class="Song-Tabs">
+          <div>
+               <a>APT</a>
+               <a><p>Rose</p></a>
+               <a>2:25</a>
+          </div>
+     </div>
+     <div class="Song-Tabs">
+          <div>
+               <a>Apature</a>
+               <a><p>Harry Styles</p></a>
+               <a>3:16</a>
+          </div>
+     </div>
+  </div>
+  <!--Continue Watching Text-->
+       <div class="Text-Content">
+          <h2>Continue Watching</h2>
+          <h2>View all</h2>
+  </div>
+  <div class="Watch-Container">
+     <div class="Watch-Tab">
+          <div class="Watch-Content Stack-1"><a>2:07</a><div></div></div>
+          <div class="Watch-Text">
+               <a>Spy X Family</a>
+               <a><p>EL S Scene</p></a>
+               <div><a>0%</a><a>100%</a></div>
+               <button>Download</button>
+               <i class="fa-solid fa-download"></i>
+          </div>
+     </div>
+     <div class="Watch-Tab">
+          <div class="Watch-Content Stack-2"><a>2:16</a><div></div></div>
+          <div class="Watch-Text">
+               <a>Lofi Beats</a>
+               <a><p>Track. 12</p></a>
+               <div><a>0%</a><a>100%</a></div>
+               <button>Download</button>
+               <i class="fa-solid fa-download"></i>
+          </div>
+     </div>
+     <div class="Watch-Tab">
+          <div class="Watch-Content Stack-3"><a>2:23</a><div></div></div>
+          <div class="Watch-Text">
+               <a>Cyberpunk: Edge...</a>
+               <a><p>Ep2 arena</p></a>
+               <div><a>0%</a><a>100%</a></div>
+               <button>Download</button>
+               <i class="fa-solid fa-download"></i>
+          </div>
+     </div>
+     <div class="Watch-Tab">
+          <div class="Watch-Content Stack-4"><a>2:03</a><div></div></div>
+          <div class="Watch-Text">
+               <a>Turning Red</a>
+               <a><p>Magic Alse</p></a>
+               <div><a>0%</a><a>100%</a></div>
+               <button>Download</button>
+               <i class="fa-solid fa-download"></i>
+          </div>
+     </div>
+     <div class="Watch-Tab">
+          <div class="Watch-Content Stack-5"><a>2:01</a><div></div></div>
+          <div class="Watch-Text">
+               <a>Demons Slayer</a>
+               <a><p>Kiajo Yaba</p></a>
+               <div><a>0%</a><a>100%</a></div>
+               <button>Download</button>
+               <i class="fa-solid fa-download"></i>
+          </div>
+     </div>
+     <div class="Watch-Tab">
+          <div class="Watch-Content Stack-6"><a>2:31</a><div></div></div>
+          <div class="Watch-Text">
+               <a>Your Idol</a>
+               <a><p>Saja boys</p></a>
+               <div><a>0%</a><a>100%</a></div>
+               <button>Download</button>
+               <i class="fa-solid fa-download"></i>
+          </div>
+     </div>
+  </div>
+  <!--Community Highlights-->
+     <div class="Text-Content">
+          <h2>Community Highlights</h2>
+          <h2>View all</h2>
+  </div>
+  <div class="Highlights-Content">
+     <div class="Highlights">
+          <div class="Highlight">
+          <h2>Top User Playlists</h2>
+          <i class="fa-regular fa-bookmark"></i>
+          <div class="Book-Set-1"></div>
+          <h5>Animetaslic</h5>
+          <h6>Anlinad Playlists</h6>
+          <div class="Book-Set-2"></div>
+          <h1>Epic Battles Theme</h1>
+          <h3>Epic Battle</h3>
+          <h4>Fesiured Playlists</h4>
+          <a>Listen to songs that reliefs stress on a whole new level.</a>
+          </div>
+     </div>
+     <div class="Highlights">
+          <div class="Highlight-Step">
+          <h2>Trending Discussions</h2>
+          <h3>Demons vs. Curses?</h3>
+          <a>Fun Fact: Demons originated from Demons Slayer while Curses from Jujustu Kiasen.</a>
+          <h4>Satoru Gojo Theories</h4>
+          <h5>Satoru Gojo theories is often discussed by our bulletin board.
+           <INPUT type="text" class="Comment" placeholder="Comment...."></h5>
+          </div>
+     </div>
+     <div class="Highlights">
+          <div class="Community">
+               <div></div>
+               <h2>Featured Fan Art</h2>
+               <a>Stunning Gojo Fan Art Showcase.</a>
+               <i class="fa-regular fa-star"></i>
+          </div>
+     </div>
+     <div class="Highlights">
+          <div class="Community">
+               <div></div>
+               <h2>Watch Party Hub</h2>
+               <a>Watch Party Hub Downloads Updates.</a>
+               <i class="fa-regular fa-star"></i>
+          </div>
+     </div>
+  </div>
+
+  <div class="footmargin" id="footMargin">
+<footer>
+  <div class="footer">
+    <div><h4>MovieBox</h4><p>Streaming UI website.</p></div>
+    <div><h4>Explore</h4><p>Trending Anime.</p></div>
+    <div><h4>Developed by</h4><p>Adamson Augustine.</p></div>
+  </div>
+</footer>
+  <div class="copyright" id="copyMargin">© 2025 Sqaush Demo</div>
+  </div>
+    </div>
+</body>
+</html>

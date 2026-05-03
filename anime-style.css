@@ -1,0 +1,277 @@
+/* Root Variables for Consistency */
+:root {
+    --squush-primary-brand-color-accent-purple: #7b61ff;
+    --squush-main-background-dark-theme-color-primary: #0a0b10;
+    --squush-sidebar-and-card-background-semi-transparent: rgba(20, 21, 28, 0.8);
+    --squush-text-color-primary-white-high-emphasis: #ffffff;
+    --squush-text-color-secondary-gray-medium-emphasis: #b3b3b3;
+    --squush-border-radius-standard-rounded-corner-size: 15px;
+}
+
+/* Main Container for the Anime Navigation View */
+.squush-streaming-platform-anime-page-main-content-layout-wrapper-container {
+    padding: 20px;
+    background-color: var(--squush-main-background-dark-theme-color-primary);
+    color: var(--squush-text-color-primary-white-high-emphasis);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+.squush-streaming-platform-movies-page-main-content-layout-wrapper-container {
+    padding: 20px;
+    background-color: var(--squush-main-background-dark-theme-color-primary);
+    color: var(--squush-text-color-primary-white-high-emphasis);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+.squush-anime-top{
+    margin-top: -15px;
+    margin-bottom: 10px;
+}
+.squush-anime-top-text{
+    width: fit-content;
+    position: absolute;
+    margin-top: 16px;
+    margin-left: 5px;
+    font-family: 'Inter', sans-serif;
+    height: fit-content;
+}
+.squush-anime-search{
+    border: none;
+    box-shadow: none;
+    background: #13141a;
+    margin-left: 200px;
+}
+.squush-anime-search-btn{
+    margin-left: 210px;
+}
+.squush-anime-clip-head{
+    overflow: hidden;
+}
+/* The Promotional Hero Banner at the top of the Anime page */
+.copyrights {
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 20px;
+    font-size: 12px;
+    color: #71717a;
+}
+/*Squush Anime Text Content Start*/
+.Text-Content-Anime{
+    display: flex;    
+    margin-top: 15px;
+}
+.Text-Content-Anime h2:nth-child(1){
+    margin-left: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+.Text-Content-Anime h2:nth-child(2){
+    font-size: 15px;
+    position: absolute;
+    right: 25px;
+    color: #5f8bf2;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+.Text-Content-Anime h2:nth-child(2):hover{
+    color: #347dfb;
+}/*Squush Anime Text Content End*/
+
+/*Squush Anime Top Text Content Start*/
+.Text-Content-Anime-Top{
+    display: flex;    
+    margin-bottom: 10px;
+}
+.Text-Content-Anime-Top h2:nth-child(1){
+    margin-left: 10px;
+    font-size: 25px;
+    font-weight: 600;
+    color: rgb(223, 220, 220);
+}
+.Text-Content-Anime-Top h2:nth-child(2){
+    font-size: 15px;
+    position: absolute;
+    right: 25px;
+    color: #5f8bf2;
+    cursor: pointer;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+.Text-Content-Anime-Top h2:nth-child(2):hover{
+    color: #347dfb;
+}/*Squush Anime Text Content End*/
+
+/*Squush Steps Content Start*/
+.Anime-Steps-Content{
+    height: 240px;
+    display: flex;
+    margin-top: 5px;
+    border-radius: 10px;
+    position: relative;
+    background: url("https://static0.gamerantimages.com/wordpress/wp-content/uploads/2025/01/jujutsu-kaisen-theme.jpg")center/cover;
+}
+.Anime-Steps{
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.6);
+    position: absolute;
+    border-radius: 10px;
+}
+.Anime-Steps-Set{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+.Anime-Steps a{
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 20px;
+    font-family: 'Inter', sans-serif;
+}
+.Anime-Steps h2{
+    color: #ffffff;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: 'Inter', sans-serif;
+}
+.Anime-Steps button{
+    border: none;
+    height: 35px;
+    width: 100px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    font-family: 'Inter', sans-serif;
+    background: rgb(16, 28, 48, 0.2);
+ }
+.Anime-Steps button:focus{
+    background: linear-gradient( to right,#586adc, #3471ff, #347dfb);
+
+}/*Squush Steps Content End*/
+
+/*Squush Anime Scroll Content Start*/
+.Anime-Scroll-Content{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-right: 5px;
+    white-space: nowrap; 
+    -webkit-overflow-scrolling: touch;
+    margin-top: 15px;
+}
+.Anime-Scroll-Content::-webkit-scrollbar{
+    display: none;
+}
+.Anime-Section{
+    width: 140px;    
+    height: 80px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    position: relative;
+    background-color: var(--squush-main-background-dark-theme-color-primary);
+}
+.Anime-Section:hover{
+    transition: all 0.5s ease; 
+    transform: translateY(-6px) scale(1.03);
+}
+.Anime-Section div{
+    width: 140px;
+    position: absolute;
+    height: 75px;
+    bottom: 0%;
+    border-radius: 10px;
+    padding-top: 8px;
+    background-color: rgb(0, 0, 0, 0.2);
+    backdrop-filter: blur(3px);
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+}
+.Anime-Section div a:nth-child(1){
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-align: center;
+    margin-top: 10px;
+}
+.Anime-Section div p:nth-child(1){
+    font-size: 10px;
+    margin-top: 10px;
+    color: #c8c8c8;
+
+}
+.Anime-Section div button{
+    position: absolute;
+    font-size: 11px;
+    bottom: 2px;
+    left: 20px;
+    padding-left: 25px;
+    border: none;
+    height: 30px;
+    width: 100px;
+    margin-top: 8px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    font-family: 'Inter', sans-serif;
+    background: rgb(52, 125, 251, 0.01);
+}
+.Anime-Section div i{
+    position: absolute;
+    font-size: 13px;
+    bottom: 12px;
+    color: white;
+    left: 35px;
+}
+.Anime-Section div button:hover{
+    backdrop-filter: blur(2px);
+    background-color: rgba(120, 168, 252, 0.122);
+}
+/*Squush Anime Scroll Content End*/
+.Anime-copyrights {
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 20px;
+    font-size: 12px;
+    color: #71717a;
+}
+.Dr-Stone{
+    margin-top: 10px;
+    background: url("https://wallpaperaccess.com/full/1740958.jpg")center/cover;
+}
+.Dragon-Ball{
+    margin-top: 10px;
+    background: url("https://4kwallpapers.com/images/wallpapers/dragon-ball-super-4480x2520-21220.jpg")center/cover;
+}
+.Anime-footer {
+    margin: auto; 
+    padding: 30px 16px;
+    display: grid;    border-top: 1px solid #27272a;
+    margin-top: 20px; 
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    font-size: 13px;
+    color: #a1a1aa;
+}
+.Anime-footer h4 {
+    color: #e4e4e7; margin-bottom: 8px;
+}
+@media (max-width: 560px){
+        .squush-anime-top-text{
+        font-size: 20px;
+        display: none;
+    }
+    .squush-anime-search{
+        margin-left: 0px;
+        margin-right: -10px;
+    }
+    .squush-anime-search-btn{
+        margin-left: 10px;
+    }
+}

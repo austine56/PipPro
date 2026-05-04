@@ -48,11 +48,11 @@ function toggleTheme() {
         icon.innerText = "";
     }
 }
+
 function openModal() {
     document.getElementById("modal").style.display = "block";
     document.getElementById("overlay").style.display = "block";
 }
-
 function closeModal() {
     document.getElementById("modal").style.display = "none";
     document.getElementById("overlay").style.display = "none";
@@ -141,7 +141,7 @@ function showAnimePage() {
                <div class="Anime-Steps-Set"> 
                <h2>Jujustu Kaisen</h2>
                <a>Itadori, The Strongest Sorcerer. Experience All Episodes In High Quality.</a>
-               <p><button>▶ Watch Now</button>
+               <p onclick="showWatchPage()"><button>▶ Watch Now</button>
                <button>Download All</button>
                </div>
           </div>
@@ -1231,9 +1231,6 @@ function closeAnimePage() {
     document.getElementById("animePage").style.display ="none";
     document.getElementById("bodyTab").style.display ="block";
     document.getElementById("footMargin").style.display="block";
-    document.getElementById("myheroTab").style.display="none";
-    document.getElementById("mytextHero").style.display="none";
-    document.getElementById("mysectionHero").style.display="none";
 }
 function showMoviesPage() {
      const mainContent = document.getElementById('main-content');
@@ -1277,6 +1274,24 @@ function showAboutPage() {
 
           </div>
     `;
+}
+function showWatchPage() {
+     const mainContent = document.getElementById('main-content');
+     mainContent.innerHTML = `
+          <div class="squush-streaming-platform-watch-page-main-content-layout-wrapper-container" id="closeWatchPage">
+                    <div class="Video-Watch">
+                         <iframe width="560" height="315" src="https://www.youtube.com/embed/9OhV3IWUsxE?si=Ds9bB__MecVY-quk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen poster="https://wallpapers.com/images/hd/jujutsu-kaisen-4k-anime-characters-hccbh0fp7rl24yd0.jpg")center/cover"></iframe>    
+                    </div>
+                    
+         <div class="Video-Watch-Text">
+          <h2>Jujustu Kaisen</h2>
+          <h2 onclick="closeWatchPage(),closeBody(),showAnimePage(),openKaisen()">Back</h2>
+            </div>
+          </div>
+    `;
+}    
+function closeWatchPage(){
+     document.getElementById("closeWatchPage").style.display="none";
 }
 function closeAboutPage() {
     document.getElementById("aboutPage").style.display ="none";

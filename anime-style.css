@@ -32,6 +32,9 @@
     font-family: 'Inter', sans-serif;
     min-height: 100vh;
 }
+.Jjk{
+    background: url("https://wallpapercave.com/wp/wp8430817.jpg")center/cover;
+}
 .squush-anime-top{
     margin-top: -5px;
     margin-bottom: 10px;
@@ -250,9 +253,12 @@
     font-size: 12px;
     color: #71717a;
 }
-.Dr-Stone{
+.Kaisen{
+    background: url("https://wallpapercave.com/wp/wp8430817.jpg")center/cover;
+}
+.Xokitty{
     margin-top: 10px;
-    background: url("https://images3.alphacoders.com/119/1191360.jpg")center/cover;
+    background: url("https://i.etsystatic.com/20641750/r/il/c5ec2e/6600525028/il_fullxfull.6600525028_ge2h.jpg")center/cover;
 }
 .Dragon-Ball{
     margin-top: 10px;
@@ -268,11 +274,11 @@
 }
 .Dr-Stoner{
     margin-top: 10px;
-    background: url("https://wallpaperaccess.com/full/4115818.jpg")center/cover;
+    background: url("https://variety.com/wp-content/uploads/2022/09/Do-Revenge.jpg?w=1000")center/cover;
 }
 .Solo-Level{
     margin-top: 10px;
-    background: url("https://wallpaperaccess.com/full/3231246.png")center/cover;
+    background: url("https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQXkapct6sJLMF4PNtrdBQ5VUNKqerPJlyHX2lpXkFQToUJoXJCpwYBm52SYciUyxRKupknMiog9GzeP0krvfIk_bTVURA0DDiI-8PmXX_CmrvtGGZpH3fHbESXchZO5Pr4538gbWXjRLcTqq9PLpjALcM7c.jpg?r=50b")center/cover;
 }
 .On-Titans{
     margin-top: 10px;
@@ -280,7 +286,7 @@
 }
 .The-Shadow{
     margin-top: 10px;
-    background: url("https://th.bing.com/th/id/OIP.vYB1cfJbsr7rz_cVHN_TMAHaEs?w=235&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3") center/cover;
+    background: url("https://images.thedirect.com/media/article_full/wednesday-season-2-characters.jpg") center/cover;
 }
 .Demon-King{
     margin-top: 10px;
@@ -358,3 +364,270 @@ https://wallpaperbat.com/img/9708074-misfit-of-the-demon-king-academy-x.jpg*/
 .Video-Watch-Text h2:nth-child(2):hover{
     color: #347dfb;
 }/*Squush Anime Text Content End*/
+.squush-anime-clip-1{
+   animation: Squuash-1 60s step-end infinite;
+}
+@keyframes Squuash-1{
+    0%{
+        display: block;
+    }
+    25%{
+        display: none;
+    }
+    50%{
+        display: none;
+    }
+    75%{
+        display: none;
+    }
+    100%{
+        display: none;
+    }
+}
+.squush-anime-clip-2{
+    background: url("https://www.tvinsider.com/wp-content/uploads/2026/01/asher-angel-paris-berelc-kissing-is-the-easy-part-1014x570.jpg")center/cover;
+       animation: Squuash-2 60s step-end infinite;
+}
+@keyframes Squuash-2{
+    0%{
+        display: none
+    }
+    25%{
+        display: block;
+    }
+    50%{
+        display: none;
+    }
+    75%{
+        display: none;
+    }
+    100%{
+        display: none;
+    }
+    100%{
+        display: none;
+    }
+}
+.squush-anime-clip-3{
+    background: url("https://i.etsystatic.com/20641750/r/il/c5ec2e/6600525028/il_fullxfull.6600525028_ge2h.jpg")center/cover;
+       animation: Squuash-3 60s step-end infinite;
+}
+@keyframes Squuash-3{
+    0%{
+        display: none;
+    }
+    25%{
+        display: none;
+    }
+    50%{
+        display: block;
+    }
+    75%{
+        display: none;
+    }
+    100%{
+        display: none;
+    }
+}
+.squush-anime-clip-4{
+    background: url("https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQXkapct6sJLMF4PNtrdBQ5VUNKqerPJlyHX2lpXkFQToUJoXJCpwYBm52SYciUyxRKupknMiog9GzeP0krvfIk_bTVURA0DDiI-8PmXX_CmrvtGGZpH3fHbESXchZO5Pr4538gbWXjRLcTqq9PLpjALcM7c.jpg?r=50b")center/cover;
+       animation: Squuash-4 60s step-end infinite;
+}
+@keyframes Squuash-4{
+    0%{
+        display: none;
+    }
+    25%{
+        display: none;
+    }
+    50%{
+        display: none;
+    }
+    75%{
+        display: block;
+    }
+    100%{
+        display: none;
+    }
+}
+.Sqaush-New{
+    background-color: rgb(0, 0, 0, 0.8);
+    font-size: 12px;
+    width:30px;
+    text-align: center;
+    height: 15px;
+    font-family: 'inter', sans-serif;
+    position: absolute;
+    right: 4px;
+    border-radius: 10px;
+    top: 2px;
+}
+.Squush-Page{
+    background: linear-gradient( to right,#586adc, #3471ff, #347dfb);
+    font-size: 11px;
+    width: 30px;
+    text-align: center;
+    height: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    font-family: 'inter', sans-serif;
+}
+
+
+/* CARD */
+.skyblue_squush_container_card {
+    width: 100%;
+    max-width: 350px;
+    padding: 25px;
+    border-radius: 18px;
+    background: rgba(20, 20, 20, 1);
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    text-align: center;
+    position: relative;
+}
+
+/* TITLE */
+.skyblue_squush_title_text {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* PROFILE */
+.skyblue_squush_profile_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.skyblue_squush_profile_circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px solid #87ceeb;
+    object-fit: cover;
+    background: #111;
+}
+
+/* FILE INPUT */
+.skyblue_squush_file_input { display: none; }
+
+.skyblue_squush_file_label {
+    padding: 8px 16px;
+    background: skyblue;
+    color: black;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+/* INPUTS */
+.skyblue_squush_input_field {
+    width: 100%;
+    padding: 12px;
+    margin: 8px -10px;
+    margin-right: 40px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    background: #0f0f0f;
+    color: white;
+}
+
+/* BUTTONS */
+.skyblue_squush_button_primary,
+.skyblue_squush_button_secondary {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.skyblue_squush_button_primary {
+    background: skyblue;
+    border: none;
+    color: black;
+}
+
+.skyblue_squush_button_secondary {
+    background: transparent;
+    border: 1px solid skyblue;
+    color: skyblue;
+}
+
+/* PAGE SYSTEM (NO ACTIVE ANYMORE) */
+.skyblue_squush_page {
+    display: none;
+}
+
+.skyblue_squush_state_page_visible_mode_ultra_active {
+    display: block;
+}
+
+/* DASHBOARD */
+.skyblue_squush_user_box {
+    color: white;
+}
+
+/* LOADER */
+.skyblue_squush_loader_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(6px);
+    z-index: 999;
+}
+
+.skyblue_squush_spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid #333;
+    border-top: 5px solid skyblue;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* BACK ICON */
+.skyblue_squush_back_icon {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(135, 206, 235, 0.15);
+    color: skyblue;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.skyblue_squush_back_icon:hover {
+    background: skyblue;
+    color: black;
+    transform: scale(1.1);
+}
+.LoginUI{
+    position: absolute;
+    z-index: 1000;
+}

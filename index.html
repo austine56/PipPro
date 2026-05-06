@@ -1,535 +1,1147 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-     <link rel="stylesheet" href="style.css">
-     <link rel="stylesheet" href="anime-style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Squush - Download Anime & Music</title>
-    <script src="main.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-</head>
-<body>
-<div class="LoginUI" id="modal" style="display: none;">
-         <div class="overlay" id="overlay" onclick="closeModal()"></div>
-<!-- LOADER -->
-<div id="loader" class="skyblue_squush_loader_overlay">
-    <div class="skyblue_squush_spinner"></div>
-</div>
+/*https://austine56.github.io/www.Squushdemo.com/*/
+*{
+    margin: 0;
+    color: white;
+}
+body{
+   background-color: #101010;
+   font-family: Arial, Helvetica, sans-serif;
+}
+:root {
+  --bg: #0A0615;
+  --section: #140D2A;
+  --card: #1E133D;
+  --hover: #2A1E5C;
+  --text: #E9E5FF;
+  --accent: #8B5CF6;
+}
+.Content-Container{
+    width: 210px;
+    height: 100vh;
+    z-index: 1;
+    position: fixed;
+    background:  rgb(16, 16, 16);
+}
+.Content-Container h2{
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    font-family: monospace;
+}
+.Contents{
+    width: 90%;
+    height: 320px;
+    backdrop-filter: blur(10px);
+    margin-left: 5%;
+    background-color: rgb(0, 0, 0, 0);
+}
+.Content{
+    width: 100%;
+    height: 30px;
+    font-size: 13px;
+    border-radius: 7px;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+}
+.Content a{
+    width: 165px;
+    padding-left: 35px;
+    height: 30px;
+    font-weight: 500;
+    position: absolute;
+    top: 7px;
+}
+.Content i{
+    position: absolute;
+    top: 6.5px;
+    font-size: 16px;
+    left: 5px;
+    color: #fffff0;
+}
+.Content:hover{
+    border: 1px solid rgb(255, 255, 255, 0.3);
+    box-shadow: 2px 1px rgb(146, 146, 146, 0.2);
+    backdrop-filter: blur(10px);
+    background: linear-gradient( to right,rgba(53, 53, 53, 0.4)) ;
+    transition: top left ease 2s;
+}
+.Recents{
+    margin-top: 10px;
+}
+.Recent-Tab{
+    font-size: 13px;
+    left: 10px;
+    font-family: 'Inter', sans-serif;
+}
+.fa-x{
+    position: absolute;
+    top: 285px;
+    font-size: 10px;
+    right: 5px;
+    color: #495267;
+}
+.Cards{
+    width: 100%;
+    height: 200px;
+    top: 10px;
+    position: relative;
+}
+.Card-1{
+    width: 50px;
+    height: 40px;
+    border-radius: 6px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    object-fit: contain;
+    background-size: 100% 40px;
+    background: url(" https://tse3.mm.bing.net/th/id/OIP.ZLQBzGffp1SLw9wd0Q9E7AHaE8?rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+}
+.Cards h5{
+    top: 2px;
+    left: 55px;
+    position: absolute;
+    font-family: 'Inter', sans-serif;
+}
+.Cards a{
+    top: 20px;
+    left: 57px;
+    position: absolute;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+}
+.Card-2{
+    width: 50px;
+    height: 40px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    background-size: 50px 40px;
+    background: url("https://th.bing.com/th/id/OIP._h3Ge8hlsqrzm-jPp0KsJAHaEK?w=321&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3")center/cover;
+}
+.Cards h6{
+    top: 64px;
+    left: 55px;
+    font-size: 13px;
+    position: absolute;
+    font-family: 'Inter', sans-serif;
+}
+.Cards p{
+    top: 80px;
+    left: 57px;
+    position: absolute;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+}
+.Card-3{
+    width: 50px;
+    height: 40px;
+    border-radius: 6px;
+    background-size: 50px 40px ;
+    background: url("https://th.bing.com/th/id/OIP.nso6azGZXBnikhQ4sWlS7wHaF5?w=236&h=188&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3")center/cover;
+}
+.Cards h4{
+    top: 124px;
+    left: 55px;
+    font-size: 13px;
+    position: absolute;
+    font-family: 'Inter', sans-serif;
+}
+.Cards h3{
+    top: 139px;
+    left: 56px;
+    font-weight: 100;
+    font-size: 12px;
+    position: absolute;
+    font-family: 'Inter', sans-serif;
+}
+.Music-Player{
+    top: 560px;
+    width: 100%;
+    height: 160px;
+    border-radius: 15px;
+    position: absolute;
+    backdrop-filter: blur(10px);
+    background-color: rgba(10, 10, 10, 0.1);
+}
+.Card{
+    width: 50px;
+    height: 40px;
+    margin-top: 20px;
+    margin-left: 10px;
+    border-radius: 6px;
+    background: url("https://th.bing.com/th/id/OIP.kqcjjFfY5XQa7kcpYY9hPgHaEK?w=284&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3ver")center/cover;
 
-<div id="mainCard" class="skyblue_squush_container_card">
+}
+.Card h5{
+    top: 22px;
+    left: 65px;
+    position: absolute;
+    font-family: 'Inter', sans-serif;
+}
+.Card a{
+    top: 40px;
+    left: 67px;
+    position: absolute;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+}
+.fa-shuffle{
+    top: 30px;
+    right: 4px;
+    position: absolute;
+    font-size: 14px;
+}
+.progress-content{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    margin: 25px 0;
+}
+.progress{
+    flex: 1;
+    height: 4px;
+    background: #333;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.time-1{
+    margin-left: 4px;
+    font-size: 10px;
+    color: #aaa;
+}
+.time-2{
+    margin-right: 4px;
+    font-size: 10px;
+    color: #aaa;
+}
+.controls{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+.Navlinks{
+    margin-left: 230px;
+    display: flex;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    display: none;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: 500;
+}
+.Nav a{
+    margin-left: 10px;
+    padding: 8px;
+    font-weight: 500;
+}
+.Nav a:nth-child(2){
+    color: #487fff;
+    border-bottom: 2px solid rgb(52, 125, 251);
+}
+.Nav a:focus{
+    color: rgb(94, 94, 254);
+    border-bottom: 2px solid  #347dfb;
+}
+.Top{
+    width: 100%;
+    height: 50%;
+    display: flex;
+}
+.search-box{
+    width: 45%;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: none;
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background: #1f1f1f;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    padding-left: 35px;
+    margin-left: 230px;
+    background: linear-gradient( to left, #2b2b2b, #202224);
+}
+.search-box:focus {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.suggestions {
+    position: absolute;
+    flex-grow: 1;
+    display: flex;
+    font-size: 13px;
+    max-height: 160px;
+    font-family: 'Inter', sans-serif;
+    background: #1f1f1f;
+    top: 60px;
+    margin-left: 235px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: none;
+}
+.suggestions div {
+    padding: 12px 20px;
+    cursor: pointer;
+    color: #ddd;
+}
+.suggestions div:hover {
+    background: #333;
+}
+.fa-magnifying-glass{
+    top: 23px;
+    position: absolute;
+    margin-left: 240px;
+    color: #d1d1d1;
+}
+.fa-bell{
+    margin-top: 22px; 
+    margin-left: 20px;
+    color: #ffffff;
+    margin-right: 20px;
+}
 
-<!-- BACK -->
-<div class="skyblue_squush_back_icon" onclick="goBack(),closeModal()">←</div>
+.dark {
+    background: #141414;
+    color: #000000;
+}
+.move{
+    left: 0%;
+    opacity: 0;
+    position: absolute;
+}
+.icon {
+    cursor: pointer;
+    margin-top: 23px; 
+    margin-left: 15px;
+    color: #d1d1d1;
+}
 
-<!-- LOGIN -->
-<div id="loginPage" class="skyblue_squush_page skyblue_squush_state_page_visible_mode_ultra_active">
+.Top{
+    position: relative;
+}
+.Top button{
+    border: none;
+    height: 35px;
+    width: 85px;
+    margin-right: 10px;
+    margin-top: 15px;
+    padding-right: 25px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient( to right,#586adc, #3471ff, #347dfb);
+    transition: top left ease 2s;
+}
+.fa-arrow-right{
+    top: 26px;
+    font-size: 14px;
+    position: absolute;
+    right: 18px;
+}
+.Steps-Content{
+    height: 240px;
+    display: flex;
+    margin-left: 220px;
+    margin-top: 15px;
+    border-radius: 10px;
+    margin-right: 10px;
+    position: relative;
+    background: url("https://wallpapers.com/images/hd/jujutsu-kaisen-4k-anime-characters-hccbh0fp7rl24yd0.jpg")center/cover;
+}
+.Steps{
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.6);
+    position: absolute;
+    border-radius: 10px;
+}
+.Steps-Set{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+.Steps a{
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 20px;
+    font-family: 'Inter', sans-serif;
+}
+.Steps h2{
+    color: #ffffff;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: 'Inter', sans-serif;
+}
+.Steps button{
+    border: none;
+    height: 35px;
+    width: 100px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    font-family: 'Inter', sans-serif;
+    background: rgb(16, 28, 48, 0.2);
+ }
+.Steps button:focus{
+    background: linear-gradient( to right,#586adc, #3471ff, #347dfb);
 
-    <div class="skyblue_squush_title_text">Login</div>
+}.Steps button:hover{
+    background: linear-gradient( to right,#586adc, #3471ff, #347dfb);
 
-    <div class="skyblue_squush_profile_wrapper">
-        <img id="loginPreview" class="skyblue_squush_profile_circle">
-        <label class="skyblue_squush_file_label">
-            Upload Photo
-            <input type="file" id="loginFile" class="skyblue_squush_file_input">
-        </label>
-    </div>
+}
+.Steps-Content.squush-anime-clip-1{
+   animation: Squuash-1 60s step-end infinite;
+}
+@keyframes Squuash-1{
+    0%{
+        display: block;
+    }
+    25%{
+        display: none;
+    }
+    50%{
+        display: none;
+    }
+    75%{
+        display: none;
+    }
+    100%{
+        display: none;
+    }
+}
+.Steps-Content.squush-anime-clip-2{
+    background: url("https://www.tvinsider.com/wp-content/uploads/2026/01/asher-angel-paris-berelc-kissing-is-the-easy-part-1014x570.jpg")center/cover;
+       animation: Squuash-2 60s step-end infinite;
+}
+@keyframes Squuash-2{
+    0%{
+        display: none
+    }
+    25%{
+        display: block;
+    }
+    50%{
+        display: none;
+    }
+    75%{
+        display: none;
+    }
+    100%{
+        display: none;
+    }
+    100%{
+        display: none;
+    }
+}
+.Steps-Content.squush-anime-clip-3{
+    background: url("https://i.etsystatic.com/20641750/r/il/c5ec2e/6600525028/il_fullxfull.6600525028_ge2h.jpg")center/cover;
+       animation: Squuash-3 60s step-end infinite;
+}
+@keyframes Squuash-3{
+    0%{
+        display: none;
+    }
+    25%{
+        display: none;
+    }
+    50%{
+        display: block;
+    }
+    75%{
+        display: none;
+    }
+    100%{
+        display: none;
+    }
+}
+.Steps-Content.squush-anime-clip-4{
+    background: url("https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQXkapct6sJLMF4PNtrdBQ5VUNKqerPJlyHX2lpXkFQToUJoXJCpwYBm52SYciUyxRKupknMiog9GzeP0krvfIk_bTVURA0DDiI-8PmXX_CmrvtGGZpH3fHbESXchZO5Pr4538gbWXjRLcTqq9PLpjALcM7c.jpg?r=50b")center/cover;
+       animation: Squuash-4 60s step-end infinite;
+}
+@keyframes Squuash-4{
+    0%{
+        display: none;
+    }
+    25%{
+        display: none;
+    }
+    50%{
+        display: none;
+    }
+    75%{
+        display: block;
+    }
+    100%{
+        display: none;
+    }
+}
+.Text-Content{
+    display: flex;    
+    margin-left: 220px;
+    margin-top: 15px;
+}
+.Text-Content h2:nth-child(1){
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+.Text-Content h2:nth-child(2){
+    font-size: 13px;
+    position: absolute;
+    right: 15px;
+    color: rgb(201, 201, 201);
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+.Text-Content h2:nth-child(2):hover{
+    color: #ffffff;
+}
+.Scroll-Content{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-left: 220px;
+    margin-right: 10px;
+    white-space: nowrap; 
+    -webkit-overflow-scrolling: touch;
+    margin-top: 15px;
+}
+.Scroll-Content::-webkit-scrollbar{
+    display: none;
+}
+.Section{
+    width: 140px;    
+    height: 180px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    position: relative;
+    background-color: white;
+}
+.Section:hover{
+    transition: all 0.5s ease; 
+    transform: translateY(-6px) scale(1.03);
+}
+.Section:nth-child(1){
+    background: url("https://images4.alphacoders.com/138/1389939.jpg")center/cover;
+}
+.Section:nth-child(2){
+    background: url("https://i.etsystatic.com/20641750/r/il/c5ec2e/6600525028/il_fullxfull.6600525028_ge2h.jpg")center/cover;
+}
+.Section:nth-child(3){
+    background: url("https://image.tmdb.org/t/p/w780/89qSKhLrJOUhp6xgbqgSTpzblbA.jpg")center/cover;
+}
+.Section:nth-child(4){
+    background: url("https://www.themoviebuff.net/wp-content/uploads/2022/09/do-revenge1-videoSixteenByNine3000.jpg")center/cover;
+}
+.Section:nth-child(5){
+    background: url("https://static1.colliderimages.com/wordpress/wp-content/uploads/2021/07/Never-Have-I-Ever-2.jpg")center/cover;
+}
+.Section:nth-child(6){
+    background: url("https://static1.dualshockersimages.com/wordpress/wp-content/uploads/2023/02/eren-yeager-attack-on-titan-age-height-and-birthday-of-all-characters.jpg")center/cover;
+}
+.Section:nth-child(7){
+    background: url("https://static1.cbrimages.com/wordpress/wp-content/uploads/2024/11/goku-and-super-dragon-balls.jpg")center/cover;
+}
+.Section:nth-child(8){
+    background: url("https://static0.gamerantimages.com/wordpress/wp-content/uploads/2025/01/demon-slayer-tanjiro.jpg")center/cover;
+}
+.Section:nth-child(9){
+    background: url("https://th.bing.com/th/id/OIP.WC5bRrJwalCUW0L7wYN50wHaEK?w=295&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3")center/cover;
+}
+.Section:nth-child(10){
+    background: url("https://th.bing.com/th/id/R.e9b8cff304b611740c68637db386d9d7?rik=Lz7kY7JUIGHsuA&pid=ImgRaw&r=0")center/cover;
+}
+.Section div{
+    width: 140px;
+    position: absolute;
+    height: 75px;
+    bottom: 0%;
+    padding-top: 8px;
+    background-color: rgb(0, 0, 0, 0.2);
+    backdrop-filter: blur(3px);
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+}
+.Section div a:nth-child(1){
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-align: center;
+    margin-top: 10px;
+}
+.Section div p:nth-child(1){
+    font-size: 10px;
+    margin-top: 10px;
+    color: #c8c8c8;
 
-    <input id="loginUsername" class="skyblue_squush_input_field" placeholder="Username">
-    <input id="loginPassword" class="skyblue_squush_input_field" type="password" placeholder="Password">
-    <input id="loginEmail" class="skyblue_squush_input_field" placeholder="Email">
-    <input id="loginPhone" class="skyblue_squush_input_field" placeholder="Phone">
+}
+.Section div button{
+    position: absolute;
+    font-size: 11px;
+    bottom: 2px;
+    left: 20px;
+    padding-left: 25px;
+    border: none;
+    height: 30px;
+    width: 100px;
+    margin-top: 8px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    font-family: 'Inter', sans-serif;
+    background: rgb(52, 125, 251, 0.01);
+}
+.Section div i{
+    position: absolute;
+    font-size: 13px;
+    bottom: 12px;
+    color: white;
+    left: 35px;
+}
+.Section div button:hover{
+    backdrop-filter: blur(2px);
+    background-color: rgba(120, 168, 252, 0.122);
+}
 
-    <button class="skyblue_squush_button_primary" onclick="loginWithLoader(),loginUser()">Sign In</button>
-    <button class="skyblue_squush_button_secondary" onclick="switchPage('register')">Create Account</button>
-</div>
+.Section.Popular-anime-1{
+    background: url("https://tse3.mm.bing.net/th/id/OIP.XhUu92nDU7j_mFuDyXmasAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+}
+.Section.Popular-anime-2{
+    background: url("https://static1.srcdn.com/wordpress/wp-content/uploads/2024/11/senku-from-dr-stone-with-xeno-and-stanley-in-the-background.jpg")center/cover;
+}
+.Section.Popular-anime-3{
+    background: url("https://cdn.wallpapersafari.com/47/90/rHXDNv.jpg")center/cover;
+}
+.Section.Popular-anime-4{
+    background: url("https://images.wallpapersden.com/image/download/gabimaru-and-sagiri-hd-hell-s-paradise_bmVlZmqUmZqaraWkpJRnZW1srWZlbWU.jpg")center/cover;
+}
+.Section.Popular-anime-5{
+    background: url("https://th.bing.com/th/id/OIP.q63RfL9GRWUJ-lFMDaBC9wHaEK?w=307&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3")center/cover;
+}
+.Section.Popular-anime-6{
+    background: url("https://images4.alphacoders.com/138/1389939.jpg")center/cover;
+}
+.Songs-Container{
+    gap: 5px;
+    display: flex;
+    margin-top: 10px;
+    margin-left: 220px;
+    margin-right: 10px;
+    height: 120px;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+.Song-Tabs{
+    flex-grow: 1;
+    height: 120px;
+    min-width: 120px;
+    position: relative;
+    border-radius: 10px;
+    background-color: white;
+}
+.Song-Tabs:hover{
+    transition: transform 0.5s ease; 
+    transform: translateY(-6px) scale(1.03);
+}
+.Song-Tabs:nth-child(1){
+    background: url("https://th.bing.com/th/id/OIP.nso6azGZXBnikhQ4sWlS7wHaF5?w=236&h=188&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3") center/cover;
+}
+.Song-Tabs:nth-child(2){
+    background: url("https://i.musicaimg.com/discos/max/70341.jpg")center/cover;
+}
+.Song-Tabs:nth-child(3){
+    background: url("https://tse3.mm.bing.net/th/id/OIP.0t0mOMMwut9d-QMRLHftKgAAAA?rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+}
+.Song-Tabs:nth-child(4){
+    background: url("https://th.bing.com/th/id/R.52a779dd459882d74c48815a5d333dd2?rik=OMqraf2O07N%2b6Q&pid=ImgRaw&r=0")center/cover;
+}
+.Song-Tabs:nth-child(5){
+    background: url("https://www.musicmundial.com/en/wp-content/uploads/2024/10/BLACKPINKs-Roses-APT-breaks-an-important-Kpop-record-in-the-United-Kingdom--1100x733.jpg")center/cover;
+}
+.Song-Tabs:nth-child(6){
+    background: url("https://www.gossipherald.com/assets/uploads/updates/2026-01-23/45492_103539_harry-styles-releases-aperture-his-first-single-in-three-years_updates.jpg")center/cover;
+}
+.Songs-Container::-webkit-scrollbar{
+    display: none;
+}
+.Song-Tabs div{
+    width: 100%;
+    height: 48px;
+    bottom: 0%;
+    position: absolute;
+    background-color: rgb(0, 0, 0, 0.2);
+    backdrop-filter: blur(3px);
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;   
+}
+.Song-Tabs div a:nth-child(1){
+    font-size: 12px;
+    font-weight: 600;
+    position: absolute;
+    bottom: 25px;
+    left: 5px;
+}
+.Song-Tabs div p:nth-child(1){
+    font-size: 11px;
+    font-weight: 500;
+    position: absolute;
+    bottom: 4px;
+    text-align: center;
+    left: 5px;
+    color: #d1d1d1;
+}
+.Song-Tabs div a:nth-child(3){
+    font-size: 12px;
+    position: absolute;
+    font-weight: 500;
+    bottom: 4px;
+    color: #d1d1d1;
+    right: 5px;
+    margin-top: 10px;
+}
 
-<!-- REGISTER -->
-<div id="registerPage" class="skyblue_squush_page">
+.Section.Popular-movies-1{
+    background: url("https://cineparenting.com/wp-content/uploads/2026/02/Kissing-Is-the-Easy-Part-Parents-Guide-Age-Rating.webp")center/cover;
+}
+.Section.Popular-movies-2{
+    background: url("https://wallpapercave.com/wp/wp12083779.jpg")center/cover;
+}
+.Section.Popular-movies-3{
+    background: url("https://static1.colliderimages.com/wordpress/wp-content/uploads/2023/07/emily-in-paris-lily-collins.jpg")center/cover;
+}
+.Section.Popular-movies-4{
+    background: url("https://tse1.mm.bing.net/th/id/OIP.Tp9VQFv5_GUrSQUkIqQH8gHaE8?rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+}
+.Section.Popular-movies-5{
+    background: url("https://th.bing.com/th/id/OIP.2mUxjd-dyKdS_VZQB7Fw3wHaEk?w=258&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3")center/cover;
+}
+.Section.Popular-movies-6{
+    background: url("https://th.bing.com/th/id/OIP.UldNU9bqpRS7-pvp_UkC1QHaEK?w=271&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3")center/cover;
+}
+.Watch-Container{
+    gap: 5px;
+    display: flex;
+    margin-top: 10px;
+    margin-left: 220px;
+    margin-right: 10px;
+    height: 190px;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+.Watch-Container::-webkit-scrollbar{
+    display: none;
+}
+.Watch-Tab:hover{
+    transition: transform 0.5s ease; 
+    transform: translateY(-6px) scale(1.03);
+}
+.Watch-Tab{
+    flex-grow: 1;
+    height: 190px;
+    min-width: 115px;
+    position: relative;
+    border-radius: 10px;
+}
+.Watch-Content{
+    width: 100%;
+    height: 115px;
+    margin: 0;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.Watch-Content a{
+    right: 1px;
+    padding: 4px;
+    color: #d1d1d1;
+    bottom: 5.5px;
+    position: absolute;
+    border-radius: 3px;
+    font-family: 'inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    backdrop-filter: blur(3px);
+    background-color: rgb(0, 0, 0, 0.3);
+}
+.Stack-1{
+    background: url("https://tse1.mm.bing.net/th/id/OIP.-NKtjgLmyCek3pF7vzaRCQHaDt?rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+}
+.Stack-2{
+    background: url("https://th.bing.com/th/id/R.ffb479f6833a641088a1f97c69e53442?rik=FQIS2hwZQ%2b6qDg&pid=ImgRaw&r=0")center/cover;
+}
+.Stack-3{
+    background: url("https://www.gamersglobal.de/sites/gamersglobal.de/files/news/teaser/4770/cpedgerunners.jpg")center/cover;
+}
+.Stack-4{
+    background: url("https://wallpapers.com/images/hd/turning-red-meilin-and-red-panda-sktmtmgvp6igtgu0.jpg")center/cover;
+}
+.Stack-5{
+    background: url("https://images.wallpapersden.com/image/download/demon-slayer_a2xoZWuUmZqaraWkpJRnamtlrWZsZWU.jpg")center/cover;
+}
+.Stack-6{
+    background: url("https://wallpapercave.com/wp/wp15597656.jpg")center/cover;
+}
+.Watch-Content div{
+    width: 5%;
+    height: 5px;
+    position: absolute;
+    bottom: 0%;
+    border-radius: 5px;
+    animation: Range 127s ease-in;
+    transition: all 0.5s;
+    background-color: rgb(198, 88, 88);
+}
+@keyframes Range {
+    0%{
+        width: 5%;
+    }
+    100%{
+        width: 100%;
+    }
+}
+.Watch-Text{
+    color: #ffffff;
+    margin-top: 2px;
+    width: 100%;
+    height: 70px;
+    backdrop-filter: blur(10px);
+    background-color: rgb(73, 82, 103, 0.1);
+    font-family: 'Inter', sans-serif;
+    border-radius: 0px 0px 10px 10px;
+}
+.Watch-Text a:nth-child(1){
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 2px;
+    margin-top: 12px;
+}
+.Watch-Text p:nth-child(1){
+    font-size: 9px;
+    font-weight: 500;
+    margin-top: 2px;
+    margin-left: 2px;
+    color: #d1d1d1;
 
-    <div class="skyblue_squush_title_text">Create Account</div>
-
-    <div class="skyblue_squush_profile_wrapper">
-        <img src="" id="registerPreview" class="skyblue_squush_profile_circle">
-        <label class="skyblue_squush_file_label">
-            Upload Photo
-            <input type="file" id="registerFile" class="skyblue_squush_file_input">
-        </label>
-    </div>
-
-    <input id="regUsername" class="skyblue_squush_input_field" placeholder="Username">
-    <input id="regEmail" class="skyblue_squush_input_field" placeholder="Email">
-    <input id="regPassword" class="skyblue_squush_input_field" type="password" placeholder="Password">
-    <input id="regConfirm" class="skyblue_squush_input_field" type="password" placeholder="Confirm Password">
-
-    <button class="skyblue_squush_button_primary" onclick="registerUser()">Create Account</button>
-    <button class="skyblue_squush_button_secondary" onclick="switchPage('login')">Back to Login</button>
-</div>
-
-<!-- DASHBOARD -->
-<div id="dashboardPage" class="skyblue_squush_page">
-
-    <div class="skyblue_squush_title_text">Welcome 👋</div>
-
-    <img id="dashImage" class="skyblue_squush_profile_circle">
-
-    <div class="skyblue_squush_user_box">
-        <h3 id="dashName"></h3>
-        <p id="dashEmail"></p>
-        <p id="dashPhone"></p>
-    </div>
-
-    <button class="skyblue_squush_button_primary" onclick="logoutUser()">Log Out</button>
-</div>
-</div>
-</div>
-    <!--Sidebar Background-->
-    <div class="overlay" id="overlay" onclick="closeModal()"></div>
-    <!-- The container where content will change -->
-<main id="main-content">
-    <!-- Home page content starts here by default -->
-</main>
- <div class="Content-Container">
-         <h2><image class="Squush-Logo" sc="https://img.freepik.com/premium-vector/dark-background-sliced-effect-web-icon-with-modern-visual_462839-4693.jpg"></image>📽️Squush</h2>
-    <div class="Contents">
-        <div class="Content">
-    <i class="fa-solid fa-house"></i>
-        <a onclick="openBody()">Home</a> 
-        </div>
-        <div class="Content" onclick="closeBody()">
-    <i onclick="showAnimePage()"class="fa-solid fa-video"></i>
-        <a  onclick="showAnimePage()" style="cursor: pointer;">Anime</a> 
-        </div>
-          <div class="Content" onclick="closeBody()">
-     <i class="fa-solid fa-clapperboard"></i>
-        <a onclick="showMoviesPage()" style="cursor: pointer;">Movies</a> 
-        </div>
-              <div class="Content">
-     <i class="fa-brands fa-spotify"></i>
-        <a>Songs</a> 
-        </div>
-             <div class="Content">
-     <i class="fa-solid fa-compact-disc"></i>          
-        <a>Albums</a> 
-        </div>
-             <div class="Content">
-     <i class="fa-solid fa-chart-line"></i>          
-        <a>Top Charts</a> 
-        </div>
-             <div class="Content">
-     <i class="fa-solid fa-shuffle"></i>          
-        <a>Playlists</a> 
-        </div>
-             <div class="Content">
-     <i class="fa-solid fa-heart"></i>          
-        <a>Favorites</a> 
-        </div>
-             <div class="Content">
-     <i class="fa-solid fa-download"></i>          
-        <a>Downloads</a> 
-          </div>
-     <!--Recent Content-->
-          <div class="Recents">
-        <a class="Recent-Tab">Recently Played</a>
-        <i class="fa-solid fa-x"></i>
-          </div>
-               <div class="Cards">
-                    <div class="Card-1"></div>
-                         <h5>Jujutsu Kaisen</h5>
-                         <a>Episode 12</a>
-                         <div class="Card-2"></div>
-                         <h6>Attack On Titans</h6>
-                         <p>Episode 82</p>
-                         <div class="Card-3"></div>
-                         <h4>Blinding Light</h4>
-                         <h3>The Weekend</h3>
-                    </div>
-                </div>
-          <!--Music Player-->
-     <div class="Music-Player">
-          <div class="Sets">
-               <div class="Card">
-                         <h5>Blinding Light</h5>
-                         <a>The Weekend</a></div>
-                         <i class="fa-solid fa-shuffle"></i>
-               </div>
-               <div class="progress-content">
-               <span class="time-1">1:45</span>
-               <input type="range" class="progress" value="50"/>
-               <span class="time-2">3:20</span>
-          </div>
-          <div class="controls">
-               <i class="fa-solid fa-backward"></i>
-               <div>
-               <i class="fa-solid fa-play"></i>
-               </div>
-               <i class="fa-solid fa-forward"></i>
-          </div>
-          </div>   
-  </div>
-  <!--Main Content-->
-  <div class="Body" id="bodyTab">
-  <div class="Background">
-     <div class="Top">
-     <i class="fa-solid fa-magnifying-glass"></i>
-     <input type="text"
-        id="searchInput" onkeyup="showSuggestions()" class="search-box" placeholder="Search...">
-        <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon move"></i></span>
-                <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></span>
-     <i class="fa-solid fa-bell"></i>
-     <button  onclick="openModal()" class="Login">Login</button>
-     <i class="fa-solid fa-arrow-right"></i>
-     </div>
-        <div class="Navlinks">
-            <div class="Nav">
-                   <b onclick="openBody()"></b><a>Home</a></b>
-                   <b onclick="closeBody()"><a onclick="showAnimePage()">Trends</a></b>
-                   <b onclick="closeBody()"><a onclick="showMoviesPage()">Anime</a></b>
-                   <b onclick="closeBody()"><a onclick="showAboutPage()">Movies</a></b>
-            </div>
-        </div>
-     <div class="Steps-Content squush-anime-clip-1" style="animation: Squuash-4 60s step-end infinite;">
-          <div class="Steps">
-               <div class="Steps-Set"> 
-                <a class="Squush-Page">anime</a>
-               <h2>Jujustu Kaisen</h2>
-               <a>The Strongest Sorcerer. Experience All Episodes In High Quality.</a>
-               <p><button>▶ Watch Now</button>
-               <button>Download All</button>
-               </div>
-          </div>
-     </div>
-
-          <div class="Steps-Content squush-anime-clip-2" style="animation: Squuash-2 60s step-end infinite;">
-          <div class="Steps">
-               <div class="Steps-Set"> 
-                <a class="Squush-Page">movie</a>
-               <h2>Kissing is the easy part</h2>
-               <a>Flora and Sean, Exploring Themes Of Vulnerability. Experience All Episodes In High Quality.</a>
-               <p><button>▶ Watch Now</button>
-               <button>Download All</button>
-               </div>
-          </div>
-     </div>
-
-          <div class="Steps-Content squush-anime-clip-3" style="animation: Squuash-3 60s step-end infinite;">
-          <div class="Steps">
-               <div class="Steps-Set"> 
-                <a class="Squush-Page">series</a>
-               <h2>Xo Kitty</h2>
-               <a>Kitty Desires To Reconnect With Her Mother . Experience All Episodes In High Quality.</a>
-               <p><button>▶ Watch Now</button>
-               <button>Download All</button>
-               </div>
-          </div>
-     </div>
-
-               <div class="Steps-Content squush-anime-clip-4" style="animation: Squuash-1 60s step-end infinite;">
-          <div class="Steps">
-               <div class="Steps-Set"> 
-                <a class="Squush-Page">series</a>
-               <h2>Never Have I Ever</h2>
-               <a>Devi Having To Choose Between Two Of Her Boyfriends. Experience All Episodes In High Quality.</a>
-               <p><button>▶ Watch Now</button>
-               <button>Download All</button>
-               </div>
-          </div>
-     </div>
-
-  </div>
-       <div id="suggestions" class="suggestions"></div>
-    <!-- Theme Icon -->
-         <span id="icon" class="icon" onclick="toggleTheme()"></span>
-  <!--Text Content-->
-     <div class="Text-Content">
-          <h2>Trending Now</h2>
-          <h2>View all</h2>
-  </div>
-  <!--Scroll Content-->
-       <div class="Scroll-Content">
-          <div class="Section" onclick="closeBody(),showAnimePage(),openKaisen()">
-               <div>
-                    <a>Jujustu Kaisen</a>
-                    <a><p>Episode 15</p></a>
-                    <button>Download</button>
-                    <i class="fa-solid fa-download"></i>
-               </div>
-          </div>
-          <div class="Section" onclick="closeBody(),showAnimePage(),openAcademia()">
-               <div>
-                    <a>Xo Kitty</a>
-                    <a><p>Episode 19</p></a>
-                    <button >Download</button>
-                    <i class="fa-solid fa-download"></i>               
-               </div>
-          </div>
-          <div class="Section" onclick="closeBody(),showAnimePage(),openCube()">
-               <div>
-                    <a>Super Cube</a>
-                    <a><p>Episode 22</p></a>
-                    <button>Download</button>
-                    <i class="fa-solid fa-download"></i>               
-               </div>
-          </div>
-          <div class="Section" onclick="closeBody(),showAnimePage(),openStoner()">
-               <div>
-                    <a>Do Revenge</a>
-                    <a><p>Episode 13</p></a>
-                    <button>Download</button>
-                    <i class="fa-solid fa-download"></i>             
-               </div>
-          </div>
-          <div class="Section" onclick="closeBody(),showAnimePage(),openSolo()">
-               <div>
-                    <a>Never Have I Ever</a>
-                    <a><p>Episode 11</p></a>
-                    <button>Download</button>
-                    <i class="fa-solid fa-download"></i>              
-               </div>
-          </div>       
-          <div class="Section" onclick="closeBody(),showAnimePage(),openTitans()">
-               <div>
-                    <a>Attack On Titans</a>
-                    <a><p>Episode 82</p></a>
-                    <button>Download</button>
-                    <i class="fa-solid fa-download"></i>               
-               </div>
-          </div>
-          <div class="Section" onclick="closeBody(),showAnimePage(),openDragon()">
-               <div>
-                    <a>Dragon Ball Super</a>
-                    <a><p>Episode 73</p></a>
-                    <button>Download</button>
-                    <i class="fa-solid fa-download"></i>               
-               </div>
-          </div>
-          <div class="Section" onclick="closeBody(),showAnimePage(),openDemon()">
-               <div>
-                    <a>Demons Slayer</a>
-                    <a><p>Episode 24</p></a>
-                    <button>Download</button>
-                    <i class="fa-solid fa-download"></i>        
-               </div>
-          </div>
-          <div class="Section" onclick="closeBody(),showAnimePage(),openShadow()">
-               <div>
-                    <a>Wednesday</a>
-                    <a><p>Episode 12</p></a>
-                    <button>Download</button>
-                    <i class="fa-solid fa-download"></i>               
-               </div>
-          </div>
-          <div class="Section" onclick="closeBody(),showAnimePage(),openKing()">
-               <div>
-                    <a>Demon King Academia</a>
-                    <a><p>Episode 11</p></a>
-                    <button>Download</button>
-                    <i class="fa-solid fa-download"></i>               
-               </div>
-          </div>
-  </div>
-
-  <!--Popular Anime-->
-       <div class="Text-Content">
-          <h2>Popular Anime</h2>
-          <h2>View all</h2>
-  </div>
-  <div class="Scroll-Content">
-    <div class="Section Popular-anime-1"><a class="Sqaush-New">New</a><div style="height: 20px; background-color: rgb(0, 0, 0, 0.5);"><a>One Piece</a></div></div>
-    <div class="Section Popular-anime-2"><a class="Sqaush-New">New</a><div style="height: 20px; background-color: rgb(0, 0, 0, 0.5);"><a>Dr Stone</a></div></div>
-    <div class="Section Popular-anime-3"><a class="Sqaush-New">New</a><div style="height: 20px; background-color: rgb(0, 0, 0, 0.5);"><a>Bluelock</a></div></div>
-    <div class="Section Popular-anime-4"><a class="Sqaush-New">New</a><div style="height: 20px; background-color: rgb(0, 0, 0, 0.5);"><a>Hell Paradise</a></div></div>
-    <div class="Section Popular-anime-5"><a class="Sqaush-New">New</a><div style="height: 20px; background-color: rgb(0, 0, 0, 0.5);"><a>One Punch Man</a></div></div>
-    <div class="Section Popular-anime-6"><a class="Sqaush-New">New</a><div style="height: 20px; background-color: rgb(0, 0, 0, 0.5);"><a>Jujustu Kaisen</a></div></div>
-  </div>
-  <!--Latest Songs-->
-  <div class="Text-Content">
-     <h2>Latest Songs</h2>
-     <h2>View all</h2>
-  </div>
-  <div class="Songs-Container">
-     <div class="Song-Tabs">
-          <div>
-               <a>Blinding Light</a>
-               <a><p>The Weekend</p></a>
-               <a>3:20</a>
-          </div>
-     </div>
-     <div class="Song-Tabs">
-          <div>
-               <a>Sunflower</a>
-               <a><p>Post Malone</p></a>
-               <a>2:38</a>
-          </div>
-     </div>
-     <div class="Song-Tabs">
-          <div>
-               <a>Save Your Tears</a>
-               <a><p>The Weekend</p></a>
-               <a>3:01</a>
-          </div>
-     </div>
-     <div class="Song-Tabs">
-          <div>
-               <a>Ocean Eyes</a>
-               <a><p>Billie Eilish</p></a>
-               <a>3:21</a>
-          </div>
-     </div>
-     <div class="Song-Tabs">
-          <div>
-               <a>APT</a>
-               <a><p>Rose</p></a>
-               <a>2:25</a>
-          </div>
-     </div>
-     <div class="Song-Tabs">
-          <div>
-               <a>Apature</a>
-               <a><p>Harry Styles</p></a>
-               <a>3:16</a>
-          </div>
-     </div>
-  </div>
-  <!--Popular Movies-->
-       <div class="Text-Content">
-          <h2>Popular Movies</h2>
-          <h2>View all</h2>
-  </div>
-  <div class="Scroll-Content">
-        <div class="Section Popular-movies-1"><a class="Sqaush-New">New</a><div style="height: 40px; background-color: rgb(0, 0, 0, 0.5);"><a>Kissing is the Easy...</a><a><p>Season 01</p></a></div></div>
-        <div class="Section Popular-movies-2"><div style="height: 40px; background-color: rgb(0, 0, 0, 0.5);"><a>Never Have I Ever</a><a><p>Episode 09</p></a></div></div>
-        <div class="Section Popular-movies-3"><a class="Sqaush-New">New</a><div style="height: 40px; background-color: rgb(0, 0, 0, 0.5);"><a>Emily In Paris</a><a><p>Episode 12</p></a></div></div>
-        <div class="Section Popular-movies-4"><div style="height: 40px; background-color: rgb(0, 0, 0, 0.5);"><a>The Summer I...</a><a><p>Season 03</p></a></div></div>
-        <div class="Section Popular-movies-5"><a class="Sqaush-New">New</a><div style="height: 40px; background-color: rgb(0, 0, 0, 0.5);"><a>Black-ish</a><a><p>Episode 12</p></a></div></div>
-        <div class="Section Popular-movies-6"><div style="height: 40px; background-color: rgb(0, 0, 0, 0.5);"><a>Do Revenge</a><a><p>Season 01</p></a></div></div>
-  </div>
-  <!--Continue Watching Text-->
-       <div class="Text-Content">
-          <h2>Continue Watching</h2>
-          <h2>View all</h2>
-  </div>
-  <div class="Watch-Container">
-     <div class="Watch-Tab">
-          <div class="Watch-Content Stack-1"><a>2:07</a><div></div></div>
-          <div class="Watch-Text">
-               <a>Spy X Family</a>
-               <a><p>EL S Scene</p></a>
-               <div><a>0%</a><a>100%</a></div>
-               <button>Download</button>
-               <i class="fa-solid fa-download"></i>
-          </div>
-     </div>
-     <div class="Watch-Tab">
-          <div class="Watch-Content Stack-2"><a>2:16</a><div></div></div>
-          <div class="Watch-Text">
-               <a>Lofi Beats</a>
-               <a><p>Track. 12</p></a>
-               <div><a>0%</a><a>100%</a></div>
-               <button>Download</button>
-               <i class="fa-solid fa-download"></i>
-          </div>
-     </div>
-     <div class="Watch-Tab">
-          <div class="Watch-Content Stack-3"><a>2:23</a><div></div></div>
-          <div class="Watch-Text">
-               <a>Cyberpunk: Edge...</a>
-               <a><p>Ep2 arena</p></a>
-               <div><a>0%</a><a>100%</a></div>
-               <button>Download</button>
-               <i class="fa-solid fa-download"></i>
-          </div>
-     </div>
-     <div class="Watch-Tab">
-          <div class="Watch-Content Stack-4"><a>2:03</a><div></div></div>
-          <div class="Watch-Text">
-               <a>Turning Red</a>
-               <a><p>Magic Alse</p></a>
-               <div><a>0%</a><a>100%</a></div>
-               <button>Download</button>
-               <i class="fa-solid fa-download"></i>
-          </div>
-     </div>
-     <div class="Watch-Tab">
-          <div class="Watch-Content Stack-5"><a>2:01</a><div></div></div>
-          <div class="Watch-Text">
-               <a>Demons Slayer</a>
-               <a><p>Kiajo Yaba</p></a>
-               <div><a>0%</a><a>100%</a></div>
-               <button>Download</button>
-               <i class="fa-solid fa-download"></i>
-          </div>
-     </div>
-     <div class="Watch-Tab">
-          <div class="Watch-Content Stack-6"><a>2:31</a><div></div></div>
-          <div class="Watch-Text">
-               <a>Your Idol</a>
-               <a><p>Saja boys</p></a>
-               <div><a>0%</a><a>100%</a></div>
-               <button>Download</button>
-               <i class="fa-solid fa-download"></i>
-          </div>
-     </div>
-  </div>
-  <!--Community Highlights-->
-     <div class="Text-Content">
-          <h2>Community Highlights</h2>
-          <h2>View all</h2>
-  </div>
-  <div class="Highlights-Content">
-     <div class="Highlights">
-          <div class="Highlight">
-          <h2>Top User Playlists</h2>
-          <i class="fa-regular fa-bookmark"></i>
-          <div class="Book-Set-1"></div>
-          <h5>Animetaslic</h5>
-          <h6>Anlinad Playlists</h6>
-          <div class="Book-Set-2"></div>
-          <h1>Epic Battles Theme</h1>
-          <h3>Epic Battle</h3>
-          <h4>Fesiured Playlists</h4>
-          <a>Listen to songs that reliefs stress on a whole new level.</a>
-          </div>
-     </div>
-     <div class="Highlights">
-          <div class="Highlight-Step">
-          <h2>Trending Discussions</h2>
-          <h3>Demons vs. Curses?</h3>
-          <a>Fun Fact: Demons originated from Demons Slayer while Curses from Jujustu Kiasen.</a>
-          <h4>Satoru Gojo Theories</h4>
-          <h5>Satoru Gojo theories is often discussed by our bulletin board.
-           <INPUT type="text" class="Comment" placeholder="Comment...."></h5>
-          </div>
-     </div>
-     <div class="Highlights">
-          <div class="Community">
-               <div></div>
-               <h2>Featured Fan Art</h2>
-               <a>Stunning Gojo Fan Art Showcase.</a>
-               <i class="fa-regular fa-star"></i>
-          </div>
-     </div>
-     <div class="Highlights">
-          <div class="Community">
-               <div></div>
-               <h2>Watch Party Hub</h2>
-               <a>Watch Party Hub Downloads Updates.</a>
-               <i class="fa-regular fa-star"></i>
-          </div>
-     </div>
-  </div>
-
-  <div class="footmargin" id="footMargin">
-<footer>
-  <div class="footer" style="font-family: 'Inter', sans-serif;">
-    <div><h4>StreamingBox</h4><p>Streaming UI website.</p></div>
-    <div><h4>Explore</h4><p>Trending Anime.</p></div>
-    <div><h4>Developed by</h4><p>Adamson Augustine.</p></div>
-  </div>
-</footer>
-  <div class="copyright" id="copyMargin">© 2025 Sqaush Demo</div>
-  </div>
-    </div>
-    <script src="main.js"></script>
-</body>
-</html>
+}
+.Watch-Text div{
+    width: 85%;
+    height: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+    margin-left: 2px;
+    animation: Load 5s ease-in;
+    transition: all 0.5s;
+    background-color: rgb(198, 88, 88);
+}
+@keyframes Load {
+    0%{
+        width: 5%;
+    }
+    100%{
+        width: 85%;
+    }   
+}
+.Watch-Text div a:nth-child(1){
+    right: 1px;
+    top: 138px;
+    opacity: 0;
+    display: none;
+    font-size: 10px;
+    animation: Zer 5s step-end;
+    position: absolute;
+    color: #ffffff;
+}
+@keyframes Zer0{
+    0%{
+        opacity: 1;
+    }
+    98%{
+        opacity: 1;
+    }
+    99%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+.Watch-Text div a:nth-child(2){
+    right: 1px;
+    top: 148px;
+    display: none;
+    font-size: 10px;
+    font-weight: 600;
+    animation: Hundre 5s step-end;
+    position: absolute;
+    color: #ffffff;
+}
+@keyframes Hundred{
+    0%{
+        opacity: 0;
+    }
+    98%{
+        opacity: 0;
+    }
+    99%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.Watch-Text button{
+    position: absolute;
+    font-size: 10px;
+    bottom: 0px;
+    left: 2px;
+    padding-left: 20px;
+    border: none;
+    height: 25px;
+    width: 80px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    font-family: 'Inter', sans-serif;
+    background: rgb(52, 125, 251, 0.01);
+}
+.Watch-Text i{
+    position: absolute;
+    font-size: 12px;
+    bottom: 8px;
+    color: white;
+    left: 8px;
+}
+.Watch-Text button:hover{
+    backdrop-filter: blur(2px);
+    background-color: rgba(120, 168, 252, 0.122);
+}
+.Highlights-Content{
+    gap: 4px;
+    display: flex;
+    margin-left: 220px;
+    height: 180px;
+    margin-top: 10px;
+    overflow: hidden;
+    overflow-x: scroll;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+}
+.Highlights{
+    padding: 10px;
+    flex-grow: 1;
+    min-width: 190px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    background-color: rgb(16, 28, 48, 0.3);
+}
+.Highlights:nth-child(1){
+    padding: 20px;
+    overflow-y: scroll;
+}
+.Highlights:nth-child(1)::-webkit-scrollbar{
+    display: none;
+}
+.Highlights-Content::-webkit-scrollbar{
+    display: none;
+}
+.Highlights:hover{
+    transition: transform 0.5s ease; 
+    transform: translateZ(-6px) scale(1.01);
+}
+.Highlight i{
+    top: 18px;
+    right: 5px;
+    position: absolute;
+}
+.Highlight h2{
+    font-size: 0.95em;
+    margin-top: 2px;
+    font-weight: 600;
+}
+.Highlight div{
+    width: 40px;
+    height: 40px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    border-radius: 5px;
+}
+.Book-Set-1{
+    background: url("https://th.bing.com/th/id/R.ffb479f6833a641088a1f97c69e53442?rik=FQIS2hwZQ%2b6qDg&pid=ImgRaw&r=0")center/cover;
+}
+.Book-Set-2{
+    background: url("https://www.musicmundial.com/en/wp-content/uploads/2024/10/BLACKPINKs-Roses-APT-breaks-an-important-Kpop-record-in-the-United-Kingdom--1100x733.jpg")center/cover;
+}
+.Highlight h5{
+    left: 70px;
+    top: 50px;
+    font-size: 13px;
+    position: absolute;
+}
+.Highlight h6{
+    left: 70px;
+    top: 67px;
+    color: #d1d1d1;
+    font-size: 10px;
+    font-weight: 500;
+    position: absolute;
+}
+.Highlight h1{
+    left: 70px;
+    top: 95px;
+    font-size: 13px;
+    position: absolute;   
+}
+.Highlight h3{
+    left: 70px;
+    top: 112px;
+    color: #d1d1d1;
+    font-size: 10px;
+    font-weight: 500;
+    position: absolute;   
+}
+.Highlight h4{
+    font-size: 0.95em;
+    margin-top: 10px;
+    font-weight: 600;
+}
+.Highlight a{
+    font-size: 10px;
+}
+.Highlight-Step{
+    width: 90%;
+    height: 100%;
+    position: relative;
+    overflow-y: scroll;
+    font-family: 'Inter', sans-serif;
+    margin-left: 5%;
+}
+.Highlight-Step::-webkit-scrollbar{
+    display: none;
+}
+.Highlight-Step h2{
+    margin-top: 5px;
+    font-size: 0.95em;
+    font-weight: 600;
+}
+.Highlight-Step h3{
+    font-size: 0.95em;
+    font-weight: 500;    
+}
+.Highlight-Step a{
+    font-size: 0.65em;
+    font-weight: 500;  
+}
+.Highlight-Step h4{
+    margin-top: 5px;
+    font-size: 0.95em;
+    font-weight: 600;    
+}
+.Highlight-Step h5{
+    font-size: 0.65em;
+    font-weight: 500; 
+}
+.Comment{
+    height: 40px;
+    padding: 5px;
+    width: 80%;
+    border-radius: 8px;
+    border: none;
+    margin-left: 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(16, 28, 48, 0);
+}
+.Comment:hover{
+    border: none;
+}
+.Highlights .Community div{
+    width: 100%;
+    height: 125px;
+    border-radius: 5px;
+}
+.Highlights:nth-child(3) .Community div{
+    background: url("https://tse1.mm.bing.net/th/id/OIP.E4QDkJyHeU8IdTjG-Ag3dwHaDt?rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+}
+.Highlights:nth-child(4) .Community div{
+    background: url("https://tse1.mm.bing.net/th/id/OIP.VvtbHoPeAZkeBMPlm0EqOgHaD4?rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+}
+.Highlights .Community h2{
+    margin-top: 5px;
+    margin-left: 4px;
+    font-size: 15px;
+}
+.Highlights .Community a{
+    margin-top: 5px;
+    margin-left: 4px;
+    font-size: 11px;
+}
+.Highlights .Community i{
+    position: absolute;
+    right: 4px;
+    top: 160px;
+    color: gold;
+}
+.footer {
+    margin: auto; 
+    padding: 30px 16px;
+    display: grid;    margin-left: 220px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;    border-top: 1px solid #27272a;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #a1a1aa;
+}
+.footer h4 {
+    color: #e4e4e7; margin-bottom: 8px;
+}
+.copyright {
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 12px;
+    color: #71717a;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: rgba(0,0,0,0.9);
+    display: none;
+}
+@media (max-width: 560px){
+    .Content-Container{
+        display: none;
+    }
+     .Navlinks{
+        display: block;
+     }
+    .search-box, .Steps-Content, .suggestions,
+    .Text-Content, .Scroll-Content, .Songs-Container,
+    .Watch-Container, .Highlights-Content, .footer, .Navlinks{
+        margin-left: 10px;
+    }
+    .fa-magnifying-glass{
+        margin-left: 20px;
+    }
+    .Sign_Bar_Container{
+        width: 96%;
+        margin-top: 50px;
+        margin-left: 2%;
+    }
+}

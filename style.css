@@ -511,10 +511,11 @@ body{
     height: 30px;
     width: 100px;
     margin-top: 8px;
+    color: white;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     font-family: 'Inter', sans-serif;
-    background: rgb(52, 125, 251, 0.25);
+    background: rgb(52, 125, 251, 0.15);
 }
 .Section div i{
     position: absolute;

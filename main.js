@@ -1,3 +1,82 @@
+document.addEventListener("DOMContentLoaded", function () {
+
+    const STORAGE_KEY = "skyblue_squush_users_mobile";
+
+    function getUsers() {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    }
+
+    function saveUsers(users) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
+    }
+
+    function getVal(id) {
+        const el = document.getElementById(id);
+        return el ? el.value.trim() : "";
+    }
+
+    // 🔐 REGISTER (MOBILE SAFE)
+    window.registerUser = function () {
+
+        const username = getVal("regUsername");
+        const email = getVal("regEmail").toLowerCase();
+        const password = getVal("regPassword");
+        const confirm = getVal("regConfirm");
+
+        if (!username || !email || !password || !confirm) {
+            alert("Fill all fields");
+            return;
+        }
+
+        if (password !== confirm) {
+            alert("Passwords do not match");
+            return;
+        }
+
+        const users = getUsers();
+
+        const emailTaken = users.some(u => u.email === email);
+
+        if (emailTaken) {
+            alert("Email already exists");
+            return;
+        }
+
+        users.push({
+            username: username,
+            email: email,
+            password: password
+        });
+
+        saveUsers(users);
+
+        alert("Account created successfully");
+    };
+
+    // 🔑 LOGIN (MOBILE SAFE)
+    window.loginUser = function () {
+
+        const email = getVal("loginEmail").toLowerCase();
+        const password = getVal("loginPassword");
+
+        const users = getUsers();
+
+        const user = users.find(
+            u => u.email === email && u.password === password
+        );
+
+        if (!user) {
+            alert("Wrong email or password");
+            return;
+        }
+
+        alert("Welcome " + user.username);
+    };
+
+});
+
+
+
 let historyStack = [];
 const ULTRA_ACTIVE = "skyblue_squush_state_page_visible_mode_ultra_active";
 
@@ -117,9 +196,127 @@ function setupImage(id, preview){
     });
 }
 
+// SKYBLUE SQUUSH UPLOAD FIX (ROBUST VERSION)
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const loginInput = document.getElementById("loginFile");
+    const registerInput = document.getElementById("registerFile");
+
+    const loginPreview = document.getElementById("loginPreview");
+    const registerPreview = document.getElementById("registerPreview");
+
+    function handleImage(fileInput, previewImg) {
+        const file = fileInput.files[0];
+        if (!file) return;
+
+        // check if file is image
+        if (!file.type.startsWith("image/")) return;
+
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            previewImg.src = e.target.result;
+            previewImg.style.width = "100px";
+            previewImg.style.height = "100px";
+            previewImg.style.borderRadius = "50%";
+            previewImg.style.objectFit = "cover";
+        };
+
+        reader.readAsDataURL(file);
+    }
+
+    loginInput.addEventListener("change", function () {
+        handleImage(this, loginPreview);
+    });
+
+    registerInput.addEventListener("change", function () {
+        handleImage(this, registerPreview);
+    });
+
+});
+
 setupImage("loginFile","loginPreview");
 setupImage("registerFile","registerPreview");
 
+document.addEventListener("DOMContentLoaded", function () {
+
+    function getUsers() {
+        return JSON.parse(localStorage.getItem("skyblue_squush_users") || "[]");
+    }
+
+    function saveUsers(users) {
+        localStorage.setItem("skyblue_squush_users", JSON.stringify(users));
+    }
+
+    function emailExists(email) {
+        return getUsers().some(user => user.email === email);
+    }
+
+    function getValue(id) {
+        const el = document.getElementById(id);
+        return el ? el.value.trim() : "";
+    }
+
+    // REGISTER
+    function registerUser() {
+
+        const username = getValue("regUsername");
+        const email = getValue("regEmail").toLowerCase();
+        const password = getValue("regPassword");
+        const confirm = getValue("regConfirm");
+
+        if (!username || !email || !password || !confirm) {
+            alert("Please fill all fields");
+            return;
+        }
+
+        if (password !== confirm) {
+            alert("Passwords do not match");
+            return;
+        }
+
+        if (emailExists(email)) {
+            alert("Email already exists!");
+            return;
+        }
+
+        const users = getUsers();
+
+        users.push({
+            username,
+            email,
+            password
+        });
+
+        saveUsers(users);
+
+        alert("Account created successfully!");
+    }
+
+    // LOGIN
+    function loginUser() {
+
+        const email = getValue("loginEmail").toLowerCase();
+        const password = getValue("loginPassword");
+
+        const user = getUsers().find(
+            u => u.email === email && u.password === password
+        );
+
+        if (!user) {
+            alert("Wrong email or password");
+            return;
+        }
+
+        alert("Welcome " + user.username);
+    }
+
+    // 🔥 MAKE FUNCTIONS WORK ON HTML BUTTONS (IMPORTANT FOR PHONES)
+    window.registerUser = registerUser;
+    window.loginUser = loginUser;
+
+});
 
 const data = [
     "Super Cube","My Hero Academia","Attack on Titan",

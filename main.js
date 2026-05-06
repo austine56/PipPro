@@ -1,8 +1,131 @@
+let historyStack = [];
+const ULTRA_ACTIVE = "skyblue_squush_state_page_visible_mode_ultra_active";
+
+/* SWITCH PAGE */
+function switchPage(page){
+
+    let current = document.querySelector("." + ULTRA_ACTIVE);
+    if(current){
+        historyStack.push(current.id.replace("Page",""));
+        current.classList.remove(ULTRA_ACTIVE);
+    }
+
+    document.querySelectorAll(".skyblue_squush_page").forEach(p =>
+        p.classList.remove(ULTRA_ACTIVE)
+    );
+
+    document.getElementById(page + "Page").classList.add(ULTRA_ACTIVE);
+}
+
+/* BACK */
+function goBack(){
+    if(historyStack.length === 0) return;
+
+    let prev = historyStack.pop();
+
+    document.querySelectorAll(".skyblue_squush_page").forEach(p =>
+        p.classList.remove(ULTRA_ACTIVE)
+    );
+
+    document.getElementById(prev + "Page").classList.add(ULTRA_ACTIVE);
+}
+
+/* LOADER */
+function showLoader(){
+    document.getElementById("loader").style.display = "flex";
+}
+function hideLoader(){
+    document.getElementById("loader").style.display = "none";
+}
+
+/* IMAGE */
+function readImage(file, cb){
+    const r = new FileReader();
+    r.onload = e => cb(e.target.result);
+    r.readAsDataURL(file);
+}
+
+/* REGISTER */
+function registerUser(){
+    let user = {
+        username: regUsername.value,
+        email: regEmail.value,
+        password: regPassword.value,
+        confirm: regConfirm.value,
+        image: localStorage.getItem("tempImage") || ""
+    };
+
+    if(user.password !== user.confirm){
+        alert("Passwords do not match!");
+        return;
+    }
+
+    localStorage.setItem("skyblue_user", JSON.stringify(user));
+    alert("Account created!");
+    switchPage("login");
+}
+
+/* LOGIN */
+function loginWithLoader(){
+
+    document.getElementById("mainCard").style.display = "none";
+    showLoader();
+
+    setTimeout(() => {
+
+        hideLoader();
+
+        let saved = JSON.parse(localStorage.getItem("skyblue_user"));
+
+        if(!saved){
+            alert("No account found!");
+            document.getElementById("mainCard").style.display = "block";
+            return;
+        }
+
+        if(loginUsername.value === saved.username && loginPassword.value === saved.password){
+            dashName.innerText = saved.username;
+            dashEmail.innerText = saved.email;
+            dashPhone.innerText = loginPhone.value;
+            dashImage.src = saved.image;
+
+            switchPage("dashboard");
+        } else {
+            alert("Wrong credentials!");
+            document.getElementById("mainCard").style.display = "block";
+        }
+
+    }, 1500);
+}
+
+/* LOGOUT */
+function logoutUser(){
+    document.getElementById("mainCard").style.display = "block";
+    switchPage("login");
+}
+
+/* IMAGE */
+function setupImage(id, preview){
+    document.getElementById(id).addEventListener("change", function(){
+        let file = this.files[0];
+        if(file){
+            readImage(file, img => {
+                document.getElementById(preview).src = img;
+                localStorage.setItem("tempImage", img);
+            });
+        }
+    });
+}
+
+setupImage("loginFile","loginPreview");
+setupImage("registerFile","registerPreview");
+
+
 const data = [
     "Super Cube","My Hero Academia","Attack on Titan",
-    "Demon Slayer","Jujutsu Kaisen","Solo Leveling","Dr Stone","Dragon Ball",
+    "Demon Slayer","Jujutsu Kaisen","Never Have I Ever","Dr Stone","Dragon Ball",
     "Eminence in Shadow","Demon King Academia","Blinding Light",
-    "Sunflower","Save You Tears","Ocean Eyes","Apt","Apature",
+    "Sunflower","Save You Tears","Ocean Eyes","Apt","Apature"," Adamson Praise",
     "Spy X Family", "Lofi Beats", "Cyberpunk","Turning Red","Your Idol","Watch Party Hub"
 ];
 function showSuggestions() {
@@ -124,7 +247,7 @@ function showAnimePage() {
     mainContent.innerHTML = `
         <div class="squush-streaming-platform-anime-page-main-content-layout-wrapper-container" id="animePage">
                <div class="Top squush-anime-top">
-               <h2 class="squush-anime-top-text">Squush Anime</h2>
+               <h2 class="squush-anime-top-text">Squush Trends</h2>
      <i class="fa-solid fa-magnifying-glass squush-anime-search-btn"></i>
      <input type="text" 
         id="searchInput" onkeyup="showSuggestions()" class="search-box squush-anime-search" placeholder="Search...">
@@ -136,7 +259,7 @@ function showAnimePage() {
      </div>
 
     <div class="Background squush-anime-clip-head" id="myKaisen" style="display:none;">
-     <div class="Anime-Steps-Content squush-anime-clip">
+     <div class="Anime-Steps-Content Kaisen">
           <div class="Anime-Steps">
                <div class="Anime-Steps-Set"> 
                <h2>Jujustu Kaisen</h2>
@@ -237,11 +360,11 @@ function showAnimePage() {
               </div>
 
 
-            <div class="Anime-Steps-Content Dr-Stone" id="myHero" style="display:none;">
+            <div class="Anime-Steps-Content Xokitty" id="myHero" style="display:none;">
           <div class="Anime-Steps">
                <div class="Anime-Steps-Set"> 
-               <h2>My Hero Academia</h2>
-               <a>Izuku Midoriya Unlocks All For One!. Experience All Episodes In High Quality.</a>
+               <h2>Xo Kitty</h2>
+               <a>Kitty desire to find her mother's path. Experience All Episodes In High Quality.</a>
                <p><button>▶ Watch Now</button>
                <button>Download All</button>
                </div>
@@ -256,7 +379,7 @@ function showAnimePage() {
                    <div class="Anime-Scroll-Content" id="mysectionHero" style="display:none;">
           <div class="Anime-Section">
                <div>
-                    <a>My Hero Academia</a>
+                    <a>Xo-Kitty</a>
                     <a><p>Episode 01</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -264,7 +387,7 @@ function showAnimePage() {
                 </div>
                           <div class="Anime-Section">
                <div>
-                    <a>My Hero Academia</a>
+                    <a>Xo-Kitty</a>
                     <a><p>Episode 02</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -272,7 +395,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                <div>
-                    <a>My Hero Academia</a>
+                    <a>Xo-Kitty</a>
                     <a><p>Episode 03</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -280,7 +403,7 @@ function showAnimePage() {
                 </div>
                                                           <div class="Anime-Section">
                <div>
-                    <a>My Hero Academia</a>
+                    <a>Xo-Kitty</a>
                     <a><p>Episode 04</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -288,7 +411,7 @@ function showAnimePage() {
                 </div>
                                                           <div class="Anime-Section">
                <div>
-                    <a>My Hero Academia</a>
+                    <a>Xo-Kitty</a>
                     <a><p>Episode 05</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -296,7 +419,7 @@ function showAnimePage() {
                 </div>
                                                           <div class="Anime-Section">
                <div>
-                    <a>My Hero Academia</a>
+                    <a>Xo-Kitty</a>
                     <a><p>Episode 06</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -304,7 +427,7 @@ function showAnimePage() {
                 </div>
                                                           <div class="Anime-Section">
                <div>
-                    <a>My Hero Academia</a>
+                    <a>Xo-Kitty</a>
                     <a><p>Episode 07</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -312,7 +435,7 @@ function showAnimePage() {
                 </div>
                                                           <div class="Anime-Section">
                <div>
-                    <a>My Hero Academia</a>
+                    <a>Xo-Kitty</a>
                     <a><p>Episode 08</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -320,7 +443,7 @@ function showAnimePage() {
                 </div>
                                                           <div class="Anime-Section">
                <div>
-                    <a>My Hero Academia</a>
+                    <a>Xo-Kitty</a>
                     <a><p>Episode 09</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -328,7 +451,7 @@ function showAnimePage() {
                 </div>
                                                           <div class="Anime-Section">
                <div>
-                    <a>My Hero Academia</a>
+                    <a>Xo-Kitty</a>
                     <a><p>Episode 10</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -637,8 +760,8 @@ function showAnimePage() {
           <div class="Anime-Steps-Content Dr-Stoner" id="myStoner" style="display:none;">
           <div class="Anime-Steps">
                <div class="Anime-Steps-Set"> 
-               <h2>Dr Stone</h2>
-               <a>Senku a Scientist with the derise to revive Humanity. Experience All Episodes In High Quality.</a>
+               <h2>Do Revenge </h2>
+               <a>Finding a purpose in high school. Experience All Episodes In High Quality.</a>
                <p><button>▶ Watch Now</button>
                <button>Download All</button>
                </div>
@@ -653,7 +776,7 @@ function showAnimePage() {
                    <div class="Anime-Scroll-Content" id="mysectionStoner" style="display:none;">
           <div class="Anime-Section">
                <div>
-                    <a>Dr Stone</a>
+                    <a>Do Revenge</a>
                     <a><p>Episode 01</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -661,7 +784,7 @@ function showAnimePage() {
                 </div>
                           <div class="Anime-Section">
                           <div>
-                                    <a>Dr Stone</a>
+                                    <a>Do Revenge</a>
                     <a><p>Episode 02</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -669,7 +792,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Dr Stone</a>
+                                    <a>Do Revenge</a>
                     <a><p>Episode 03</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -677,7 +800,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Dr Stone</a>
+                                    <a>Do Revenge</a>
                     <a><p>Episode 04</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -685,7 +808,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Dr Stone</a>
+                                    <a>Do Revenge</a>
                     <a><p>Episode 05</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -693,7 +816,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Dr Stone</a>
+                                    <a>Do Revenge</a>
                     <a><p>Episode 06</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -701,7 +824,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Dr Stone</a>
+                                    <a>Do Revenge</a>
                     <a><p>Episode 07</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -709,7 +832,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Dr Stone</a>
+                                    <a>Do Revenge</a>
                     <a><p>Episode 08</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -717,7 +840,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Dr Stone</a>
+                                    <a>Do Revenge</a>
                     <a><p>Episode 09</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -725,7 +848,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Dr Stone</a>
+                                    <a>Do Revenge</a>
                     <a><p>Episode 10</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -736,8 +859,8 @@ function showAnimePage() {
                    <div class="Anime-Steps-Content Solo-Level" id="mySolo" style="display:none;">
           <div class="Anime-Steps">
                <div class="Anime-Steps-Set"> 
-               <h2>Solo Leveling</h2>
-               <a>Jin-Woo an E-Rank Hunter, unlock unlimited power in a double dungeon after death. Experience All Episodes In High Quality.</a>
+               <h2>Never Have I Ever</h2>
+               <a>Devi Having To Choose Between Two Of Her Boyfriends. Experience All Episodes In High Quality.</a>
                <p><button>▶ Watch Now</button>
                <button>Download All</button>
                </div>
@@ -752,7 +875,7 @@ function showAnimePage() {
                    <div class="Anime-Scroll-Content" id="mysectionSolo" style="display:none;">
           <div class="Anime-Section">
                <div>
-                    <a>Solo Leveling</a>
+                    <a>Never Have I Ever</a>
                     <a><p>Episode 01</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -760,7 +883,7 @@ function showAnimePage() {
                 </div>
                           <div class="Anime-Section">
                           <div>
-                                    <a>Solo Leveling</a>
+                                    <a>Never Have I Ever</a>
                     <a><p>Episode 02</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -768,7 +891,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Solo Leveling</a>
+                                    <a>Never Have I Ever</a>
                     <a><p>Episode 03</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -776,7 +899,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Solo Leveling</a>
+                                    <a>Never Have I Ever</a>
                     <a><p>Episode 04</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -784,7 +907,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Solo Leveling</a>
+                                    <a>Never Have I Ever</a>
                     <a><p>Episode 05</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -792,7 +915,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Solo Leveling</a>
+                                    <a>Never Have I Ever</a>
                     <a><p>Episode 06</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -800,7 +923,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Solo Leveling</a>
+                                    <a>Never Have I Ever</a>
                     <a><p>Episode 07</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -808,7 +931,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Solo Leveling</a>
+                                    <a>Never Have I Ever</a>
                     <a><p>Episode 08</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -816,7 +939,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Solo Leveling</a>
+                                    <a>Never Have I Ever</a>
                     <a><p>Episode 09</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -824,7 +947,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Solo Leveling</a>
+                                    <a>Never Have I Ever</a>
                     <a><p>Episode 10</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -934,8 +1057,8 @@ function showAnimePage() {
                              <div class="Anime-Steps-Content The-Shadow" id="myShadow" style="display:none;">
           <div class="Anime-Steps">
                <div class="Anime-Steps-Set"> 
-               <h2>Eminence In The Shadow</h2>
-               <a>Entering a new World as a baby with Strenght. Experience All Episodes In High Quality.</a>
+               <h2>Wednesday</h2>
+               <a>Showing Off Demon School. Experience All Episodes In High Quality.</a>
                <p><button>▶ Watch Now</button>
                <button>Download All</button>
                </div>
@@ -950,7 +1073,7 @@ function showAnimePage() {
                    <div class="Anime-Scroll-Content" id="mysectionShadow" style="display:none;">
           <div class="Anime-Section">
                <div>
-                    <a>Eminence In Shadow</a>
+                    <a>Wednesday</a>
                     <a><p>Episode 01</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -958,7 +1081,7 @@ function showAnimePage() {
                 </div>
                           <div class="Anime-Section">
                           <div>
-                                    <a>Eminence In Shadow</a>
+                                    <a>Wednesday</a>
                     <a><p>Episode 02</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -966,7 +1089,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Eminence In Shadow</a>
+                                    <a>Wednesday</a>
                     <a><p>Episode 03</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -974,7 +1097,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Eminence In Shadow</a>
+                                    <a>Wednesday</a>
                     <a><p>Episode 04</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -982,7 +1105,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Eminence In Shadow</a>
+                                    <a>Wednesday</a>
                     <a><p>Episode 05</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -990,7 +1113,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Eminence In Shadow</a>
+                                    <a>Wednesday</a>
                     <a><p>Episode 06</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -998,7 +1121,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Eminence In Shadow</a>
+                                    <a>Wednesday</a>
                     <a><p>Episode 07</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -1006,7 +1129,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Eminence In Shadow</a>
+                                    <a>Wednesday</a>
                     <a><p>Episode 08</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -1014,7 +1137,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Eminence In Shadow</a>
+                                    <a>Wednesday</a>
                     <a><p>Episode 09</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -1022,7 +1145,7 @@ function showAnimePage() {
                 </div>
                                           <div class="Anime-Section">
                           <div>
-                                    <a>Eminence In Shadow</a>
+                                    <a>Wednesday</a>
                     <a><p>Episode 10</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>
@@ -1146,7 +1269,7 @@ function showAnimePage() {
           </div>
           <div class="Section" onclick="closeBody(),showAnimePage(),openAcademia()"id="removeAcademia">
                <div>
-                    <a>My Hero Academia</a>
+                    <a>Xo Kitty</a>
                     <a><p>Episode 19</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>               
@@ -1162,7 +1285,7 @@ function showAnimePage() {
           </div>
           <div class="Section" onclick="closeBody(),showAnimePage(),openStoner()" id="removeStone">
                <div>
-                    <a>Dr Stone</a>
+                    <a>Do Revenge</a>
                     <a><p>Episode 13</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>             
@@ -1170,7 +1293,7 @@ function showAnimePage() {
           </div>
           <div class="Section" onclick="closeBody(),showAnimePage(),openSolo()" id="removeSolo">
                <div>
-                    <a>Solo Leveling</a>
+                    <a>Never Have I Ever</a>
                     <a><p>Episode 11</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>              
@@ -1202,7 +1325,7 @@ function showAnimePage() {
           </div>
           <div class="Section" onclick="closeBody(),showAnimePage(),openShadow()" id="removeShadow">
                <div>
-                    <a>Eminence in Shadow</a>
+                    <a>Wednesday</a>
                     <a><p>Episode 12</p></a>
                     <button>Download</button>
                     <i class="fa-solid fa-download"></i>               
@@ -1219,7 +1342,7 @@ function showAnimePage() {
   </div>
 
             <div class="Anime-footer">
-    <div><h4>MovieBox</h4><p>Streaming UI website.</p></div>
+    <div><h4>StreamingBox</h4><p>Streaming UI website.</p></div>
     <div><h4>Explore</h4><p>Trending Anime.</p></div>
     <div><h4>Developed by</h4><p>Adamson Augustine.</p></div>
   </div>

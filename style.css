@@ -398,92 +398,6 @@ body{
     background: linear-gradient( to right,#586adc, #3471ff, #347dfb);
 
 }
-.Steps-Content.squush-anime-clip-1{
-   animation: Squuash-1 60s step-end infinite;
-}
-@keyframes Squuash-1{
-    0%{
-        display: block;
-    }
-    25%{
-        display: none;
-    }
-    50%{
-        display: none;
-    }
-    75%{
-        display: none;
-    }
-    100%{
-        display: none;
-    }
-}
-.Steps-Content.squush-anime-clip-2{
-    background: url("https://www.tvinsider.com/wp-content/uploads/2026/01/asher-angel-paris-berelc-kissing-is-the-easy-part-1014x570.jpg")center/cover;
-       animation: Squuash-2 60s step-end infinite;
-}
-@keyframes Squuash-2{
-    0%{
-        display: none
-    }
-    25%{
-        display: block;
-    }
-    50%{
-        display: none;
-    }
-    75%{
-        display: none;
-    }
-    100%{
-        display: none;
-    }
-    100%{
-        display: none;
-    }
-}
-.Steps-Content.squush-anime-clip-3{
-    background: url("https://i.etsystatic.com/20641750/r/il/c5ec2e/6600525028/il_fullxfull.6600525028_ge2h.jpg")center/cover;
-       animation: Squuash-3 60s step-end infinite;
-}
-@keyframes Squuash-3{
-    0%{
-        display: none;
-    }
-    25%{
-        display: none;
-    }
-    50%{
-        display: block;
-    }
-    75%{
-        display: none;
-    }
-    100%{
-        display: none;
-    }
-}
-.Steps-Content.squush-anime-clip-4{
-    background: url("https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQXkapct6sJLMF4PNtrdBQ5VUNKqerPJlyHX2lpXkFQToUJoXJCpwYBm52SYciUyxRKupknMiog9GzeP0krvfIk_bTVURA0DDiI-8PmXX_CmrvtGGZpH3fHbESXchZO5Pr4538gbWXjRLcTqq9PLpjALcM7c.jpg?r=50b")center/cover;
-       animation: Squuash-4 60s step-end infinite;
-}
-@keyframes Squuash-4{
-    0%{
-        display: none;
-    }
-    25%{
-        display: none;
-    }
-    50%{
-        display: none;
-    }
-    75%{
-        display: block;
-    }
-    100%{
-        display: none;
-    }
-}
 .Text-Content{
     display: flex;    
     margin-left: 220px;
@@ -1188,6 +1102,557 @@ body{
     border-radius: 20px;
     transition: transform 0.3s ease;
 }
+
+
+/* Root Variables for Consistency */
+:root {
+    --squush-primary-brand-color-accent-purple: #7b61ff;
+    --squush-main-background-dark-theme-color-primary: #101010;/*#0a0b10*/
+    --squush-sidebar-and-card-background-semi-transparent: rgba(20, 21, 28, 0.8);
+    --squush-text-color-primary-white-high-emphasis: #ffffff;
+    --squush-text-color-secondary-gray-medium-emphasis: #b3b3b3;
+    --squush-border-radius-standard-rounded-corner-size: 15px;
+}
+
+/* Main Container for the Anime Navigation View */
+.squush-streaming-platform-anime-page-main-content-layout-wrapper-container {
+    padding: 10px;
+    background-color: var(--squush-main-background-dark-theme-color-primary);
+    color: var(--squush-text-color-primary-white-high-emphasis);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+.squush-streaming-platform-movies-page-main-content-layout-wrapper-container {
+    padding: 10px;
+    padding-top: 5px;
+    background-color: var(--squush-main-background-dark-theme-color-primary);
+    color: var(--squush-text-color-primary-white-high-emphasis);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+.squush-streaming-platform-watch-page-main-content-layout-wrapper-container {
+    padding: 0px;
+    padding-top: 5px;
+    background-color: var(--squush-main-background-dark-theme-color-primary);
+    color: var(--squush-text-color-primary-white-high-emphasis);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+.Jjk{
+    background: url("https://wallpapercave.com/wp/wp8430817.jpg")center/cover;
+}
+.squush-anime-top{
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+.squush-anime-top-text{
+    width: fit-content;
+    position: absolute;
+    margin-top: 16px;
+    margin-left: 5px;
+    font-family: 'Inter', sans-serif;
+    height: fit-content;
+}
+.squush-anime-search{
+    border: none;
+    box-shadow: none;
+    margin-left: 200px;
+}
+.squush-anime-search-btn{
+    margin-left: 210px;
+}
+.squush-anime-clip-head{
+    overflow: hidden;
+}
+/* The Promotional Hero Banner at the top of the Anime page */
+.copyrights {
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 20px;
+    font-size: 12px;
+    color: #71717a;
+}
+/*Squush Anime Text Content Start*/
+.Text-Content-Anime{
+    display: flex;    
+    margin-top: 15px;
+}
+.Text-Content-Anime h2:nth-child(1){
+    margin-left: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+.Text-Content-Anime h2:nth-child(2){
+    font-size: 14px;
+    margin-top: -15px;
+    position: absolute;
+    right: 25px;
+    color: #5f8bf2;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+.Text-Content-Anime h2:nth-child(2):hover{
+    color: #347dfb;
+}/*Squush Anime Text Content End*/
+
+/*Squush Anime Top Text Content Start*/
+.Text-Content-Anime-Top{
+    display: flex;    
+    margin-bottom: 10px;
+}
+.Text-Content-Anime-Top h2:nth-child(1){
+    margin-left: 10px;
+    font-size: 25px;
+    font-weight: 600;
+    color: rgb(223, 220, 220);
+}
+.Text-Content-Anime-Top h2:nth-child(2){
+    font-size: 15px;
+    position: absolute;
+    right: 25px;
+    color: #5f8bf2;
+    cursor: pointer;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+.Text-Content-Anime-Top h2:nth-child(2):hover{
+    color: #347dfb;
+}/*Squush Anime Text Content End*/
+
+/*Squush Steps Content Start*/
+.Anime-Steps-Content{
+    height: 250px;
+    display: flex;
+    margin-top: 5px;
+    border-radius: 10px;
+    position: relative;
+    background: url("https://wallpapers.com/images/hd/jujutsu-kaisen-4k-anime-characters-hccbh0fp7rl24yd0.jpg")center/cover;
+}
+.Anime-Steps{
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.6);
+    position: absolute;
+    border-radius: 10px;
+}
+.Anime-Steps-Set{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+.Anime-Steps a{
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 20px;
+    font-family: 'Inter', sans-serif;
+}
+.Anime-Steps h2{
+    color: #ffffff;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: 'Inter', sans-serif;
+}
+.Anime-Steps button{
+    border: none;
+    height: 35px;
+    width: 100px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    font-family: 'Inter', sans-serif;
+    background: rgb(16, 28, 48, 0.2);
+ }
+.Anime-Steps button:focus{
+    background: linear-gradient( to right,#586adc, #3471ff, #347dfb);
+
+}/*Squush Steps Content End*/
+
+/*Squush Anime Scroll Content Start*/
+.Anime-Scroll-Content{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-right: 5px;
+    white-space: nowrap; 
+    -webkit-overflow-scrolling: touch;
+    margin-top: 15px;
+}
+.Anime-Scroll-Content::-webkit-scrollbar{
+    display: none;
+}
+.Anime-Section{
+    width: 140px;    
+    height: 80px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    position: relative;
+    background-color: var(--squush-main-background-dark-theme-color-primary);
+}
+.Anime-Section:hover{
+    transition: all 0.5s ease; 
+    transform: translateY(-6px) scale(1.03);
+}
+.Anime-Section div{
+    width: 140px;
+    position: absolute;
+    height: 75px;
+    bottom: 0%;
+    border-radius: 10px;
+    padding-top: 8px;
+    background-color: rgb(0, 0, 0, 0.2);
+    backdrop-filter: blur(3px);
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+}
+.Anime-Section div a:nth-child(1){
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-align: center;
+    margin-top: 10px;
+}
+.Anime-Section div p:nth-child(1){
+    font-size: 10px;
+    margin-top: 10px;
+    color: #c8c8c8;
+
+}
+.Anime-Section div button{
+    position: absolute;
+    font-size: 11px;
+    bottom: 2px;
+    left: 20px;
+    padding-left: 25px;
+    border: none;
+    height: 30px;
+    width: 100px;
+    margin-top: 8px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    font-family: 'Inter', sans-serif;
+    background: rgb(52, 125, 251, 0.01);
+}
+.Anime-Section div i{
+    position: absolute;
+    font-size: 13px;
+    bottom: 12px;
+    color: white;
+    left: 35px;
+}
+.Anime-Section div button:hover{
+    backdrop-filter: blur(2px);
+    background-color: rgba(120, 168, 252, 0.122);
+}
+/*Squush Anime Scroll Content End*/
+.Anime-copyrights {
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 20px;
+    font-size: 12px;
+    color: #71717a;
+}
+.Kaisen{
+    background: url("https://wallpapercave.com/wp/wp8430817.jpg")center/cover;
+}
+.Xokitty{
+    margin-top: 10px;
+    background: url("https://i.etsystatic.com/20641750/r/il/c5ec2e/6600525028/il_fullxfull.6600525028_ge2h.jpg")center/cover;
+}
+.Dragon-Ball{
+    margin-top: 10px;
+    background: url("https://4kwallpapers.com/images/wallpapers/dragon-ball-super-4480x2520-21220.jpg")center/cover;
+}
+.Demon-Slayer{
+    margin-top: 10px;
+     background: url("https://4kwallpapers.com/images/wallpapers/demon-slayer-1920x1200-10716.jpg")center/cover;
+}
+.Super-Cube{
+    margin-top: 10px;
+    background: url("https://image.tmdb.org/t/p/w780/89qSKhLrJOUhp6xgbqgSTpzblbA.jpg")center/cover;
+}
+.Dr-Stoner{
+    margin-top: 10px;
+    background: url("https://variety.com/wp-content/uploads/2022/09/Do-Revenge.jpg?w=1000")center/cover;
+}
+.Solo-Level{
+    margin-top: 10px;
+    background: url("https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQXkapct6sJLMF4PNtrdBQ5VUNKqerPJlyHX2lpXkFQToUJoXJCpwYBm52SYciUyxRKupknMiog9GzeP0krvfIk_bTVURA0DDiI-8PmXX_CmrvtGGZpH3fHbESXchZO5Pr4538gbWXjRLcTqq9PLpjALcM7c.jpg?r=50b")center/cover;
+}
+.On-Titans{
+    margin-top: 10px;
+    background: url("https://wallpaperaccess.com/full/2725441.jpg")center/cover;
+}
+.The-Shadow{
+    margin-top: 10px;
+    background: url("https://images.thedirect.com/media/article_full/wednesday-season-2-characters.jpg") center/cover;
+}
+.Demon-King{
+    margin-top: 10px;
+    background: url("https://wallpaperbat.com/img/9708056-the-misfit-of-demon-king-academy.png") center/cover;
+}
+/*
+https://wallpaperaccess.com/full/4115818.jpg
+https://th.bing.com/th/id/OIP.JRvjw9aINPFxaDVXXyZrYgHaF8?w=226&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3
+https://wallpaperaccess.com/full/2725441.jpg
+https://th.bing.com/th/id/OIP.vYB1cfJbsr7rz_cVHN_TMAHaEs?w=235&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3
+https://wallpaperbat.com/img/9708074-misfit-of-the-demon-king-academy-x.jpg*/
+.Anime-footer {
+    margin: auto; 
+    padding: 30px 16px;
+    display: grid;    border-top: 1px solid #27272a;
+    margin-top: 20px; 
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    font-size: 13px;
+    color: #a1a1aa;
+}
+.Anime-footer h4 {
+    color: #e4e4e7; margin-bottom: 8px;
+}
+@media (max-width: 560px){
+        .squush-anime-top-text{
+        font-size: 20px;
+        display: none;
+    }
+    .squush-anime-search{
+        margin-left: 0px;
+        margin-right: -10px;
+    }
+    .squush-anime-search-btn{
+        margin-left: 10px;
+    }
+}
+.Squush-Scroll,.Squush-Scroll-Text{
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+.Demon-text h2:nth-child(2){
+    font-size: 14px;
+}
+.Video-Watch{
+    width: 100%;
+    top: 0;
+    margin-top: -10px;
+    height: 300px;
+}
+.Video-Watch iframe{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.Video-Watch-Text{
+    display: flex;    
+    margin-top: 15px;
+}
+.Video-Watch-Text h2:nth-child(1){
+    margin-left: 10px;
+    font-size: 25px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+.Video-Watch-Text h2:nth-child(2){
+    font-size: 14px;
+    margin-top: 5px;
+    position: absolute;
+    right: 25px;
+    color: #5f8bf2;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+.Video-Watch-Text h2:nth-child(2):hover{
+    color: #347dfb;
+}/*Squush Anime Text Content End*/
+.Sqaush-New{
+    background-color: rgb(0, 0, 0, 0.8);
+    font-size: 12px;
+    width:30px;
+    text-align: center;
+    height: 15px;
+    font-family: 'inter', sans-serif;
+    position: absolute;
+    right: 4px;
+    border-radius: 10px;
+    top: 2px;
+}
+.Squush-Page{
+    background: linear-gradient( to right,#586adc, #3471ff, #347dfb);
+    font-size: 11px;
+    width: 30px;
+    text-align: center;
+    height: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    font-family: 'inter', sans-serif;
+}
+
+
+/* CARD */
+.skyblue_squush_container_card {
+    width: 100%;
+    max-width: 355px;
+    padding: 25px;
+    border-radius: 18px;
+    background: rgba(20, 20, 20, 1);
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    text-align: center;
+    position: relative;
+}
+
+/* TITLE */
+.skyblue_squush_title_text {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* PROFILE */
+.skyblue_squush_profile_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.skyblue_squush_profile_circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px solid #87ceeb;
+    object-fit: cover;
+    background: #111;
+}
+
+/* FILE INPUT */
+.skyblue_squush_file_input { display: none; }
+
+.skyblue_squush_file_label {
+    padding: 8px 16px;
+    background: skyblue;
+    color: black;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+/* INPUTS */
+.skyblue_squush_input_field {
+    width: 100%;
+    padding: 12px;
+    margin: 8px -10px;
+    margin-right: 40px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    background: #0f0f0f;
+    color: white;
+}
+
+/* BUTTONS */
+.skyblue_squush_button_primary,
+.skyblue_squush_button_secondary {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.skyblue_squush_button_primary {
+    background: skyblue;
+    border: none;
+    color: black;
+}
+
+.skyblue_squush_button_secondary {
+    background: transparent;
+    border: 1px solid skyblue;
+    color: skyblue;
+}
+
+/* PAGE SYSTEM (NO ACTIVE ANYMORE) */
+.skyblue_squush_page {
+    display: none;
+}
+
+.skyblue_squush_state_page_visible_mode_ultra_active {
+    display: block;
+}
+
+/* DASHBOARD */
+.skyblue_squush_user_box {
+    color: white;
+}
+
+/* LOADER */
+.skyblue_squush_loader_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(6px);
+    z-index: 999;
+}
+
+.skyblue_squush_spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid #333;
+    border-top: 5px solid skyblue;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* BACK ICON */
+.skyblue_squush_back_icon {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(135, 206, 235, 0.15);
+    color: skyblue;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.skyblue_squush_back_icon:hover {
+    background: skyblue;
+    color: black;
+    transform: scale(1.1);
+}
+.LoginUI{
+    position: absolute;
+    z-index: 3;
+}
+
+
 @media (max-width: 560px){
     .Content-Container{
         display: none;

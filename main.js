@@ -451,7 +451,7 @@ function showAnimePage() {
         <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-chart-line move"></i></i></span>
                 <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid  fa-download"></i></i></span>
      <i class="fa-solid fa-bell"></i>
-     <button   onclick="closeAnimePage()" class="Login">Back</button>
+     <button   onclick="closeAnimePage(),openBottomTab()" class="Login">Back</button>
      <i class="fa-solid fa-arrow-right"></i>
      </div>
 
@@ -1624,4 +1624,13 @@ function openBody(){
 function closeBody() {
     document.getElementById("bodyTab").style.display = "none";
     document.getElementById("footMargin").style.display="none";
+}
+function closeBottomTab() {
+    document.getElementById("bottomTab").style.display = "none";
+}
+function openBottomTab(){
+     document.getElementById("bottomTab").style.display="flex";
+}
+function openHomeClass(){
+     document.getElementById("")
 }

@@ -543,5 +543,7 @@ https://wallpaperbat.com/img/9708074-misfit-of-the-demon-king-academy-x.jpg*/
 }
 .LoginUI{
     position: absolute;
-    z-index: 1000;
+    z-index: 3;
 }
+
+

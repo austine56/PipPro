@@ -451,7 +451,7 @@ function showAnimePage() {
         <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-chart-line move"></i></i></span>
                 <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid  fa-download"></i></i></span>
      <i class="fa-solid fa-bell"></i>
-     <button   onclick="closeAnimePage(),openBottomTab()" class="Login">Back</button>
+     <button onclick="closeAnimePage(),openBottomTab()" class="Login">Back</button>
      <i class="fa-solid fa-arrow-right"></i>
      </div>
 
@@ -1631,6 +1631,65 @@ function closeBottomTab() {
 function openBottomTab(){
      document.getElementById("bottomTab").style.display="flex";
 }
-function openHomeClass(){
-     document.getElementById("")
+function openStreamClass() {
+     const mainContent = document.getElementById('main-content');
+     mainContent.innerHTML = `
+          <div class="squush-streaming-platform-movies-page-main-content-layout-wrapper-container" id="streamClass">
+                              <div class="Top squush-anime-top">
+               <h2 class="squush-anime-top-text">Squush About</h2>
+     <i class="fa-solid fa-magnifying-glass squush-anime-search-btn"></i>
+     <input type="text" 
+        id="searchInput" onkeyup="showSuggestions()" class="search-box squush-anime-search" placeholder="Search...">
+        <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon move"></i></span>
+                <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-star"></i></i></span>
+     <i class="fa-solid fa-bell"></i>
+     <button  class="Login">Back</button>
+     <i class="fa-solid fa-arrow-right"></i>
+     </div>
+
+          </div>
+    `;
+}
+function openSortClass() {
+     const mainContent = document.getElementById('main-content');
+     mainContent.innerHTML = `
+          <div class="squush-streaming-platform-movies-page-main-content-layout-wrapper-container" id="streamClass">
+                              <div class="Top squush-anime-top">
+               <h2 class="squush-anime-top-text">Squush About</h2>
+     <i class="fa-solid fa-magnifying-glass squush-anime-search-btn"></i>
+     <input type="text" 
+        id="searchInput" onkeyup="showSuggestions()" class="search-box squush-anime-search" placeholder="Search...">
+        <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon move"></i></span>
+                <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-bookmark"></i></i></span>
+     <i class="fa-solid fa-bell"></i>
+     <button  class="Login">Back</button>
+     <i class="fa-solid fa-arrow-right"></i>
+     </div>
+
+          </div>
+    `;
+}
+function openProfileClass() {
+     const mainContent = document.getElementById('main-content');
+     mainContent.innerHTML = `
+          <div class="squush-streaming-platform-movies-page-main-content-layout-wrapper-container" id="streamClass">
+                              <div class="Top squush-anime-top">
+               <h2 class="squush-anime-top-text">Squush About</h2>
+     <i class="fa-solid fa-magnifying-glass squush-anime-search-btn"></i>
+     <input type="text" 
+        id="searchInput" onkeyup="showSuggestions()" class="search-box squush-anime-search" placeholder="Search...">
+        <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon move"></i></span>
+                <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-home"></i></i></span>
+     <i class="fa-solid fa-bell"></i>
+     <button  class="Login">Back</button>
+     <i class="fa-solid fa-arrow-right"></i>
+     </div>
+
+          </div>
+    `;
+}
+function closeBottomClass(){
+     document.getElementById("streamClass").style.display ="none";
+     document.getElementById("bodyTab").style.display ="block";
+     document.getElementById("footMargin").style.display="block";
 }

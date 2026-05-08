@@ -1042,11 +1042,11 @@ body{
 /*Bottom Tab Container*/
 .Bottom-Tab {
     position: fixed;
-    bottom: 5px;
+    bottom: 0px;
     left: 50%;
     height: 25px;
     transform: translateX(-50%);
-    width: 92%;
+    width: 100%;
     max-width: 400px;
     display: flex;
     justify-content: space-around;
@@ -1055,7 +1055,7 @@ body{
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    border-radius: 25px;
+    border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
@@ -1093,13 +1093,14 @@ body{
 ========================= */
 .TabIndicator {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 25%;
-    height: 100%;
+    bottom: 3.5px;
+    left: 15px;
+    right: 12px;
+    width: 23.5%;
+    height: 45px;
     background: rgba(255, 255, 255, 0.30);
      box-shadow: none;
-    border-radius: 20px;
+    border-radius: 10px;
     transition: transform 0.3s ease;
 }
 

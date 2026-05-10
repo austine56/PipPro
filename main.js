@@ -1547,14 +1547,14 @@ function showMoviesPage() {
      mainContent.innerHTML = `
           <div class="squush-streaming-platform-movies-page-main-content-layout-wrapper-container" id="moviesPage">
                               <div class="Top squush-anime-top">
-               <h2 class="squush-anime-top-text">Squush Movies</h2>
-     <i class="fa-solid fa-magnifying-glass squush-anime-search-btn"></i>
+            <!--   <h2 class="squush-anime-top-text">Squush Movies</h2>
+    <!-- <i class="fa-solid fa-magnifying-glass squush-anime-search-btn"></i>-->
      <input type="text" 
         id="searchInput" onkeyup="showSuggestions()" class="search-box squush-anime-search" placeholder="Search...">
         <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon move"></i></span>
                 <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-chart-line"></i></i></span>
      <i class="fa-solid fa-bell"></i>
-     <button   onclick="closeMoviesPage()" class="Login">Back</button>
+     <button   onclick="closeMoviesPage()" class="Login">Back</button>-->
      <i class="fa-solid fa-arrow-right"></i>
      </div>
 
@@ -1571,15 +1571,15 @@ function showAboutPage() {
      mainContent.innerHTML = `
           <div class="squush-streaming-platform-movies-page-main-content-layout-wrapper-container" id="aboutPage">
                               <div class="Top squush-anime-top">
-               <h2 class="squush-anime-top-text">Squush About</h2>
-     <i class="fa-solid fa-magnifying-glass squush-anime-search-btn"></i>
+            <!--   <h2 class="squush-anime-top-text">Squush About</h2>
+     <!--<i class="fa-solid fa-magnifying-glass squush-anime-search-btn"></i>-->
      <input type="text" 
         id="searchInput" onkeyup="showSuggestions()" class="search-box squush-anime-search" placeholder="Search...">
         <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon move"></i></span>
                 <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-star"></i></i></span>
      <i class="fa-solid fa-bell"></i>
      <button   onclick="closeAboutPage()" class="Login">Back</button>
-     <i class="fa-solid fa-arrow-right"></i>
+     <i class="fa-solid fa-arrow-right"></i>-->
      </div>
 
           </div>
@@ -1629,11 +1629,11 @@ function openStreamClass() {
                <h2 class="squush-anime-top-text">Squush About</h2>
      <input type="text" 
         id="searchInput" onkeyup="showSuggestions()" class="search-box squush-anime-search" placeholder="Search...">
-        <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon move"></i></span>
+       <!-- <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon move"></i></span>
                 <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-star"></i></i></span>
      <i class="fa-solid fa-bell"></i>
      <button  class="Login">Back</button>
-     <i class="fa-solid fa-arrow-right"></i>
+     <i class="fa-solid fa-arrow-right"></i>-->
      </div>
 
           </div>
@@ -1644,14 +1644,14 @@ function openSortClass() {
      mainContent.innerHTML = `
           <div class="squush-streaming-platform-movies-page-main-content-layout-wrapper-container" id="streamClass">
                               <div class="Top squush-anime-top">
-               <h2 class="squush-anime-top-text">Squush About</h2>
-     <input type="text" 
+           <h2 class="squush-anime-top-text">Squush About</h2>
+   <!--  <input type="text" 
         id="searchInput" onkeyup="showSuggestions()" class="search-box squush-anime-search" placeholder="Search...">
-        <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon move"></i></span>
+       <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon move"></i></span>
                 <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-bookmark"></i></i></span>
      <i class="fa-solid fa-bell"></i>
      <button  class="Login">Back</button>
-     <i class="fa-solid fa-arrow-right"></i>
+     <i class="fa-solid fa-arrow-right"></i>-->
      </div>
 
           </div>
@@ -1662,14 +1662,14 @@ function openProfileClass() {
      mainContent.innerHTML = `
           <div class="squush-streaming-platform-movies-page-main-content-layout-wrapper-container" id="streamClass">
                               <div class="Top squush-anime-top">
-               <h2 class="squush-anime-top-text">Squush About</h2>
+              <!-- <h2 class="squush-anime-top-text">Squush About</h2>
      <input type="text" 
         id="searchInput" onkeyup="showSuggestions()" class="search-box squush-anime-search" placeholder="Search...">
         <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon move"></i></span>
                 <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-home"></i></i></span>
      <i class="fa-solid fa-bell"></i>
      <button  class="Login">Back</button>
-     <i class="fa-solid fa-arrow-right"></i>
+     <i class="fa-solid fa-arrow-right"></i>-->
      </div>
 
           </div>

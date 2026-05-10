@@ -74,12 +74,8 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
 });
-
-
-
 let historyStack = [];
 const ULTRA_ACTIVE = "skyblue_squush_state_page_visible_mode_ultra_active";
-
 /* SWITCH PAGE */
 function switchPage(page){
 
@@ -95,7 +91,6 @@ function switchPage(page){
 
     document.getElementById(page + "Page").classList.add(ULTRA_ACTIVE);
 }
-
 /* BACK */
 function goBack(){
     if(historyStack.length === 0) return;
@@ -108,7 +103,6 @@ function goBack(){
 
     document.getElementById(prev + "Page").classList.add(ULTRA_ACTIVE);
 }
-
 /* LOADER */
 function showLoader(){
     document.getElementById("loader").style.display = "flex";
@@ -116,14 +110,12 @@ function showLoader(){
 function hideLoader(){
     document.getElementById("loader").style.display = "none";
 }
-
 /* IMAGE */
 function readImage(file, cb){
     const r = new FileReader();
     r.onload = e => cb(e.target.result);
     r.readAsDataURL(file);
 }
-
 /* REGISTER */
 function registerUser(){
     let user = {
@@ -143,7 +135,6 @@ function registerUser(){
     alert("Account created!");
     switchPage("login");
 }
-
 /* LOGIN */
 function loginWithLoader(){
 
@@ -176,13 +167,11 @@ function loginWithLoader(){
 
     }, 1500);
 }
-
 /* LOGOUT */
 function logoutUser(){
     document.getElementById("mainCard").style.display = "block";
     switchPage("login");
 }
-
 /* IMAGE */
 function setupImage(id, preview){
     document.getElementById(id).addEventListener("change", function(){
@@ -195,9 +184,7 @@ function setupImage(id, preview){
         }
     });
 }
-
 // SKYBLUE SQUUSH UPLOAD FIX (ROBUST VERSION)
-
 document.addEventListener("DOMContentLoaded", function () {
 
     const loginInput = document.getElementById("loginFile");
@@ -235,10 +222,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
-
 setupImage("loginFile","loginPreview");
 setupImage("registerFile","registerPreview");
-
 document.addEventListener("DOMContentLoaded", function () {
 
     function getUsers() {
@@ -317,7 +302,6 @@ document.addEventListener("DOMContentLoaded", function () {
     window.loginUser = loginUser;
 
 });
-
 const data = [
     "Super Cube","My Hero Academia","Attack on Titan",
     "Demon Slayer","Jujutsu Kaisen","Never Have I Ever","Dr Stone","Dragon Ball",
@@ -442,22 +426,14 @@ function showAnimePage() {
     const mainContent = document.getElementById('main-content');
     
     mainContent.innerHTML = `
-        <div class="squush-streaming-platform-anime-page-main-content-layout-wrapper-container" id="animePage">
+     <div class="squush-streaming-platform-anime-page-main-content-layout-wrapper-container squush-anime-top" id="animePage">
                <div class="Top squush-anime-top">
-               <h2 class="squush-anime-top-text">Squush Trends</h2>
-     <i class="fa-solid fa-magnifying-glass squush-anime-search-btn"></i>
-     <input type="text" 
-        id="searchInput" onkeyup="showSuggestions()" class="search-box squush-anime-search" placeholder="Search...">
-        <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-chart-line move"></i></i></span>
-                <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid  fa-download"></i></i></span>
-     <i class="fa-solid fa-bell"></i>
-     <button onclick="closeAnimePage(),openBottomTab()" class="Login">Back</button>
-     <i class="fa-solid fa-arrow-right"></i>
      </div>
 
     <div class="Background squush-anime-clip-head" id="myKaisen" style="display:none;">
      <div class="Anime-Steps-Content Kaisen">
           <div class="Anime-Steps">
+               <i onclick="closeAnimePage(),openBottomTab()" class="fa-solid fa-chevron-left Squush-Back-Right"></i>
                <div class="Anime-Steps-Set"> 
                <h2>Jujustu Kaisen</h2>
                <a>Itadori, The Strongest Sorcerer. Experience All Episodes In High Quality.</a>
@@ -467,6 +443,11 @@ function showAnimePage() {
           </div>
      </div>
   </div>
+
+              <div class="Trend-Text-Section">
+                    <a></a>
+
+            </div>
 
          <div class="Text-Content-Anime" id="mytextKaisen" style="display:none;">
           <h2>Download Now</h2>
@@ -559,7 +540,8 @@ function showAnimePage() {
 
             <div class="Anime-Steps-Content Xokitty" id="myHero" style="display:none;">
           <div class="Anime-Steps">
-               <div class="Anime-Steps-Set"> 
+               <i onclick="closeAnimePage(),openBottomTab()" class="fa-solid fa-chevron-left Squush-Back-Right"></i>
+               <div class="Anime-Steps-Set">           
                <h2>Xo Kitty</h2>
                <a>Kitty desire to find her mother's path. Experience All Episodes In High Quality.</a>
                <p><button>▶ Watch Now</button>
@@ -658,6 +640,7 @@ function showAnimePage() {
 
          <div class="Anime-Steps-Content Dragon-Ball" id="myDragon" style="display:none;">
           <div class="Anime-Steps">
+               <i onclick="closeAnimePage(),openBottomTab()" class="fa-solid fa-chevron-left Squush-Back-Right"></i>
                <div class="Anime-Steps-Set"> 
                <h2>Dragon Ball Super</h2>
                <a>Goku With The Quest Of Unlimited Power. Experience All Episodes In High Quality.</a>
@@ -758,6 +741,7 @@ function showAnimePage() {
 
            <div class="Anime-Steps-Content Demon-Slayer" id="mySlayer" style="display:none;">
           <div class="Anime-Steps">
+               <i onclick="closeAnimePage(),openBottomTab()" class="fa-solid fa-chevron-left Squush-Back-Right"></i>
                <div class="Anime-Steps-Set"> 
                <h2>Demon Slayer</h2>
                <a>Tanjiro Becomes a Demon Slayer to protect his Sister. Experience All Episodes In High Quality.</a>
@@ -857,6 +841,7 @@ function showAnimePage() {
 
                  <div class="Anime-Steps-Content Super-Cube" id="myCube" style="display:none;">
           <div class="Anime-Steps">
+               <i onclick="closeAnimePage(),openBottomTab()" class="fa-solid fa-chevron-left Squush-Back-Right"></i>
                <div class="Anime-Steps-Set"> 
                <h2>Super Cube</h2>
                <a>Wang Xiaoxiu, who accidentally obtains the mysterious "Superpower Cube".Experience All Episodes In High Quality.</a>
@@ -956,6 +941,7 @@ function showAnimePage() {
 
           <div class="Anime-Steps-Content Dr-Stoner" id="myStoner" style="display:none;">
           <div class="Anime-Steps">
+               <i onclick="closeAnimePage(),openBottomTab()" class="fa-solid fa-chevron-left Squush-Back-Right"></i>
                <div class="Anime-Steps-Set"> 
                <h2>Do Revenge </h2>
                <a>Finding a purpose in high school. Experience All Episodes In High Quality.</a>
@@ -1055,6 +1041,7 @@ function showAnimePage() {
 
                    <div class="Anime-Steps-Content Solo-Level" id="mySolo" style="display:none;">
           <div class="Anime-Steps">
+               <i onclick="closeAnimePage(),openBottomTab()" class="fa-solid fa-chevron-left Squush-Back-Right"></i>
                <div class="Anime-Steps-Set"> 
                <h2>Never Have I Ever</h2>
                <a>Devi Having To Choose Between Two Of Her Boyfriends. Experience All Episodes In High Quality.</a>
@@ -1154,6 +1141,7 @@ function showAnimePage() {
 
                             <div class="Anime-Steps-Content On-Titans" id="myTitans" style="display:none;">
           <div class="Anime-Steps">
+               <i onclick="closeAnimePage(),openBottomTab()" class="fa-solid fa-chevron-left Squush-Back-Right"></i>
                <div class="Anime-Steps-Set"> 
                <h2>Attack On Titans</h2>
                <a>Fighting against the corruption of Titans. Experience All Episodes In High Quality.</a>
@@ -1253,6 +1241,7 @@ function showAnimePage() {
 
                              <div class="Anime-Steps-Content The-Shadow" id="myShadow" style="display:none;">
           <div class="Anime-Steps">
+               <i onclick="closeAnimePage(),openBottomTab()" class="fa-solid fa-chevron-left Squush-Back-Right"></i>
                <div class="Anime-Steps-Set"> 
                <h2>Wednesday</h2>
                <a>Showing Off Demon School. Experience All Episodes In High Quality.</a>
@@ -1352,6 +1341,7 @@ function showAnimePage() {
 
                                            <div class="Anime-Steps-Content Demon-King" id="myKing" style="display:none;">
           <div class="Anime-Steps">
+               <i onclick="closeAnimePage(),openBottomTab()" class="fa-solid fa-chevron-left Squush-Back-Right"></i>
                <div class="Anime-Steps-Set"> 
                <h2> Misfit of The Demon King Academia</h2>
                <a>Reclaiming his throne from a fake Demon King. Experience All Episodes In High Quality.</a>
@@ -1637,7 +1627,6 @@ function openStreamClass() {
           <div class="squush-streaming-platform-movies-page-main-content-layout-wrapper-container" id="streamClass">
                               <div class="Top squush-anime-top">
                <h2 class="squush-anime-top-text">Squush About</h2>
-     <i class="fa-solid fa-magnifying-glass squush-anime-search-btn"></i>
      <input type="text" 
         id="searchInput" onkeyup="showSuggestions()" class="search-box squush-anime-search" placeholder="Search...">
         <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon move"></i></span>
@@ -1656,7 +1645,6 @@ function openSortClass() {
           <div class="squush-streaming-platform-movies-page-main-content-layout-wrapper-container" id="streamClass">
                               <div class="Top squush-anime-top">
                <h2 class="squush-anime-top-text">Squush About</h2>
-     <i class="fa-solid fa-magnifying-glass squush-anime-search-btn"></i>
      <input type="text" 
         id="searchInput" onkeyup="showSuggestions()" class="search-box squush-anime-search" placeholder="Search...">
         <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon move"></i></span>
@@ -1675,7 +1663,6 @@ function openProfileClass() {
           <div class="squush-streaming-platform-movies-page-main-content-layout-wrapper-container" id="streamClass">
                               <div class="Top squush-anime-top">
                <h2 class="squush-anime-top-text">Squush About</h2>
-     <i class="fa-solid fa-magnifying-glass squush-anime-search-btn"></i>
      <input type="text" 
         id="searchInput" onkeyup="showSuggestions()" class="search-box squush-anime-search" placeholder="Search...">
         <span id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon move"></i></span>
@@ -1692,4 +1679,12 @@ function closeBottomClass(){
      document.getElementById("streamClass").style.display ="none";
      document.getElementById("bodyTab").style.display ="block";
      document.getElementById("footMargin").style.display="block";
+}
+function contentContainer(){
+     document.getElementById("contentContainer").style.display="block"
+     document.getElementById("menuOverlay").style.display="block"
+}
+function closeMenu(){
+     document.getElementById("contentContainer").style.display="none"
+     document.getElementById("menuOverlay").style.display="none"
 }

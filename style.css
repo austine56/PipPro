@@ -229,7 +229,6 @@ body{
     display: flex;
     font-family: 'Inter', sans-serif;
     font-size: 12px;
-    overflow-y: hdden;
     display: none;
     margin-top: 15px;
     cursor: pointer;
@@ -237,11 +236,13 @@ body{
 }
 .Nav a{
     margin-left: 10px;
+    display: none;
     padding: 4px;
     background-color: rgb(63, 63, 63);
-    border-radius: 6px;
-    padding-left: 5px;
-    padding-right: 5px;
+    border-radius: 10px;
+    border: none;
+    padding-left: 6px;
+    padding-right: 6px;
     font-weight: 500;
 }
 .Nav a:nth-child(2){
@@ -252,10 +253,85 @@ body{
     color: rgb(0, 0, 0);
     background-color: white;
 }
-.Top{
+.Sqaush-Top{
     width: 100%;
-    height: 50%;
+    height: 40px;
     display: flex;
+}
+.Sqaush-Top h2{
+    font-size: 22px;
+    padding: 20px;
+    height: 30px;
+    padding-left: 10px;
+    padding-top: 10px;
+    font-family:  system-ui,'Segoe UI','Open Sans', 'Helvetica Neue', sans-serif;
+}
+.searchInput-div{
+    background-color: rgba(0, 0, 0, 0);
+    width: 50%;
+    position: relative;
+     height: 40px;
+     border-radius: 10px;
+     margin-bottom: -20px;
+    left: 10px;
+    margin-top: 10px;
+}
+.searchInput-div i{
+    z-index: 2;
+    font-size: 20px;
+    position: absolute;
+    left: -45px;
+    font-size: 16px;
+    margin-bottom: -10px;
+    top: 8px;
+    padding: 5px;
+    border-radius: 5px;
+    background: #33333300;
+    color: white;
+}
+/*.Trend-Text-Section{
+    width: 100%;
+    height: 200px;
+    background-color: red;
+}*/
+.Squash-search-top-btn{
+    height: 40px;
+    width: 97.5%;
+    z-index: 1;
+    border: none;
+    position: absolute;
+    margin-bottom: -20px;
+    color: white;
+    border-radius: 10px;
+    padding-right: 0px;
+    background-color: #15151555;
+    padding-left: 38px;
+}
+.Sqaush-Top div{
+    right: 0px;
+    display: flex;
+    gap: 12px;
+    position: absolute;
+    padding: 20px;
+    width: 60px;
+    margin-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 19px;
+}
+.Sqaush-Top div i:nth-child(1){
+    color: rgb(255, 255, 255);
+     background-color: #33333300;
+    padding: 10px;
+    border-radius: 30px;
+}
+.Sqaush-Top div i:nth-child(2){
+    color: rgb(255, 255, 255);
+    background-color: #33333000;
+    padding: 10px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 30px;
 }
 .search-box{
     width: 45%;
@@ -298,12 +374,12 @@ body{
 .suggestions div:hover {
     background: #333;
 }
-.fa-bell{
+/*.fa-bell{
     margin-top: 22px; 
     margin-left: 20px;
     color: #ffffff;
     margin-right: 20px;
-}
+}*/
 
 .dark {
     background: #141414;
@@ -1785,8 +1861,6 @@ https://wallpaperbat.com/img/9708074-misfit-of-the-demon-king-academy-x.jpg*/
     top: 0px;
 }
 
-.Trend-Text-Section{
-}
 
 @media (max-width: 560px){
     .Content-Container{
@@ -1814,3 +1888,4 @@ https://wallpaperbat.com/img/9708074-misfit-of-the-demon-king-academy-x.jpg*/
         display: none;
     }
 }
+

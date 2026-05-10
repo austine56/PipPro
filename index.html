@@ -163,41 +163,18 @@
           </div>
           </div>   
   </div>
-  <style>.Squuash-Menu{
-    padding: 10px;
-    font-size: 20px;
-    margin-top: 12px;
-    margin-right: -10px;
-}
-.Top main{
-     position: relative;
-    display: flex;
-    flex-grow: 1;
-    margin-right: 10px;
-}
-.Top main i{
-    background: #333;
-    top: 13px;
-     right: 0px;
-     padding: 10px;
-     border-radius: 8px;
-    position: absolute;
-    color: rgb(255, 255, 255);
-}
-</style>
   <!--Main Content-->
    <div class="Menu-Overlay" id="menuOverlay" onclick="closeMenu()"></div>
   <div class="Body" id="bodyTab">
   <div class="Background">
-     <div class="Top">
-    <i onclick="contentContainer()" class="fa-solid fa-bars Squuash-Menu"></i> <main><i class="fa-solid fa-magnifying-glass"></i><input type="text"
-        id="searchInput" onkeyup="showSuggestions()" class="search-box" placeholder="Search..."></main>
-        <span id="icon" class="icon" style="display: none;" onclick="toggleTheme()"><i style="display: none;"  class="fa-solid fa-moon move"></i></span>
-                <span style="display: none;"  id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></span>
-     <i style="display: none;" class="fa-solid fa-bell"></i>
-    <!-- <button  onclick="openModal()" class="Login">Login</button>
-     <i class="fa-solid fa-arrow-right"></i>-->
+     <div class="Sqaush-Top">
+         <h2>AUSTINE</h2>
+          <div>
+          <i class="fa-regular fa-bell"></i>
+          <i class="fa-regular fa-user"></i>
+          </div>
      </div>
+          <div class="searchInput-div"><input type="Text" class="Squash-search-top-btn" placeholder="Search..."><i class="fa-solid fa-magnifying-glass"></i></div>
         <div class="Navlinks">
             <div class="Nav">
                    <b onclick="openBody()"></b><a>Home</a></b>
@@ -213,6 +190,8 @@
                 <a class="Squush-Page">anime</a>
                <h2>Jujustu Kaisen</h2>
                <a>The Strongest Sorcerer. Experience All Episodes In High Quality.</a>
+                <p><button>▶ Watch Now</button>
+               <button>Download All</button>
                </div>
           </div>
      </div>
@@ -223,8 +202,8 @@
                 <a class="Squush-Page">movie</a>
                <h2>Kissing is the easy part</h2>
                <a>Flora and Sean, Exploring Themes Of Vulnerability. Experience All Episodes In High Quality.</a>
-               <!--<p><button>▶ Watch Now</button>
-               <button>Download All</button>-->
+                 <p><button>▶ Watch Now</button>
+               <button>Download All</button>
                </div>
           </div>
      </div>
@@ -235,7 +214,9 @@
                 <a class="Squush-Page">series</a>
                <h2>Xo Kitty</h2>
                <a>Kitty Desires To Reconnect With Her Mother . Experience All Episodes In High Quality.</a>
-               </div>
+                      <p><button>▶ Watch Now</button>
+               <button>Download All</button>
+          </div>
           </div>
      </div>
 
@@ -245,7 +226,9 @@
                 <a class="Squush-Page">series</a>
                <h2>Never Have I Ever</h2>
                <a>Devi Having To Choose Between Two Of Her Boyfriends. Experience All Episodes In High Quality.</a>
-               </div>
+                      <p><button>▶ Watch Now</button>
+               <button>Download All</button>
+          </div>
           </div>
      </div>
 </div>
@@ -593,7 +576,14 @@ tabs.forEach((tab, index) => {
     });
 
 });
-</script>   
+</script>
+    <!--<i onclick="contentContainer()" class="fa-solid fa-bars Squuash-Menu"></i> <main><i class="fa-solid fa-magnifying-glass"></i><input type="text"
+        id="searchInput" onkeyup="showSuggestions()" class="search-box" placeholder="Search..."></main>
+        <span id="icon" class="icon" style="display: none;" onclick="toggleTheme()"><i style="display: none;"  class="fa-solid fa-moon move"></i></span>
+                <span style="display: none;"  id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></span>
+     <i style="display: none;" class="fa-solid fa-bell"></i>-->
+    <!-- <button  onclick="openModal()" class="Login">Login</button>
+     <i class="fa-solid fa-arrow-right"></i>-->   
     <script src="main.js"></script>
 </body>
 </html>

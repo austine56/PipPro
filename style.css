@@ -16,7 +16,7 @@ body{
   --accent: #8B5CF6;
 }
 .Content-Container{
-    width: 240px;
+    width: 210px;
     height: 100vh;
     z-index: 3;
     position: fixed;
@@ -468,7 +468,7 @@ body{
     backdrop-filter: blur(10px);
     font-weight: 600;
     font-family: 'Inter', sans-serif;
-    background: linear-gradient( to right,#586adc, #3471ff, #347dfb);
+    background:  #c5d9fd17;
  }
 .Steps button:focus{
     background: linear-gradient( to right,#586adc, #3471ff, #347dfb);

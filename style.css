@@ -18,19 +18,28 @@ body{
 .Content-Container{
     width: 210px;
     height: 100vh;
+    cursor: pointer;
     z-index: 3;
     position: fixed;
     overflow: hidden;
-    background:  rgb(6, 6, 6);
+    overflow-y: scroll;
+    background:  rgb(0, 0, 0);
+}
+.Content-Container::-webkit-scrollbar{
+    display: none;
 }
 .Content-Container h2{
     color: #ffffff;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 700;
-    margin-top: 10px;
+    margin-top: 0px;
+    padding-top: 10px;
     margin-bottom: 20px;
-    margin-left: 30px;
-    font-family: monospace;
+    margin-left: 0px;
+    padding-left: 55px;
+    height: 50px;
+    border-bottom: 0.3px solid rgba(255, 255, 255, 0.075);
+    font-family: 'inter', sans-serif;
 }
 .Contents{
     width: 90%;
@@ -43,6 +52,7 @@ body{
     width: 100%;
     height: 30px;
     font-size: 13px;
+    margin-bottom: 10px;
     border-radius: 7px;
     position: relative;
     font-family: 'Inter', sans-serif;
@@ -51,6 +61,7 @@ body{
     width: 165px;
     padding-left: 35px;
     height: 30px;
+    cursor: pointer;
     font-weight: 500;
     position: absolute;
     top: 7px;
@@ -63,23 +74,28 @@ body{
     color: #fffff0;
 }
 .Content:hover{
-    border: 1px solid rgb(255, 255, 255, 0.3);
-    box-shadow: 2px 1px rgb(146, 146, 146, 0.2);
+
     backdrop-filter: blur(10px);
     background: linear-gradient( to right,rgba(53, 53, 53, 0.4)) ;
     transition: top left ease 2s;
+    /*border: 1px solid rgb(255, 255, 255, 0.3);
+    box-shadow: 2px 1px rgb(146, 146, 146, 0.2);*/
 }
+ 
 .Recents{
-    margin-top: 10px;
+    margin-top: 20px;
+
 }
 .Recent-Tab{
-    font-size: 13px;
+    font-size: 16px;
     left: 10px;
+    font-weight: 600;
     font-family: 'Inter', sans-serif;
 }
 .fa-x{
     position: absolute;
-    top: 285px;
+    top: 295px;
+    display: none;
     font-size: 10px;
     right: 5px;
     color: #495267;
@@ -87,7 +103,7 @@ body{
 .Cards{
     width: 100%;
     height: 200px;
-    top: 10px;
+    top: 20px;
     position: relative;
 }
 .Card-1{
@@ -98,7 +114,7 @@ body{
     margin-bottom: 20px;
     object-fit: contain;
     background-size: 100% 40px;
-    background: url(" https://tse3.mm.bing.net/th/id/OIP.ZLQBzGffp1SLw9wd0Q9E7AHaE8?rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+    background: url("https://i.musicaimg.com/discos/max/70341.jpg")center/cover;
 }
 .Cards h5{
     top: 2px;
@@ -119,7 +135,7 @@ body{
     border-radius: 6px;
     margin-bottom: 20px;
     background-size: 50px 40px;
-    background: url("https://th.bing.com/th/id/OIP._h3Ge8hlsqrzm-jPp0KsJAHaEK?w=321&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3")center/cover;
+    background: url("https://th.bing.com/th/id/R.52a779dd459882d74c48815a5d333dd2?rik=OMqraf2O07N%2b6Q&pid=ImgRaw&r=0")center/cover;
 }
 .Cards h6{
     top: 64px;
@@ -140,7 +156,7 @@ body{
     height: 40px;
     border-radius: 6px;
     background-size: 50px 40px ;
-    background: url("https://th.bing.com/th/id/OIP.nso6azGZXBnikhQ4sWlS7wHaF5?w=236&h=188&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3")center/cover;
+    background: url("https://wallpapercave.com/wp/wp15597656.jpg")center/cover;
 }
 .Cards h4{
     top: 124px;
@@ -158,13 +174,14 @@ body{
     font-family: 'Inter', sans-serif;
 }
 .Music-Player{
-    top: 560px;
     width: 100%;
     height: 160px;
-    border-radius: 15px;
+    border-radius: 15px 15px 0px;
+    bottom: 0px;
+    border: 0.1px solid rgb(30, 30, 30);
     position: absolute;
     backdrop-filter: blur(10px);
-    background-color: rgba(10, 10, 10, 0.1);
+    background-color: rgba(0, 0, 0, 0.9);
 }
 .Card{
     width: 50px;
@@ -172,7 +189,7 @@ body{
     margin-top: 20px;
     margin-left: 10px;
     border-radius: 6px;
-    background: url("https://th.bing.com/th/id/OIP.kqcjjFfY5XQa7kcpYY9hPgHaEK?w=284&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3ver")center/cover;
+    background: url("https://i.musicaimg.com/discos/max/70341.jpg")center/cover;
 
 }
 .Card h5{
@@ -227,20 +244,20 @@ body{
 .Navlinks{
     margin-left: 230px;
     display: flex;
+    display: none;
     font-family: 'Inter', sans-serif;
     font-size: 12px;
-    display: none;
     margin-top: 15px;
     cursor: pointer;
     font-weight: 500;
 }
 .Nav a{
     margin-left: 10px;
-    display: none;
     padding: 4px;
     background-color: rgb(63, 63, 63);
     border-radius: 10px;
     border: none;
+    display: none;
     padding-left: 6px;
     padding-right: 6px;
     font-weight: 500;
@@ -262,7 +279,7 @@ body{
     font-size: 22px;
     padding: 20px;
     height: 30px;
-    padding-left: 10px;
+    padding-left: 15px;
     padding-top: 10px;
     font-family:  system-ui,'Segoe UI','Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -272,15 +289,14 @@ body{
     position: relative;
      height: 40px;
      border-radius: 10px;
-     margin-bottom: -20px;
     left: 10px;
-    margin-top: 10px;
+    margin-top: -30px;
 }
 .searchInput-div i{
     z-index: 2;
     font-size: 20px;
     position: absolute;
-    left: -45px;
+    left: 215px;
     font-size: 16px;
     margin-bottom: -10px;
     top: 8px;
@@ -296,13 +312,13 @@ body{
 }*/
 .Squash-search-top-btn{
     height: 40px;
-    width: 97.5%;
+    width: 92%;
     z-index: 1;
     border: none;
     position: absolute;
-    margin-bottom: -20px;
     color: white;
     border-radius: 10px;
+    margin-left: 210px;
     padding-right: 0px;
     background-color: #15151555;
     padding-left: 38px;
@@ -1862,7 +1878,7 @@ https://wallpaperbat.com/img/9708074-misfit-of-the-demon-king-academy-x.jpg*/
 }
 
 
-@media (max-width: 560px){
+@media (max-width: 660px){
     .Content-Container{
         display: none;
     }
@@ -1874,16 +1890,26 @@ https://wallpaperbat.com/img/9708074-misfit-of-the-demon-king-academy-x.jpg*/
     .Watch-Container, .Highlights-Content, .footer, .Navlinks{
         margin-left: 10px;
     }
-    .fa-magnifying-glass{
-        margin-left: 50px;
+    .Squash-search-top-btn{
+        margin-left: 2px;
+        width: 150%;
+    }
+    .searchInput-div{
+        margin-top: 10px;
+    }
+    .searchInput-div i{
+        left: 5px;
     }
     .Sign_Bar_Container{
         width: 96%;
         margin-top: 50px;
         margin-left: 2%;
     }
+    .Steps-Container{
+        margin-top: -15px;
+    }
 }
-@media (min-width: 560px){
+@media (min-width: 660px){
     .Bottom-Tab{
         display: none;
     }

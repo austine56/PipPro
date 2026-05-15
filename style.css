@@ -495,9 +495,7 @@ body{
 .Steps-Container{
     position: relative;
     overflow: hidden;
-    scroll-behavior: smooth;
     margin-bottom: -15px;
-    scroll-snap-type:y mandatory;
     overflow-y: scroll;
 }
 .Steps-Container::-webkit-scrollbar{

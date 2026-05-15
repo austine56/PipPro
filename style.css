@@ -495,8 +495,8 @@ body{
 .Steps-Container{
     position: relative;
     overflow: hidden;
+    height: 268px;
     margin-bottom: -15px;
-    overflow-y: scroll;
 }
 .Steps-Container::-webkit-scrollbar{
     display: none;

@@ -2,589 +2,2171 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-     <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>Squush - Download Anime & Music</title>
-    <script src="main.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PipPro - Purchase Virtual Items</title>
+    <link rel="stylesheet" href="Nexora.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
-<div class="LoginUI" id="modal" style="display: none;">
-         <div class="overlay" id="overlay" onclick="closeModal()"></div>
-<!-- LOADER -->
-<div id="loader" class="skyblue_squush_loader_overlay">
-    <div class="skyblue_squush_spinner"></div>
-</div>
-
-<div id="mainCard" class="skyblue_squush_container_card">
-
-<!-- BACK -->
-<div class="skyblue_squush_back_icon" onclick="goBack(),closeModal()">←</div>
-
-<!-- LOGIN -->
-<div id="loginPage" class="skyblue_squush_page skyblue_squush_state_page_visible_mode_ultra_active">
-
-    <div class="skyblue_squush_title_text">Login</div>
-
-    <div class="skyblue_squush_profile_wrapper">
-        <img id="loginPreview" class="skyblue_squush_profile_circle">
-        <label class="skyblue_squush_file_label">
-            Upload Photo
-            <input type="file" id="loginFile" class="skyblue_squush_file_input">
-        </label>
-    </div>
-
-    <input id="loginUsername" class="skyblue_squush_input_field" placeholder="Username">
-    <input id="loginPassword" class="skyblue_squush_input_field" type="password" placeholder="Password">
-    <input id="loginEmail" class="skyblue_squush_input_field" placeholder="Email">
-    <input id="loginPhone" class="skyblue_squush_input_field" placeholder="Phone">
-
-    <button class="skyblue_squush_button_primary" onclick="loginWithLoader(),loginUser()">Sign In</button>
-    <button class="skyblue_squush_button_secondary" onclick="switchPage('register')">Create Account</button>
-</div>
-
-<!-- REGISTER -->
-<div id="registerPage" class="skyblue_squush_page">
-
-    <div class="skyblue_squush_title_text">Create Account</div>
-
-    <div class="skyblue_squush_profile_wrapper">
-        <img src="" id="registerPreview" class="skyblue_squush_profile_circle">
-        <label class="skyblue_squush_file_label">
-            Upload Photo
-            <input type="file" id="registerFile" class="skyblue_squush_file_input">
-        </label>
-    </div>
-
-    <input id="regUsername" class="skyblue_squush_input_field" placeholder="Username">
-    <input id="regEmail" class="skyblue_squush_input_field" placeholder="Email">
-    <input id="regPassword" class="skyblue_squush_input_field" type="password" placeholder="Password">
-    <input id="regConfirm" class="skyblue_squush_input_field" type="password" placeholder="Confirm Password">
-
-    <button class="skyblue_squush_button_primary" onclick="registerUser()">Create Account</button>
-    <button class="skyblue_squush_button_secondary" onclick="switchPage('login')">Back to Login</button>
-</div>
-
-<!-- DASHBOARD -->
-<div id="dashboardPage" class="skyblue_squush_page">
-
-    <div class="skyblue_squush_title_text">Welcome 👋</div>
-
-    <img id="dashImage" class="skyblue_squush_profile_circle">
-
-    <div class="skyblue_squush_user_box">
-        <h3 id="dashName"></h3>
-        <p id="dashEmail"></p>
-        <p id="dashPhone"></p>
-    </div>
-
-    <button class="skyblue_squush_button_primary" onclick="logoutUser()">Log Out</button>
-</div>
-</div>
-</div>
-    <!--Sidebar Background-->
-    <div class="overlay" id="overlay" onclick="closeModal()"></div>
-<main id="main-content"></main>
- <div class="Content-Container" id="contentContainer">
-         <h2><image class="Squush-Logo" sc="https://img.freepik.com/premium-vector/dark-background-sliced-effect-web-icon-with-modern-visual_462839-4693.jpg"></image>Squush</h2>
-    <div class="Contents">
-        <div class="Content">
-    <i class="fa-solid fa-house"></i>
-        <a onclick="openBody()">Home</a> 
+    <div class="top_container">
+        <h2>
+        <div class="top_menu_icon">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                width="24" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="6" x2="20" y2="6"/>
+                <line x1="4" y1="12" x2="20" y2="12"/>
+                <line x1="4" y1="18" x2="20" y2="18"/>
+            </svg>
         </div>
-        <div class="Content" onclick="closeBody()">
-    <i onclick="showAnimePage()"class="fa-solid fa-video"></i>
-        <a  onclick="showAnimePage()" style="cursor: pointer;">Anime</a> 
-        </div>
-          <div class="Content" onclick="closeBody()">
-     <i class="fa-solid fa-clapperboard"></i>
-        <a onclick="showMoviesPage()" style="cursor: pointer;">Movies</a> 
-        </div>
-              <div class="Content">
-     <i class="fa-brands fa-spotify"></i>
-        <a>Songs</a> 
-        </div>
-             <div class="Content">
-     <i class="fa-solid fa-compact-disc"></i>          
-        <a>Albums</a> 
-        </div>
-             <div class="Content">
-     <i class="fa-solid fa-chart-line"></i>          
-        <a>Top Charts</a> 
-        </div>
-             <div class="Content">
-     <i class="fa-solid fa-shuffle"></i>          
-        <a>Playlists</a> 
-        </div>
-             <div class="Content">
-     <i class="fa-solid fa-heart"></i>          
-        <a>Favorites</a> 
-        </div>
-             <div class="Content">
-     <i class="fa-solid fa-download"></i>          
-        <a>Downloads</a> 
-        </div>
-           <!--Recent Content-->
-          <div class="Recents">
-        <a class="Recent-Tab">Recently Played</a>
-        <i class="fa-solid fa-x"></i>
-          </div>
-               <div class="Cards">
-                    <div class="Card-1"></div>
-                         <h5>Sunflower</h5>
-                         <a>Post Malone</a>
-                         <div class="Card-2"></div>
-                         <h6>Ocean Eyes</h6>
-                         <p>Billie Eilish</p>
-                         <div class="Card-3"></div>
-                         <h4>Your Idol</h4>
-                         <h3>Saja boys</h3>
-                    </div>
-                </div>
-          <!--Music Player-->
-     <div class="Music-Player">
-          <div class="Sets">
-               <div class="Card">
-                         <h5>Sunflower</h5>
-                         <a>Post Malone</a></div>
-                         <i class="fa-solid fa-shuffle"></i>
-               </div>
-               <div class="progress-content">
-               <span class="time-1">1:45</span>
-               <input type="range" class="progress" value="50"/>
-               <span class="time-2">3:20</span>
-          </div>
-          <div class="controls">
-               <i class="fa-solid fa-backward"></i>
-               <div>
-               <i class="fa-solid fa-play"></i>
-               </div>
-               <i class="fa-solid fa-forward"></i>
-          </div>
-          </div>
-     </div>
-  </div>
-  <!--Main Content-->
-   <div class="Menu-Overlay" id="menuOverlay" onclick="closeMenu()"></div>
-  <div class="Body" id="bodyTab">
-  <div class="Background">
-     <div class="Sqaush-Top">
-         <h2>AUSTINE</h2>
+            <span>P</span>
+            <span>i</span>
+            <span>p</span>
+            <span>P</span>
+            <span>r</span>
+            <span>o</span>
+        </h2>
+        <div class="top_cart_icon">
+            <a>3</a>
+           <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="20" r="1.5"/>
+            <circle cx="18" cy="20" r="1.5"/>
+            <path d="M3 4h2l2.2 10.5A2 2 0 0 0 9.2 16h8.6a2 2 0 0 0 2-1.6L22 7H7"/>
+            </svg>
+        </div>  
+
+        <div class="top_search_icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M16 16L20 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </div>    
+
           <div>
-          <i class="fa-regular fa-bell"></i>
-          <i class="fa-regular fa-user"></i>
-          </div>
-     </div>
-          <div class="searchInput-div"><input type="Text" class="Squash-search-top-btn" placeholder="Search..."><i class="fa-solid fa-magnifying-glass"></i></div>
-        <div class="Navlinks">
-            <div class="Nav">
-                   <b onclick="openBody()"></b><a>Home</a></b>
-                   <b onclick="closeBody()"><a onclick="showAnimePage(),closeBottomTab()">Trends</a></b>
-                   <b onclick="closeBody()"><a onclick="showMoviesPage(),closeBottomTab()">Anime</a></b>
-                   <b onclick="closeBody()"><a onclick="showAboutPage(),closeBottomTab()">Movies</a></b>
+            <b>Hi, Dammy👋</b>
+         </div>
+
+    </div>
+
+    <div class="search_container">
+        <div class="search_index">
+        <div class="search_icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M16 16L20 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </div>   
+        <div class="sort_icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <line x1="4" y1="6" x2="20" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="8" cy="6" r="2" fill="currentColor"/>
+            <line x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="16" cy="12" r="2" fill="currentColor"/>
+            <line x1="4" y1="18" x2="20" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="11" cy="18" r="2" fill="currentColor"/>
+            </svg>
+        </div>
+            <input type="search" placeholder="Search anything...">
+        </div>
+    </div>
+
+    <div class="top_scroll_container">
+        <div class="top_scroll_content">
+            <div><div>
+                <a class="top_brand" style="color: rgba(255, 72, 0, .99);">movie</a>
+                <h2>Ride or Die</h2>
+                <p>Ride or Die is an American action-adventure comedy series starring Octavia Spencer and Hannah Waddingham.</p>
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+     width="18"
+     height="18"
+     viewBox="0 0 24 24"
+     fill="white"
+     stroke="currentColor"
+     stroke-width="2.2"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+    <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg> Watch now</button>
+                    <div class="top_plus_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+  <path d="M12 5V19"/>
+  <path d="M5 12H19"/>
+</svg>
+</div>
+            </div></div>
+        </div>
+
+        <div class="top_scroll_content">
+            <div><div>
+                <a class="top_brand" style="color: rgb(215, 135, 235);">movie</a>
+                <h2>Do Revenge</h2>
+                <p>Do Revenge is a 2022 American teen black comedy film directed by Jennifer Kaytin Robinson, featuring Camila Mendes and Maya Hawke. </p>
+                <button style="background-color: rgb(215, 135, 235);">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+     width="18"
+     height="18"
+     viewBox="0 0 24 24"
+     fill="white"
+     stroke="currentColor"
+     stroke-width="2.2"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+    <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg> Watch now</button>
+                    <div class="top_plus_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+  <path d="M12 5V19"/>
+  <path d="M5 12H19"/>
+</svg>
+</div>
+            </div></div>
+        </div>
+        <div class="top_scroll_content">
+            <div><div>
+                <a class="top_brand" style="color: yellow;">series</a>
+                <h2>Cobra Kia</h2>
+                <p>Cobra Kai is an American martial arts comedy drama television series created by Josh Heald and Jon Hurwitz.</p>
+                 <button style="background-color: rgb(255, 255, 0, .68);">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+     width="18"
+     height="18"
+     viewBox="0 0 24 24"
+     fill="white"
+     stroke="currentColor"
+     stroke-width="2.2"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+    <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg> Watch now</button>
+                    <div class="top_plus_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+  <path d="M12 5V19"/>
+  <path d="M5 12H19"/>
+</svg>
+</div>
+            </div></div>
+        </div>
+        <div class="top_scroll_content">
+            <div><div>
+                <a class="top_brand" style="color: skyblue;">series</a>
+                <h2>Henry Danger</h2>
+                <p>Henry Danger is an American superhero comedy television series about a 13-year-old boy who becomes the sidekick of a superhero while keeping his identity secret.</p>
+                <button style="background-color: rgb(135, 206, 235, .85);">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+     width="18"
+     height="18"
+     viewBox="0 0 24 24"
+     fill="white"
+     stroke="currentColor"
+     stroke-width="2.2"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+    <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg> Watch now</button>
+                    <div class="top_plus_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+  <path d="M12 5V19"/>
+  <path d="M5 12H19"/>
+</svg>
+</div>
+            </div></div>
+        </div>
+    </div>
+
+    <div class="text_content">
+        <h3>Continue Watching</h3>
+        <a>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+  <path d="M9 18L15 12L9 6"/>
+</svg>
+        </a>
+    </div>
+
+    <div class="continue_watching_container">
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <div></div>
+            <h5>Never Have I Ever</h5>
+            <h6>S03 EP05</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
             </div>
         </div>
-        <div class="Steps-Container">
-     <div class="Steps-Content squush-anime-clip-1" style="animation: Squuash-1 60s step-end infinite;">
-          <div class="Steps">
-               <div class="Steps-Set"> 
-                <a class="Squush-Page">anime</a>
-               <h2>Jujustu Kaisen</h2>
-               <a>The Strongest Sorcerer. Experience All Episodes In High Quality.</a>
-                <p><button> Watch Now</button>
-               <button>Download All</button>
-               </div>
-          </div>
-     </div>
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <div></div>
+            <h5>Ginny and Georgia</h5>
+            <h6>S01 EP02</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <div></div>
+            <h5>The Summer I Tur..</h5>
+            <h6>S02 EP10</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <div></div>
+            <h5>Off Campus</h5>
+            <h6>S01 EP03</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <div></div>
+            <h5>Wednesday</h5>
+            <h6>S02 EP07</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <div></div>
+            <h5>My Life with the Wa.</h5>
+            <h6>S03 EP01</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+    </div>
 
-          <div class="squush-anime-clip-2" style="animation: Squuash-2 60s step-end infinite;">
-          <div class="Steps">
-               <div class="Steps-Set"> 
-                <a class="Squush-Page">movie</a>
-               <h2>Kissing is the easy part</h2>
-               <a>Flora and Sean, Exploring Themes Of Vulnerability. Experience All Episodes In High Quality.</a>
-                 <p><button> Watch Now</button>
-               <button>Download All</button>
-               </div>
-          </div>
-     </div>
+    <div class="text_content">
+        <h3>Trending Now 🔥</h3>
+        <a>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+  <path d="M9 18L15 12L9 6"/>
+</svg>
+        </a>
+    </div>
 
-          <div class="squush-anime-clip-3" style="animation: Squuash-3 60s step-end infinite;">
-          <div class="Steps">
-               <div class="Steps-Set"> 
-                <a class="Squush-Page">series</a>
-               <h2>Xo Kitty</h2>
-               <a>Kitty Desires To Reconnect With Her Mother . Experience All Episodes In High Quality.</a>
-                      <p><button> Watch Now</button>
-               <button>Download All</button>
-          </div>
-          </div>
-     </div>
+    <div class="category_container">
+        <div class="category_content">
+            <div class="category_background">
+                <div class="category_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h3>The Fall Guy</h3>
+            <span class="gray_text">
+                <span>2024</span>
+                <span>.</span>
+                <span>Action, Comedy </span>
+                <span> ⭐7.3</span>
+            </span>
+            <div class="category_plus">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5V19"/>
+                <path d="M5 12H19"/>
+                </svg>
+            </div>
+        </div>
 
-               <div class="squush-anime-clip-4" style="animation: Squuash-4 60s step-end infinite;">
-          <div class="Steps">
-               <div class="Steps-Set"> 
-                <a class="Squush-Page">series</a>
-               <h2>Never Have I Ever</h2>
-               <a>Devi Having To Choose Between Two Of Her Boyfriends. Experience All Episodes In High Quality.</a>
-                      <p><button> Watch Now</button>
-               <button>Download All</button>
-          </div>
-          </div>
-     </div>
+        <div class="category_content">
+            <div class="category_background">
+                <div class="category_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h3>Dune: Part Two</h3>
+            <span class="gray_text">
+                <span>2024</span>
+                <span>.</span>
+                <span>Sci-Fi, Adventure</span>
+                <span> ⭐8.6</span>
+            </span>
+            <div class="category_plus">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5V19"/>
+                <path d="M5 12H19"/>
+                </svg>
+            </div>
+        </div>
+        
+        <div class="category_content">
+            <div class="category_background">
+                <div class="category_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h3>Kissing Booth</h3>
+            <span class="gray_text">
+                <span>2024</span>
+                <span>.</span>
+                <span>Romance, Drama</span>
+                <span> ⭐5.7</span>
+            </span>
+            <div class="category_plus">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5V19"/>
+                <path d="M5 12H19"/>
+                </svg>
+            </div>
+        </div>
+
+                <div class="category_content">
+            <div class="category_background">
+                <div class="category_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h3>Wednesday</h3>
+            <span class="gray_text">
+                <span>2025</span>
+                <span>.</span>
+                <span>Sci-Fi, Thriller</span>
+                <span> ⭐6.6</span>
+            </span>
+            <div class="category_plus">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5V19"/>
+                <path d="M5 12H19"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="text_content">
+        <h3>Watch by Mood 💖</h3>
+        <a>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+  <path d="M9 18L15 12L9 6"/>
+</svg>
+        </a>
+    </div>
+
+    <div class="mood_container">
+        <div class="mood_content">
+            <div class="mood_icon">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M13.8 4L7.8 13H11L9.8 20L16.2 10.8H13L13.8 4Z"
+                    fill="currentColor"/>
+                </svg>
+            </div>
+            <h2>Feel Good</h2>
+            <a>Movies to make you smile</a>
+        </div>
+
+        <div class="mood_content">
+            <div class="mood_icon">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                 width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3.5 12C5.2 8.7 8.3 7 12 7s6.8 1.7 8.5 5c-1.7 3.3-4.8 5-8.5 5s-6.8-1.7-8.5-5z"/>
+                <circle cx="12" cy="12" r="2.2"/>
+                </svg>
+            </div>
+            <h2>Suspenseful</h2>
+            <a>Egde of your seat thriller</a>
+        </div>
+
+        <div class="mood_content">
+            <div class="mood_icon" >
+<svg xmlns="http://www.w3.org/2000/svg" style="color: rgb(255, 51, 0);"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="1.8"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+  <path d="M12 18.5
+           L6.8 13.7
+           C5.2 12.2 5.2 9.7 6.8 8.2
+           C8.2 6.8 10.3 6.9 11.6 8.3
+           L12 8.8
+           L12.4 8.3
+           C13.7 6.9 15.8 6.8 17.2 8.2
+           C18.8 9.7 18.8 12.2 17.2 13.7
+           Z"
+        fill="currentColor"
+        stroke="none"/>
+
+    </svg>
 </div>
-  </div>
-       <div id="suggestions" class="suggestions"></div>
-  <!-- Theme Icon -->
-         <span id="icon" class="icon" onclick="toggleTheme()"></span>
-  <!--Text Content-->
-     <div class="Text-Content">
-          <h2>Trending Now</h2>
-          <h2>View all</h2>
-  </div>
-  <!--Scroll Content-->
-       <div class="Scroll-Content">
-          <div class="Section" onclick="closeBody(),showAnimePage(),openKaisen()"><a class="Sqaush-New">New</a>
-               <div>
-                    <a>Jujustu Kaisen</a>
-                    <a><p>Episode 15</p></a>
-                    <button>Download</button>
-                    <i class="fa-solid fa-download"></i>
-               </div>
-          </div>
-          <div class="Section" onclick="closeBody(),showAnimePage(),openAcademia()"><a class="Sqaush-New">New</a>
-               <div>
-                    <a>Xo Kitty</a>
-                    <a><p>Episode 19</p></a>
-                    <button >Download</button>
-                    <i class="fa-solid fa-download"></i>               
-               </div>
-          </div>
-          <div class="Section" onclick="closeBody(),showAnimePage(),openCube()"><a class="Sqaush-New">New</a>
-               <div>
-                    <a>Super Cube</a>
-                    <a><p>Episode 22</p></a>
-                    <button>Download</button>
-                    <i class="fa-solid fa-download"></i>               
-               </div>
-          </div>
-          <div class="Section" onclick="closeBody(),showAnimePage(),openStoner()"><a class="Sqaush-New">New</a>
-               <div>
-                    <a>Do Revenge</a>
-                    <a><p>Episode 13</p></a>
-                    <button>Download</button>
-                    <i class="fa-solid fa-download"></i>             
-               </div>
-          </div>
-          <div class="Section" onclick="closeBody(),showAnimePage(),openSolo()"><a class="Sqaush-New">New</a>
-               <div>
-                    <a>Never Have I Ever</a>
-                    <a><p>Episode 11</p></a>
-                    <button>Download</button>
-                    <i class="fa-solid fa-download"></i>              
-               </div>
-          </div>       
-          <div class="Section" onclick="closeBody(),showAnimePage(),openTitans()"><a class="Sqaush-New">New</a>
-               <div>
-                    <a>Attack On Titans</a>
-                    <a><p>Episode 82</p></a>
-                    <button>Download</button>
-                    <i class="fa-solid fa-download"></i>               
-               </div>
-          </div>
-          <div class="Section" onclick="closeBody(),showAnimePage(),openDragon()"><a class="Sqaush-New">New</a>
-               <div>
-                    <a>Dragon Ball Super</a>
-                    <a><p>Episode 73</p></a>
-                    <button>Download</button>
-                    <i class="fa-solid fa-download"></i>               
-               </div>
-          </div>
-          <div class="Section" onclick="closeBody(),showAnimePage(),openDemon()"><a class="Sqaush-New">New</a>
-               <div>
-                    <a>Demons Slayer</a>
-                    <a><p>Episode 24</p></a>
-                    <button>Download</button>
-                    <i class="fa-solid fa-download"></i>        
-               </div>
-          </div>
-          <div class="Section" onclick="closeBody(),showAnimePage(),openShadow()"><a class="Sqaush-New">New</a>
-               <div>
-                    <a>Wednesday</a>
-                    <a><p>Episode 12</p></a>
-                    <button>Download</button>
-                    <i class="fa-solid fa-download"></i>               
-               </div>
-          </div>
-          <div class="Section" onclick="closeBody(),showAnimePage(),openKing()"><a class="Sqaush-New">New</a>
-               <div>
-                    <a>Demon King Academia</a>
-                    <a><p>Episode 11</p></a>
-                    <button>Download</button>
-                    <i class="fa-solid fa-download"></i>               
-               </div>
-          </div>
-  </div>
-  <!--Popular Anime-->
-       <div class="Text-Content">
-          <h2>Popular Anime</h2>
-          <h2>View all</h2>
-  </div>
-  <div class="Scroll-Content">
-    <div class="Section Popular-anime-1"><a class="Sqaush-New">New</a><div style="height: 20px; background-color: rgb(0, 0, 0, 0.5);"><a>One Piece</a></div></div>
-    <div class="Section Popular-anime-2"><a class="Sqaush-New">New</a><div style="height: 20px; background-color: rgb(0, 0, 0, 0.5);"><a>Dr Stone</a></div></div>
-    <div class="Section Popular-anime-3"><a class="Sqaush-New">New</a><div style="height: 20px; background-color: rgb(0, 0, 0, 0.5);"><a>Bluelock</a></div></div>
-    <div class="Section Popular-anime-4"><a class="Sqaush-New">New</a><div style="height: 20px; background-color: rgb(0, 0, 0, 0.5);"><a>Hell Paradise</a></div></div>
-    <div class="Section Popular-anime-5"><a class="Sqaush-New">New</a><div style="height: 20px; background-color: rgb(0, 0, 0, 0.5);"><a>One Punch Man</a></div></div>
-    <div class="Section Popular-anime-6"><a class="Sqaush-New">New</a><div style="height: 20px; background-color: rgb(0, 0, 0, 0.5);"><a>Jujustu Kaisen</a></div></div>
-  </div>
-  <!--Latest Songs-->
-  <div class="Text-Content">
-     <h2>Latest Songs</h2>
-     <h2>View all</h2>
-  </div>
-  <div class="Songs-Container">
-     <div class="Song-Tabs">
-          <div>
-               <a>Blinding Light</a>
-               <a><p>The Weekend</p></a>
-               <a>3:20</a>
-          </div>
-     </div>
-     <div class="Song-Tabs">
-          <div>
-               <a>Sunflower</a>
-               <a><p>Post Malone</p></a>
-               <a>2:38</a>
-          </div>
-     </div>
-     <div class="Song-Tabs">
-          <div>
-               <a>Save Your Tears</a>
-               <a><p>The Weekend</p></a>
-               <a>3:01</a>
-          </div>
-     </div>
-     <div class="Song-Tabs">
-          <div>
-               <a>Ocean Eyes</a>
-               <a><p>Billie Eilish</p></a>
-               <a>3:21</a>
-          </div>
-     </div>
-     <div class="Song-Tabs">
-          <div>
-               <a>APT</a>
-               <a><p>Rose</p></a>
-               <a>2:25</a>
-          </div>
-     </div>
-     <div class="Song-Tabs">
-          <div>
-               <a>Apature</a>
-               <a><p>Harry Styles</p></a>
-               <a>3:16</a>
-          </div>
-     </div>
-  </div>
-  <!--Popular Movies-->
-       <div class="Text-Content">
-          <h2>Popular Movies</h2>
-          <h2>View all</h2>
-  </div>
-  <div class="Scroll-Content">
-        <div class="Section Popular-movies-1"><a class="Sqaush-New">New</a><div style="height: 40px; background-color: rgb(0, 0, 0, 0.5);"><a>Kissing is the Easy...</a><a><p>Season 01</p></a></div></div>
-        <div class="Section Popular-movies-2"><div style="height: 40px; background-color: rgb(0, 0, 0, 0.5);"><a>Never Have I Ever</a><a><p>Episode 09</p></a></div></div>
-        <div class="Section Popular-movies-3"><a class="Sqaush-New">New</a><div style="height: 40px; background-color: rgb(0, 0, 0, 0.5);"><a>Emily In Paris</a><a><p>Episode 12</p></a></div></div>
-        <div class="Section Popular-movies-4"><div style="height: 40px; background-color: rgb(0, 0, 0, 0.5);"><a>The Summer I...</a><a><p>Season 03</p></a></div></div>
-        <div class="Section Popular-movies-5"><a class="Sqaush-New">New</a><div style="height: 40px; background-color: rgb(0, 0, 0, 0.5);"><a>Black-ish</a><a><p>Episode 12</p></a></div></div>
-        <div class="Section Popular-movies-6"><div style="height: 40px; background-color: rgb(0, 0, 0, 0.5);"><a>Do Revenge</a><a><p>Season 01</p></a></div></div>
-  </div>
-  <!--Continue Watching Text-->
-       <div class="Text-Content">
-          <h2>Continue Watching</h2>
-          <h2>View all</h2>
-  </div>
-  <div class="Watch-Container">
-     <div class="Watch-Tab">
-          <div class="Watch-Content Stack-1"><a>2:07</a><div></div></div>
-          <div class="Watch-Text">
-               <a>Spy X Family</a>
-               <a><p>EL S Scene</p></a>
-               <div><a>0%</a><a>100%</a></div>
-               <button>Download</button>
-               <i class="fa-solid fa-download"></i>
-          </div>
-     </div>
-     <div class="Watch-Tab">
-          <div class="Watch-Content Stack-2"><a>2:16</a><div></div></div>
-          <div class="Watch-Text">
-               <a>Lofi Beats</a>
-               <a><p>Track. 12</p></a>
-               <div><a>0%</a><a>100%</a></div>
-               <button>Download</button>
-               <i class="fa-solid fa-download"></i>
-          </div>
-     </div>
-     <div class="Watch-Tab">
-          <div class="Watch-Content Stack-3"><a>2:23</a><div></div></div>
-          <div class="Watch-Text">
-               <a>Cyberpunk: Edge...</a>
-               <a><p>Ep2 arena</p></a>
-               <div><a>0%</a><a>100%</a></div>
-               <button>Download</button>
-               <i class="fa-solid fa-download"></i>
-          </div>
-     </div>
-     <div class="Watch-Tab">
-          <div class="Watch-Content Stack-4"><a>2:03</a><div></div></div>
-          <div class="Watch-Text">
-               <a>Turning Red</a>
-               <a><p>Magic Alse</p></a>
-               <div><a>0%</a><a>100%</a></div>
-               <button>Download</button>
-               <i class="fa-solid fa-download"></i>
-          </div>
-     </div>
-     <div class="Watch-Tab">
-          <div class="Watch-Content Stack-5"><a>2:01</a><div></div></div>
-          <div class="Watch-Text">
-               <a>Demons Slayer</a>
-               <a><p>Kiajo Yaba</p></a>
-               <div><a>0%</a><a>100%</a></div>
-               <button>Download</button>
-               <i class="fa-solid fa-download"></i>
-          </div>
-     </div>
-     <div class="Watch-Tab">
-          <div class="Watch-Content Stack-6"><a>2:31</a><div></div></div>
-          <div class="Watch-Text">
-               <a>Your Idol</a>
-               <a><p>Saja boys</p></a>
-               <div><a>0%</a><a>100%</a></div>
-               <button>Download</button>
-               <i class="fa-solid fa-download"></i>
-          </div>
-     </div>
-  </div>
-  <!--Community Highlights-->
-     <div class="Text-Content">
-          <h2>Community Highlights</h2>
-          <h2>View all</h2>
-  </div>
-  <div class="Highlights-Content">
-     <div class="Highlights">
-          <div class="Highlight">
-          <h2>Top User Playlists</h2>
-          <i class="fa-regular fa-bookmark"></i>
-          <div class="Book-Set-1"></div>
-          <h5>Animetaslic</h5>
-          <h6>Anlinad Playlists</h6>
-          <div class="Book-Set-2"></div>
-          <h1>Epic Battles Theme</h1>
-          <h3>Epic Battle</h3>
-          <h4>Fesiured Playlists</h4>
-          <a>Listen to songs that reliefs stress on a whole new level.</a>
-          </div>
-     </div>
-     <div class="Highlights">
-          <div class="Highlight-Step">
-          <h2>Trending Discussions</h2>
-          <h3>Demons vs. Curses?</h3>
-          <a>Fun Fact: Demons originated from Demons Slayer while Curses from Jujustu Kiasen.</a>
-          <h4>Satoru Gojo Theories</h4>
-          <h5>Satoru Gojo theories is often discussed by our bulletin board.
-           <INPUT type="text" class="Comment" placeholder="Comment...."></h5>
-          </div>
-     </div>
-     <div class="Highlights">
-          <div class="Community">
-               <div></div>
-               <h2>Featured Fan Art</h2>
-               <a>Stunning Gojo Fan Art Showcase.</a>
-               <i class="fa-regular fa-star"></i>
-          </div>
-     </div>
-     <div class="Highlights">
-          <div class="Community">
-               <div></div>
-               <h2>Watch Party Hub</h2>
-               <a>Watch Party Hub Downloads Updates.</a>
-               <i class="fa-regular fa-star"></i>
-          </div>
-     </div>
-  </div>
-  <!--Bottom Tab-->     
-  <div class="footmargin" id="footMargin">
+            <h2 style="color: rgb(255, 47, 0);">Emotional</h2>
+            <a>Stories that hits deep</a>
+        </div>
+
+        <div class="mood_content">
+            <div class="mood_icon">
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="1.8"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+
+  <!-- Crown -->
+  <path d="M4 18L5.5 8.5L10 12L12 6L14 12L18.5 8.5L20 18Z"/>
+
+  <!-- Base -->
+  <path d="M4 18H20"/>
+
+  <!-- Jewels -->
+  <circle cx="5.5" cy="8.5" r="1"/>
+  <circle cx="12" cy="6" r="1"/>
+  <circle cx="18.5" cy="8.5" r="1"/>
+
+</svg>
+            </div>
+            <h2>Mind Blowing</h2>
+            <a>Twists that surprise you/a>
+        </div>
+    </div>
+
+    <div class="text_content" style="display: none;">
+        <h3>Continue Watching</h3>
+        <a>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+  <path d="M9 18L15 12L9 6"/>
+</svg>
+        </a>
+    </div>
+
+    <div class="text_content">
+        <h3>My Watchlist</h3>
+        <a>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+  <path d="M9 18L15 12L9 6"/>
+</svg>
+        </a>
+    </div>
+    
+    <div class="continue_watching_container watchlist_background_container">
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h5>Spy X Family</h5>
+            <h6>EL S Scene</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h5>Lofi Beats</h5>
+            <h6>Track. 12</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h5>Cyberpunk: Edge...</h5>
+            <h6>Ep2 arena</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h5>Demon Slayer</h5>
+            <h6>Kiajo Yaba</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h5>Turning Red</h5>
+            <h6>Magic Alse</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h5>Your Idol</h5>
+            <h6>Saja boys</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="text_content">
+        <h3>Hot 🔥</h3>
+        <a>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+  <path d="M9 18L15 12L9 6"/>
+</svg>
+        </a>
+    </div>
+    
+    <div class="continue_watching_container hot_backgound_container">
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h5>Kissing is the easy</h5>
+            <h6>Season 1</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h5>Never Have I Ever</h5>
+            <h6>Episode 09</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h5>Emily in Paris</h5>
+            <h6>Episode 12</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h5>The Summer I...s</h5>
+            <h6>Season 02</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h5>Black-ish</h5>
+            <h6>Episode 12</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h5>Do Revenge</h5>
+            <h6>Season 01</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="text_content">
+        <h3>Trending Anime</h3>
+        <a>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+  <path d="M9 18L15 12L9 6"/>
+</svg>
+        </a>
+    </div>
+       
+    <div class="continue_watching_container anime_backgound_container">
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h5>One Piece</h5>
+            <h6>S03 EP05</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h5>Dr Stone</h5>
+            <h6>S01 EP02</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h5>Bluelock</h5>
+            <h6>S02 EP10</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h5>Hell Paradise</h5>
+            <h6>S01 EP03</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h5>One Punch Man</h5>
+            <h6>S02 EP07</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <div class="watching_content">
+            <div>
+                <div class="top_play_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -2px;"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <polygon fill="currentColor" points="8 5 19 12 8 19 8 5"/>
+                    </svg>
+                </div>
+            </div>
+            <h5>Jujustu Kaisen</h5>
+            <h6>S03 EP01</h6>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+    
+    <div class="text_content">
+        <h3>Highlights 💖</h3>
+        <a>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+  <path d="M9 18L15 12L9 6"/>
+</svg>
+        </a>
+    </div>  
+
+    <div class="category_container" style="margin-bottom: 20px;">
+        <div class="category_content">
+            <div class="category_background">
+                <div class="category_play_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+                </div>
+            </div>
+            <h3>The Fall Guy</h3>
+            <span class="gray_text">
+                <span>2024</span>
+                <span>.</span>
+                <span>Action, Comedy </span>
+                <span> ⭐7.3</span>
+            </span>
+            <div class="category_plus">
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24"
+     fill="none">
+
+    <!-- Bubble -->
+    <path d="M6 5.5H18C19.9 5.5 21.5 7.1 21.5 9V14C21.5 15.9 19.9 17.5 18 17.5H11L7 21V17.5H6C4.1 17.5 2.5 15.9 2.5 14V9C2.5 7.1 4.1 5.5 6 5.5Z"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linejoin="round"/>
+
+    <!-- Dots -->
+    <circle cx="9" cy="11.5" r="1.1" fill="currentColor"/>
+    <circle cx="12" cy="11.5" r="1.1" fill="currentColor"/>
+    <circle cx="15" cy="11.5" r="1.1" fill="currentColor"/>
+
+</svg>
+            </div>
+        </div>
+
+        <div class="category_content">
+            <div class="category_background">
+                <div class="category_play_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+                </div>
+            </div>
+            <h3>Dune: Part Two</h3>
+            <span class="gray_text">
+                <span>2024</span>
+                <span>.</span>
+                <span>Sci-Fi, Adventure</span>
+                <span> ⭐8.6</span>
+            </span>
+            <div class="category_plus">
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24"
+     fill="none">
+
+    <!-- Bubble -->
+    <path d="M6 5.5H18C19.9 5.5 21.5 7.1 21.5 9V14C21.5 15.9 19.9 17.5 18 17.5H11L7 21V17.5H6C4.1 17.5 2.5 15.9 2.5 14V9C2.5 7.1 4.1 5.5 6 5.5Z"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linejoin="round"/>
+
+    <!-- Dots -->
+    <circle cx="9" cy="11.5" r="1.1" fill="currentColor"/>
+    <circle cx="12" cy="11.5" r="1.1" fill="currentColor"/>
+    <circle cx="15" cy="11.5" r="1.1" fill="currentColor"/>
+
+</svg>
+            </div>
+        </div>
+        
+        <div class="category_content">
+            <div class="category_background">
+                <div class="category_play_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+                </div>
+            </div>
+            <h3>Kissing Booth</h3>
+            <span class="gray_text">
+                <span>2024</span>
+                <span>.</span>
+                <span>Romance, Drama</span>
+                <span> ⭐5.7</span>
+            </span>
+            <div class="category_plus">
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24"
+     fill="none">
+
+    <!-- Bubble -->
+    <path d="M6 5.5H18C19.9 5.5 21.5 7.1 21.5 9V14C21.5 15.9 19.9 17.5 18 17.5H11L7 21V17.5H6C4.1 17.5 2.5 15.9 2.5 14V9C2.5 7.1 4.1 5.5 6 5.5Z"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linejoin="round"/>
+
+    <!-- Dots -->
+    <circle cx="9" cy="11.5" r="1.1" fill="currentColor"/>
+    <circle cx="12" cy="11.5" r="1.1" fill="currentColor"/>
+    <circle cx="15" cy="11.5" r="1.1" fill="currentColor"/>
+
+</svg>
+            </div>
+        </div>
+
+                <div class="category_content">
+            <div class="category_background">
+                <div class="category_play_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+                </div>
+            </div>
+            <h3>Wednesday</h3>
+            <span class="gray_text">
+                <span>2025</span>
+                <span>.</span>
+                <span>Sci-Fi, Thriller</span>
+                <span> ⭐6.6</span>
+            </span>
+            <div class="category_plus">
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24"
+     fill="none">
+
+    <!-- Bubble -->
+    <path d="M6 5.5H18C19.9 5.5 21.5 7.1 21.5 9V14C21.5 15.9 19.9 17.5 18 17.5H11L7 21V17.5H6C4.1 17.5 2.5 15.9 2.5 14V9C2.5 7.1 4.1 5.5 6 5.5Z"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linejoin="round"/>
+
+    <!-- Dots -->
+    <circle cx="9" cy="11.5" r="1.1" fill="currentColor"/>
+    <circle cx="12" cy="11.5" r="1.1" fill="currentColor"/>
+    <circle cx="15" cy="11.5" r="1.1" fill="currentColor"/>
+
+</svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="add_container_watchlist">
+            <div class="category_plus">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5V19"/>
+                <path d="M5 12H19"/>
+                </svg>
+            </div>
+            <h3>Add More to Watchlist</h3>
+    </div>    
+
+    <div class="category_premuim_container">
+        <h2>Go Premium✨</h2>
+        <a>Unclock exclusive content, ad free streaming and more</a>
+        <button>
+            Upgrade Now
+        </button>
+    </div> 
+ 
+<style>
+*{
+    margin: 0;
+    box-sizing: border-box; 
+}
+body{
+    color: white;
+    font-family: sans-serif;
+    background-color: #000000;
+    /*background: linear-gradient(to bottom, #202020, #151515, #101010);*/
+}
+.top_container{
+    width: 100%;
+    height: 120px;
+    position: relative;
+    backdrop-filter: blur(18px);
+    
+  h2{
+    padding: 13px;
+    width: fit-content;
+    background-color: transparent;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 22px;
+    font-weight: bolder;
+    margin-left: 30px;
+   }
+
+   div:last-child{
+    margin: 0px 0 0 15px;
+    width: 200px;
+    font-weight: bolder;
+    height: 30px;
+    position: relative;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: rgba(102, 51, 153, 0);
+   }
+   span{
+    margin-right: -6px;
+   }
+
+   span:nth-child(5){
+    background: linear-gradient(to top, #6366f1, #a855f7, #ff0000);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+   }
+
+   span:nth-child(6){
+    background: linear-gradient(to top, #6366f1, #a855f7, #ff0000);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+   }
+
+   span:nth-child(7){
+    background: linear-gradient(to top, #6366f1, #a855f7, #ff0000);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+   }
+   span:last-child{
+    margin-right: 0;
+   }
+}
+.top_menu_icon{
+    top: 15px;
+    left: 10px;
+    position: absolute;
+}
+.top_cart_icon{
+    top: 18px;
+    right: 20px;
+    position: absolute;
+} 
+.top_cart_icon a{
+    background-color: red;
+    padding: 2px 4px;
+    border-radius: 30px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: .65em;
+}
+.top_cart_icon svg:hover{
+    padding: 1.5px;
+    transition: all .5s ease;
+}
+.top_search_icon{
+    top: 18px;
+    right: 60px;
+    position: absolute;
+}
+.top_search_icon svg:hover{
+    padding: 0.5px;
+    transition: all .5s ease;    
+}
+
+.search_container{
+    width: calc(100% - 20px);
+    height: 45px;
+    border-radius: 2px 10px;
+    margin: -25px 10px 10px 10px;
+    background-color: transparent;
+    position: relative;
+}
+.search_index{
+    margin-left: 2.5px;
+    height: 45px;
+    width: calc(100% - 5px);
+    
+   input{
+    width: calc(100% - 55px);
+    margin: 0 2.5px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background: #141414;
+    border: 1px solid #4242422d;
+    height: 45px;
+    box-shadow: 2px -2px 5px rgba(245, 245, 245, 0.035);
+    padding: 0 10px 0 40px;
+   }
+}
+.search_icon{
+    position: absolute;
+    color: rgb(255, 255, 255);
+    top: 10px;
+    left: 15px;
+}
+.sort_icon{
+    top: 0px;
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    background: linear-gradient(135deg, rgb(99, 101, 241, .75), rgb(168, 85, 247, .65), rgb(255, 0, 0, .85));
+    backdrop-filter: blur(16px);
+    border-radius: 12px;
+    box-shadow: 2px -2px 5px rgba(255, 255, 255, 0.05);
+    left: calc(100% - 50px);
+
+   svg{
+    margin: 10px 0 0 10px;
+   }
+
+   svg:hover{
+    scale: calc(1.10);
+    transition: scale .5s ease-in-out;
+   }
+}
+.top_scroll_container{
+    display: flex;
+    height: 220px;
+    background-color: transparent;
+    margin: 0 10px 0 10px;
+    border-radius: 16px;
+    overflow: hidden;
+    overflow-x: scroll;
+    scroll-marker-group: after;
+    box-shadow: 2px -2px 8px rgba(245, 245, 245, 0.135);
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+.top_scroll_container::scroll-marker-group{
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+}
+.top_scroll_container::-webkit-scrollbar{
+    display: none;
+}
+.top_scroll_content{
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-width: calc(100%);
+    height: 220px;
+    margin-right: 5px;
+    border-radius: 16px;
+}
+.top_scroll_content::scroll-marker{
+    content: '';
+    height: 7px;
+    width: 7px;
+    margin-top: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+}
+.top_scroll_content::scroll-marker:target-current{
+    background: gray;
+}
+.top_scroll_content:nth-child(1){
+    background: url("https://static0.colliderimages.com/wordpress/wp-content/uploads/2026/07/ride-or-die-prime-video-poster.jpeg?&fit=crop&w=1600&h=900")center/cover;
+}
+.top_scroll_content:nth-child(2){
+    background: url("https://th.bing.com/th/id/R.a8076e7020d508faca7014562b01bc30?rik=rfPf3%2f6sFIlTEg&pid=ImgRaw&r=0")center/cover;
+}
+.top_scroll_content:nth-child(3){
+    background: url("https://images.wallpapersden.com/image/download/cobra-kai-season-5_bWZoa22UmZqaraWkpJRmbmdlrWZlbWU.jpg")center/cover;
+}
+.top_scroll_content:nth-child(4){
+    background: url("https://streamcoimg-a.akamaihd.net/000/182/03/18203-Banner-L1-664125918016f7e4b8d68b894a9ad888.jpeg?resize=2880px:*&quality=50")center/cover;
+}
+.top_scroll_content div{
+    width: 100%;
+    height: 220px;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+.top_brand{
+    margin: 10px;
+    padding: 0;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: sans-serif;
+    border-radius: 16px;
+    color: rgb(255, 72, 0, 1);
+}
+.top_scroll_content div div{
+    width: 100%;
+    height: fit-content;
+    position: absolute;
+    bottom: 0;
+    background-color: transparent;
+}
+.top_scroll_content div div h2{
+    margin: 10px;
+    font-size: 30px;
+}
+.top_scroll_content div div p{
+    font-size: 12px;
+    margin: 0 0 10px 10px;
+    width: 75%;
+    height: 45px;
+    color: rgb(195, 195, 195);
+    background-color: #ff000000;
+    overflow: hidden;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.top_scroll_content div div button{
+    padding: 10px 10px 10px 30px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    border: none;
+    position: relative;
+    font-size: 14px;
+    border-radius: 8px;
+    margin: 0 0 10px 10px;
+    color: white;
+    box-shadow: 2px 2px #d8bfd814;
+    background-color: rgba(255, 72, 0, .99);
+}
+.top_scroll_content div div button svg{
+    top: 10px;
+    left: 8px;
+    position: absolute;
+}
+.top_plus_icon{
+    width: 50px;
+    height: 50px;
+    margin: 50px 0 8px 135px;
+
+    svg{
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 30px;
+        backdrop-filter: blur(2px);
+        background-color: rgba(255, 255, 255, 0.077);
+    }
+}
+.text_content{
+    width: calc(100% - 30px);
+    height: 40px;
+    background-color: transparent;
+    position: relative;
+    margin: 30px 15px 0 15px;
+    
+  a{
+    top: 3px;
+    right:  0;
+    color: rgb(255, 255, 255);
+    font-size: 15PX;
+    font-weight: bolder;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    position: absolute;
+   }
+}
+.continue_watching_container{
+    width: calc(100% - 20px);
+    height: 210px;
+    margin: 0px 10px -10px 10px;
+    border-radius: 12px 16px;
+    display: flex;
+    overflow: hidden;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    background-color: transparent;
+}
+.continue_watching_container::-webkit-scrollbar{
+    display: none;
+}
+.watching_content:last-child{
+    margin-right: 0%;
+}
+.watching_content{
+    min-width: 130px;
+    height: 210px;
+    margin-right: 2%;
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.07);
+
+    div{
+        width: 130px;
+        height: 160px;
+        border-radius: 12px 12px 0 0;
+    }
+
+    div:nth-child(1){
+    background: url("https://tse2.mm.bing.net/th/id/OIP.qocb0QADyF37a6U8P55FSQHaLH?r=0&w=960&h=1440&rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+}
+    div:nth-child(1):hover{
+        scale: calc(1);
+        transition: 2s ease;
+        background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://tse2.mm.bing.net/th/id/OIP.qocb0QADyF37a6U8P55FSQHaLH?r=0&w=960&h=1440&rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+    }
+}
+.watching_content div:nth-child(2){
+        width: calc(100% - 5px);
+        height: 2px;
+        border-radius: 4px;
+        margin-bottom: 5px;
+        margin-left: 2.5px;
+        animation: progressbar 50s ease-in-out;
+        background: gray;
+}
+@keyframes progressbar{
+    0%{width: 0%;}100%{width: 100%;}
+}
+.watching_content:nth-child(2) div:nth-child(1){
+        background: url("https://assets.teenvogue.com/photos/681c960d3c7f67e244167407/master/w_1600%2Cc_limit/EN-US_%2520GinnyandGeorgia_S3_Main_VKA_27x40_sRGB_PRE.jpg3")center/cover;
+}
+.watching_content:nth-child(2) div:nth-child(1):hover{
+        background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://assets.teenvogue.com/photos/681c960d3c7f67e244167407/master/w_1600%2Cc_limit/EN-US_%2520GinnyandGeorgia_S3_Main_VKA_27x40_sRGB_PRE.jpg3")center/cover;
+}
+.watching_content:nth-child(3) div:nth-child(1){
+    background: url("https://www.showbizjunkies.com/wp-content/uploads/2025/04/The-Summer-I-Turned-Pretty-Season-3-Poster.jpg")center/cover;
+}
+.watching_content:nth-child(3) div:nth-child(1):hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://www.showbizjunkies.com/wp-content/uploads/2025/04/The-Summer-I-Turned-Pretty-Season-3-Poster.jpg")center/cover;
+}
+.watching_content:nth-child(4) div:nth-child(1){
+    background: url("https://style.shockvisual.net/wp-content/uploads/2026/03/serie-Off-Campus.jpg")center/cover;
+ }  
+.watching_content:nth-child(4) div:nth-child(1):hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://style.shockvisual.net/wp-content/uploads/2026/03/serie-Off-Campus.jpg")center/cover;
+ } 
+.watching_content:nth-child(5) div:nth-child(1){
+    background: url("https://tse2.mm.bing.net/th/id/OIP.LCQ3dedc-tBt1VbNKw9LtgHaI4?r=0&rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+ }  
+.watching_content:nth-child(5) div:nth-child(1):hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://tse2.mm.bing.net/th/id/OIP.LCQ3dedc-tBt1VbNKw9LtgHaI4?r=0&rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+ } 
+ .watching_content:nth-child(6) div:nth-child(1){
+    background: url("https://image.tmdb.org/t/p/original/4o9ICW8TxzqiQXfEzyFytBumA2i.jpg")center/cover;
+ }  
+.watching_content:nth-child(6) div:nth-child(1):hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://image.tmdb.org/t/p/original/4o9ICW8TxzqiQXfEzyFytBumA2i.jpg")center/cover;
+ } 
+
+/*watchlist background*/ 
+.watchlist_background_container .watching_content:nth-child(1) div:nth-child(1){
+    background: url("https://tse1.mm.bing.net/th/id/OIP.-NKtjgLmyCek3pF7vzaRCQHaDt?rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+} 
+.watchlist_background_container .watching_content:nth-child(2) div:nth-child(1){
+    background: url("https://th.bing.com/th/id/R.ffb479f6833a641088a1f97c69e53442?rik=FQIS2hwZQ%2b6qDg&pid=ImgRaw&r=0")center/cover;
+}
+.watchlist_background_container .watching_content:nth-child(3) div:nth-child(1){
+    background: url("https://www.gamersglobal.de/sites/gamersglobal.de/files/news/teaser/4770/cpedgerunners.jpg")center/cover;
+} 
+.watchlist_background_container .watching_content:nth-child(5) div:nth-child(1){
+    background: url("https://wallpapers.com/images/hd/turning-red-meilin-and-red-panda-sktmtmgvp6igtgu0.jpg")center/cover;
+} 
+.watchlist_background_container .watching_content:nth-child(4) div:nth-child(1){
+    background: url("https://images.wallpapersden.com/image/download/demon-slayer_a2xoZWuUmZqaraWkpJRnamtlrWZsZWU.jpg")center/cover;
+} 
+.watchlist_background_container .watching_content:nth-child(6) div:nth-child(1){
+    background: url("https://wallpapercave.com/wp/wp15597656.jpg")center/cover;
+} 
+
+/*watchlist hover background*/ 
+.watchlist_background_container .watching_content:nth-child(1) div:nth-child(1):hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://tse1.mm.bing.net/th/id/OIP.-NKtjgLmyCek3pF7vzaRCQHaDt?rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+} 
+.watchlist_background_container .watching_content:nth-child(2) div:nth-child(1):hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://th.bing.com/th/id/R.ffb479f6833a641088a1f97c69e53442?rik=FQIS2hwZQ%2b6qDg&pid=ImgRaw&r=0")center/cover;
+}
+.watchlist_background_container .watching_content:nth-child(3) div:nth-child(1):hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://www.gamersglobal.de/sites/gamersglobal.de/files/news/teaser/4770/cpedgerunners.jpg")center/cover;
+} 
+.watchlist_background_container .watching_content:nth-child(5) div:nth-child(1):hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://wallpapers.com/images/hd/turning-red-meilin-and-red-panda-sktmtmgvp6igtgu0.jpg")center/cover;
+} 
+.watchlist_background_container .watching_content:nth-child(4) div:nth-child(1):hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://images.wallpapersden.com/image/download/demon-slayer_a2xoZWuUmZqaraWkpJRnamtlrWZsZWU.jpg")center/cover;
+} 
+.watchlist_background_container .watching_content:nth-child(6) div:nth-child(1):hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://wallpapercave.com/wp/wp15597656.jpg")center/cover;
+} 
+
+/*hot background*/
+.hot_backgound_container .watching_content:nth-child(1) div:nth-child(1){
+background:  url("https://cineparenting.com/wp-content/uploads/2026/02/Kissing-Is-the-Easy-Part-Parents-Guide-Age-Rating.webp")center/cover;
+}
+.hot_backgound_container .watching_content:nth-child(2) div:nth-child(1){
+background:  url("https://wallpapercave.com/wp/wp12083779.jpg")center/cover;
+}
+.hot_backgound_container .watching_content:nth-child(3) div:nth-child(1){
+background:  url("https://static1.colliderimages.com/wordpress/wp-content/uploads/2023/07/emily-in-paris-lily-collins.jpg")center/cover;
+}
+.hot_backgound_container .watching_content:nth-child(4) div:nth-child(1){
+background:  url("https://tse1.mm.bing.net/th/id/OIP.Tp9VQFv5_GUrSQUkIqQH8gHaE8?rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+}
+.hot_backgound_container .watching_content:nth-child(5) div:nth-child(1){
+background:  url("https://th.bing.com/th/id/OIP.2mUxjd-dyKdS_VZQB7Fw3wHaEk?w=258&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3")center/cover;
+}
+.hot_backgound_container .watching_content:nth-child(6) div:nth-child(1){
+background:  url("https://th.bing.com/th/id/OIP.UldNU9bqpRS7-pvp_UkC1QHaEK?w=271&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3")center/cover;
+}
+
+/*hot hover background*/
+.hot_backgound_container .watching_content:nth-child(1) div:nth-child(1):hover{
+background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://cineparenting.com/wp-content/uploads/2026/02/Kissing-Is-the-Easy-Part-Parents-Guide-Age-Rating.webp")center/cover;
+}
+.hot_backgound_container .watching_content:nth-child(2) div:nth-child(1):hover{
+background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://wallpapercave.com/wp/wp12083779.jpg")center/cover;
+}
+.hot_backgound_container .watching_content:nth-child(3) div:nth-child(1):hover{
+background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://static1.colliderimages.com/wordpress/wp-content/uploads/2023/07/emily-in-paris-lily-collins.jpg")center/cover;
+}
+.hot_backgound_container .watching_content:nth-child(4) div:nth-child(1):hover{
+background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://tse1.mm.bing.net/th/id/OIP.Tp9VQFv5_GUrSQUkIqQH8gHaE8?rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+}
+.hot_backgound_container .watching_content:nth-child(5) div:nth-child(1):hover{
+background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://th.bing.com/th/id/OIP.2mUxjd-dyKdS_VZQB7Fw3wHaEk?w=258&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3")center/cover;
+}
+.hot_backgound_container .watching_content:nth-child(6) div:nth-child(1):hover{
+background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://th.bing.com/th/id/OIP.UldNU9bqpRS7-pvp_UkC1QHaEK?w=271&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3")center/cover;
+}
+
+/*anime background*/
+.anime_backgound_container .watching_content:nth-child(1) div:nth-child(1){
+    background: url("https://tse3.mm.bing.net/th/id/OIP.XhUu92nDU7j_mFuDyXmasAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+}
+.anime_backgound_container .watching_content:nth-child(2) div:nth-child(1){
+    background: url("https://static1.srcdn.com/wordpress/wp-content/uploads/2024/11/senku-from-dr-stone-with-xeno-and-stanley-in-the-background.jpg")center/cover;
+}
+.anime_backgound_container .watching_content:nth-child(3) div:nth-child(1){
+    background: url("https://cdn.wallpapersafari.com/47/90/rHXDNv.jpg")center/cover;
+}
+.anime_backgound_container .watching_content:nth-child(4) div:nth-child(1){
+    background: url("https://images.wallpapersden.com/image/download/gabimaru-and-sagiri-hd-hell-s-paradise_bmVlZmqUmZqaraWkpJRnZW1srWZlbWU.jpg")center/cover;
+}
+.anime_backgound_container .watching_content:nth-child(5) div:nth-child(1){
+    background: url("https://th.bing.com/th/id/OIP.q63RfL9GRWUJ-lFMDaBC9wHaEK?w=307&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3")center/cover;
+}
+.anime_backgound_container .watching_content:nth-child(6) div:nth-child(1){
+    background: url("https://images4.alphacoders.com/138/1389939.jpg")center/cover;
+}
+
+/*anime hover background*/
+.anime_backgound_container .watching_content:nth-child(1) div:nth-child(1):hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://tse3.mm.bing.net/th/id/OIP.XhUu92nDU7j_mFuDyXmasAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+}
+.anime_backgound_container .watching_content:nth-child(2) div:nth-child(1):hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://static1.srcdn.com/wordpress/wp-content/uploads/2024/11/senku-from-dr-stone-with-xeno-and-stanley-in-the-background.jpg")center/cover;
+}
+.anime_backgound_container .watching_content:nth-child(3) div:nth-child(1):hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://cdn.wallpapersafari.com/47/90/rHXDNv.jpg")center/cover;
+}
+.anime_backgound_container .watching_content:nth-child(4) div:nth-child(1):hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://images.wallpapersden.com/image/download/gabimaru-and-sagiri-hd-hell-s-paradise_bmVlZmqUmZqaraWkpJRnZW1srWZlbWU.jpg")center/cover;
+}
+.anime_backgound_container .watching_content:nth-child(5) div:nth-child(1):hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://th.bing.com/th/id/OIP.q63RfL9GRWUJ-lFMDaBC9wHaEK?w=307&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3")center/cover;
+}
+.anime_backgound_container .watching_content:nth-child(6) div:nth-child(1):hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.4)), url("https://images4.alphacoders.com/138/1389939.jpg")center/cover;
+}
+.watching_content h5{
+    margin-top: 10px;
+    margin-left: 5px;
+    color: white;
+    font-weight: bolder;
+    font-size: 12px;
+}
+.watching_content h6{
+    margin: 5px 0 0 5px;
+    color: rgb(231, 231, 231);
+    font-weight: bolder;
+    font-size: 10px;
+}
+.card_dots_icon{
+    margin: -20px 0 0 0;
+
+    svg{
+        padding: 5px;
+        margin-left: 110px;
+    }
+}
+.top_play_icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    position: absolute;
+
+    svg{
+        width: 40px;
+        height: 40px;
+        margin: 65px 0 0 50px;
+        border-radius: 30px;
+        padding: 5px;
+        backdrop-filter: blur(12px);
+        opacity: .65;
+        background-color: rgba(44, 4, 4, 0.35);
+    }
+}
+.category_container{
+    width: calc(100% - 20px);
+    border-radius: 10px;
+    margin-left: 10px;
+    display: grid;
+    margin-bottom: -10px;
+    grid-template-columns: repeat(1, 1fr);
+    background-color: transparent;
+    gap: 5px;
+}
+.category_container::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+.category_content{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 70px;
+    border-radius: 16px 5px 5px 5px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    background-color: rgb(47, 47, 47, .67);
+
+    h3{
+    left: 105px;
+    font-size: 13px;
+    font-weight: 600;
+    position: absolute;
+    top: 20px;
+}
+   .gray_text{
+    position: absolute;
+    top: 40px;
+    left: 105px;
+    color: rgb(221, 221, 221);
+    font-size: 10px;
+}
+}
+.category_background{
+    width: 95px;
+    height: 70px;
+    border-radius: 16px 0 0 0;
+    background-color: red;
+}
+.category_content:nth-child(1) .category_background{
+    background: linear-gradient(rgb(0, 0, 0, .3)), url("https://tse3.mm.bing.net/th/id/OIP.iMWx3Ojkp4lYWqBVZEYhAAHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+}
+.category_content:nth-child(2) .category_background{
+    background: linear-gradient(rgb(0, 0, 0, .3)), url("https://tse3.mm.bing.net/th/id/OIP.9jpx1AbuP_0yrdZmlO4W9wHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+}
+.category_content:nth-child(3) .category_background{
+    background: linear-gradient(rgb(0, 0, 0, .3)), url("https://th.bing.com/th/id/R.179a4a674fcafa6b2be43f86e73de9e6?rik=7qdzLBro7hZv%2bg&pid=ImgRaw&r=0")center/cover;
+}
+.category_content:nth-child(4) .category_background{
+    background: linear-gradient(rgb(0, 0, 0, .3)), url("https://tse2.mm.bing.net/th/id/OIP.LCQ3dedc-tBt1VbNKw9LtgHaI4?r=0&rs=1&pid=ImgDetMain&o=7&rm=3")center/cover;
+}
+.category_play_icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    position: absolute;
+
+    svg{
+        width: 40px;
+        height: 40px;
+        margin: 15px 0 0 28px;
+        border-radius: 30px;
+        padding: 8px;
+        backdrop-filter: blur(12px);
+        opacity: .65;
+        background-color: rgba(44, 4, 4, 0.25);
+    }    
+}
+.category_plus{
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    position: absolute;
+    right: 10px;
+
+    svg{
+        width: 40px;
+        height: 40px;
+        border-radius: 30px;
+        padding: 8px;
+        backdrop-filter: blur(12px);
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.05);
+    }    
+}
+@media(max-width: 330px){
+    .category_plus{
+        display: none;
+    }
+}
+.mood_container{
+    width: calc(100% - 20px);
+    height: 150px;
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-radius: 12px;
+    background-color: transparent;
+    overflow: hidden;
+    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+    gap: 10px;
+}
+.mood_container::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+.mood_content{
+    min-width: calc(100dvw - 40px);
+    gap: 16px;
+    display: flex;
+    scroll-snap-align: start;
+    min-height: 70px;
+    border-radius: 12px 5px;
+    position: relative;
+    scroll-snap-stop: always;
+    height: 40px;
+    box-shadow: 2px -2px 5px rgba(56, 56, 56, 0.8);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    h2{
+    top: 20px;
+    left: 55px;
+    font-size: 16px;
+    position: absolute;
+    color:  #a955f7;
+}
+
+   a{
+    top: 40px;
+    left: 55px;
+    color: rgba(231, 231, 231, 0.99);
+    position: absolute; 
+    font-size: 11px;
+}    
+}
+.mood_content:nth-child(1){
+    background: linear-gradient(to right, rgba(0, 0, 0, .99), rgba(0, 0, 0, .79), rgba(0, 0, 0, 0.35)), url("https://tse1.mm.bing.net/th/id/OIP.rvApUcognWuCcs2t37BuqgHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3")center/cover; 
+}
+.mood_content:nth-child(2){
+    background: linear-gradient(to right, rgba(0, 0, 0, .99), rgba(0, 0, 0, .79), rgba(0, 0, 0, 0.35)), url("https://static1.dualshockersimages.com/wordpress/wp-content/uploads/2023/10/kouichi-sakakibara-from-another.jpg")center/cover;    
+}
+.mood_content:nth-child(3){
+    background: linear-gradient(to right, rgba(0, 0, 0, .99), rgba(0, 0, 0, .79), rgba(0, 0, 0, 0.35)), url("https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQXkapct6sJLMF4PNtrdBQ5VUNKqerPJlyHX2lpXkFQToUJoXJCpwYBm52SYciUyxRKupknMiog9GzeP0krvfIk_bTVURA0DDiI-8PmXX_CmrvtGGZpH3fHbESXchZO5Pr4538gbWXjRLcTqq9PLpjALcM7c.jpg?r=50b")center/cover;    
+}
+.mood_content:nth-child(4){
+    background: linear-gradient(to right, rgba(0, 0, 0, .99), rgba(0, 0, 0, .79), rgba(0, 0, 0, 0.35)), url("https://th.bing.com/th/id/R.e9b8cff304b611740c68637db386d9d7?rik=Lz7kY7JUIGHsuA&pid=ImgRaw&r=0")center/cover;    
+}
+.mood_icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    position: absolute;
+    left: 10px;
+    top: 15px;
+
+    svg{
+        width: 40px;
+        height: 40px;
+        border-radius: 30px;
+        padding: 0px;
+        backdrop-filter: blur(0px);
+        opacity: 1;
+        color: #a855f7;
+        box-shadow: 2px 2px #a955f709;
+    } 
+}
+
+
+
+.add_container_watchlist{
+    width: calc(100% - 20px);
+    text-align: center;
+    position: relative;
+    padding: 15px;
+    border: 2px #8e24f1 solid;
+    margin-left: 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    display: flex;
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.category_premuim_container{
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    min-height: 130px;
+    backdrop-filter: blur(10px);
+    padding: 12px;
+    background-color: rgba(44, 44, 44, 0.663);
+    border-radius: 12px;
+    margin-bottom: 10px;
+
+    h2{
+        font-size: 20px;
+    }
+
+    a{
+        font-size: 12px;
+        display: block;
+        margin: 20px 0;
+    }
+
+    button{
+        padding: 8px;
+        border: none;
+        border-radius: 10px;
+        color: whitesmoke;
+        background: linear-gradient(135deg, #8e24f1, #7130ae, #ff4400);
+    }
+}
+.footer {
+    margin: auto; 
+    padding: 30px 16px;
+    display: grid;  
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;    border-top: 1px solid #27272a;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #a1a1aa;
+}
+.footer h4 {
+    color: #e4e4e7; margin-bottom: 8px;
+}
+.copyright {
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 12px;
+    color: #71717a;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: rgba(0,0,0,0.9);
+    display: none;
+}
+</style>
+
 <footer>
   <div class="footer" style="font-family: 'Inter', sans-serif;">
-    <div><h4>StreamingBox</h4><p>Streaming UI website.</p></div>
-    <div><h4>Explore</h4><p>Trending Anime.</p></div>
-    <div><h4>Developed by</h4><p>Adamson Augustine.</p></div>
+    <div><h4>PipPro</h4><p>Buy and Earn Cards</p></div>
+    <div><h4>Explore</h4><p>Trending Contents Ads free</p></div>
+    <div><h4>Developed by</h4><p>Adamson Augustine</p></div>
   </div>
 </footer>
   <div class="copyright" id="copyMargin" style="margin-bottom: 60px;">© 2025 Sqaush Demo</div>
-  </div>
-    </div>
-<div class="Bottom-Tab" onclick="">
-
-    <div class="TabItem activeTab">
-        <i  onclick="closeBottomClass(),openBody()" class="fa-solid fa-house"></i>
-        <span>Home</span>
-    </div>
-
-    <div class="TabItem">
-        <i onclick="closeBody(),openStreamClass()" class="fa-regular fa-circle-play"></i>
-        <span>Stream</span>
-    </div>
-
-    <div class="TabItem">
-        <i onclick="closeBody(),openSortClass()" class="fa-regular fa-message"></i>
-        <span>Inbox</span>
-    </div>
-
-    <div class="TabItem">
-        <i onclick="closeBody(),openProfileClass()" class="fa-regular fa-user"></i>
-        <span>Profile</span>
-    </div>
-
-    <div class="TabIndicator"></div>
-
-</div>
-<script>
-const tabs = document.querySelectorAll(".TabItem");
-const indicator = document.querySelector(".TabIndicator");
-
-tabs.forEach((tab, index) => {
-
-    tab.addEventListener("click", () => {
-
-        tabs.forEach(t => {
-            t.classList.remove("activeTab");
-
-            const icon = t.querySelector("i");
-            icon.classList.remove("fa-solid");
-            icon.classList.add("fa-regular");
-        });
-
-        tab.classList.add("activeTab");
-
-        const icon = tab.querySelector("i");
-        icon.classList.remove("fa-regular");
-        icon.classList.add("fa-solid");
-
-        indicator.style.transform = `translateX(${index * 100}%)`;
-    });
-
-});
-</script>
-    <!--<i onclick="contentContainer()" class="fa-solid fa-bars Squuash-Menu"></i> <main><i class="fa-solid fa-magnifying-glass"></i><input type="text"
-        id="searchInput" onkeyup="showSuggestions()" class="search-box" placeholder="Search..."></main>
-        <span id="icon" class="icon" style="display: none;" onclick="toggleTheme()"><i style="display: none;"  class="fa-solid fa-moon move"></i></span>
-                <span style="display: none;"  id="icon" class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></span>
-     <i style="display: none;" class="fa-solid fa-bell"></i>-->
-    <!-- <button  onclick="openModal()" class="Login">Login</button>
-     <i class="fa-solid fa-arrow-right"></i>-->   
-    <script src="main.js"></script>
+  </div>   
 </body>
 </html>

@@ -1,1 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodSpace - Discover Trends</title>
+    <link rel="stylesheet" href="mood.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="top_container">
+        <h2>Music<a style="display: none;">Find the right sound for every moment</a></h2>
+        <div class="top_icons">
+            <div class="top_search_icon" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 24 24" fill="none" onclick="openSearchtab()">
+            <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M16 16L20 20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+            </div>
 
+            <div class="top_alarm_icon">
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"  padding="10px">
+  <path
+    d="M24 9C18.48 9 14 13.48 14 19V24.5C14 27.5 12.8 30.2 10.5 32.5L9 34H39L37.5 32.5C35.2 30.2 34 27.5 34 24.5V19C34 13.48 29.52 9 24 9Z"
+    stroke="#FFFFFF"
+    stroke-width="2.5"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M19 38C20.1 40 21.8 41 24 41C26.2 41 27.9 40 29 38"
+    stroke="#FFFFFF"
+    stroke-width="2.0"
+    stroke-linecap="round"
+  />
+</svg><div class="top_red_alarm"></div>
+            </div>
+
+            <div class="top_profile_icon">
+              <img src="https://tse4.mm.bing.net/th/id/OIP._nDapFvhiv8GKIbUyAzV9gHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" class="image_profile_icon">
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" display="none">
+  <!-- White circular border -->
+  <circle
+    cx="24"
+    cy="24"
+    r="21"
+    stroke=""
+    stroke-width="2.5"
+  />
+
+  <!-- Slightly larger profile -->
+  <circle
+    cx="24"
+    cy="18"
+    r="5.5"
+    stroke="#FFFFFF"
+    stroke-width="2.2"
+  />
+
+  <path
+    d="M14.5 35C15.5 29.5 19 26.5 24 26.5C29 26.5 32.5 29.5 33.5 35"
+    stroke="#FFFFFF"
+    stroke-width="2.2"
+    stroke-linecap="round"
+  />
+</svg>
+            </div>
+        </div>
+    </div>
+    
+    <!--<div class="scroll_container">
+        <div class="scroll_content">
+            <a>Workout</a>
+            <a>Mood</a>
+            <a>Relax</a>
+            <a>Focus</a>
+            <a>Sleep</a>
+            <a>Sad</a>
+            <a>Energize</a>
+            <a>Romance</a>
+        </div>
+    </div>-->
+    
+    <div class="toggle_navbar_container">
+        <div class="toggle_navbar_content">
+            <a>For You</a><a style="color: white;">Discover</a>
+        </div>
+    </div>
+
+    <div class="text_content">
+      <h4>Quick picks</h4>
+      <a>Play all</a>
+    </div>
+
+    <div class="music_scroll_container">
+      <!--first row music slot-->
+      <div class="music_scroll_content">
+        <!--MCBH-->
+        <div class="music_content" onclick="openMCBH(),MCBH()">
+          <div class="music_content_profile"></div>
+          <h4>MCBH</h4>
+          <div><a>E</a><a>Asake</a><a>.</a><a>10M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <!--BloodStream-->
+        <div class="music_content"  onclick="openbloodstream(),bloodstream()">
+          <div class="music_content_profile"></div>
+          <h4>bloodstream</h4>
+          <div><a style="display: none;"></a><a>Alyssa Grace</a><a>.</a><a>21M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <!--Ice cream-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>Ice Cream</h4>
+          <div><a>E</a><a>Mavo</a><a>.</a><a>638K plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <!--Orekelewa-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>Orekelewa</h4>
+          <div><a style="display: none;">E</a><a>Abefe</a><a>.</a><a>363K plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+      </div>
+
+      <!--second row music slot-->
+      <div class="music_scroll_content">
+        <!--Earrings-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>Earrings</h4>
+          <div><a style="display: none;">E</a><a>Malcolm Todd</a><a>.</a><a>122M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+          <!--caricature-->
+            <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>caricature</h4>
+          <div><a>E</a><a>Fola</a><a>.</a><a>14M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+          <!--I Love You, I'm Sorry-->
+            <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>I Love You, I'm Sorry</h4>
+          <div><a>E</a><a>Gracie Abrams</a><a>.</a><a>182M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+          </div>
+          <!--Waist-->
+            <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>Waist</h4>
+          <div><a>E</a><a>Omah Lay</a><a>.</a><a>182M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>            
+            </div>
+      </div>
+      <!--third row music slot-->
+      <div class="music_scroll_content">
+        <!--B4 B4-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>B4 B4</h4>
+          <div><a>E</a><a>Davido, Mayorkun, & Fola</a><a>.</a><a>634K p..</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>   
+        </div>
+        <!--fine ting (fine $hit)-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>fine ting (fine $hit)</h4>
+          <div><a>E</a><a>Fola</a><a>.</a><a>3.4M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div> 
+        </div>
+        <!--Dandelions-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>Dandelions</h4>
+          <div><a style="display: none;">E</a><a>Ruth B</a><a>.</a><a>849M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div> 
+        </div>
+        <!--White Keys-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>White Keys</h4>
+          <div><a>E</a><a>White Keys</a><a>.</a><a>70M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div> 
+        </div>
+      </div>
+      <!--fourth row music slot-->
+      <div class="music_scroll_content">
+        <!--Commas-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>Commas</h4>
+          <div><a>E</a><a>Arya Starr</a><a>.</a><a>245M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>   
+        </div>
+        <!--Laho-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>Laho</h4>
+          <div><a style="display: none;">E</a><a>Shallipopi</a><a>.</a><a>12M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>   
+        </div>
+        <!--Feel-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>Feel</h4>
+          <div><a style="display: none;">E</a><a>Davido</a><a>.</a><a>70M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>   
+        </div>
+        <!--Calm Down-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>Calm Down</h4>
+          <div><a style="display: none;">E</a><a>Rema</a><a>.</a><a>3B plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>   
+        </div>
+      </div>
+    </div>
+
+    <div class="text_content">
+      <h4>New Release</h4>
+      <div class="back_icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 5L16 12L9 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  
+    <div class="release_container">
+        <div class="release-content">
+          <div class="release_profile"></div>
+          <h4>Laho</h4>
+          <div><a>E</a><a>Single</a><a>.</a><a>Shallipopi</a></div>
+        </div>
+
+        <div class="release-content">
+          <div class="release_profile"></div>
+          <h4>Earrings</h4>
+          <div><a>E</a><a>Single</a><a>.</a><a>Malcolm..</a></div>
+        </div>
+
+        <div class="release-content">
+          <div class="release_profile"></div>
+          <h4>Waist</h4>
+          <div><a>E</a><a>Single</a><a>.</a><a>Omah Lay</a></div>
+        </div>
+
+        <div class="release-content">
+          <div class="release_profile"></div>
+          <h4>B4 B4</h4>
+          <div><a>E</a><a>Feat</a><a>.</a><a>Davido..</a></div>
+        </div>
+
+        <div class="release-content">
+          <div class="release_profile"></div>
+          <h4>MCBH</h4>
+          <div><a>E</a><a>Single</a><a>.</a><a>Asake</a></div>
+        </div>
+      </div>
+
+    <div class="text_content" style="margin: 20px 0 15px 15px;">
+      <div class="artist_profile"><h4>Asake</h4></div>
+      <div class="back_icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 5L16 12L9 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="release_container ">
+        <div class="release-content">
+          <div class="release_profile_artist"></div>
+          <h4>Great Guy</h4>
+          <div><a>E</a><a>Song</a><a>.</a><a>Asake</a></div>
+        </div>
+
+        <div class="release-content">
+          <div class="release_profile_artist"></div>
+          <h4>M$NEY</h4>
+          <div><a>E</a><a>Album</a><a>.</a><a>Asake</a></div>
+        </div>
+
+        <div class="release-content">
+          <div class="release_profile_artist"></div>
+          <h4>Joha</h4>
+          <div><a>E</a><a>Single</a><a>.</a><a>Asake</a></div>
+        </div>
+
+        <div class="release-content">
+          <div class="release_profile_artist"></div>
+          <h4>Jogodo</h4>
+          <div><a>E</a><a>Duet</a><a>.</a><a>Asake</a></div>
+        </div>
+
+        <div class="release-content">
+          <div class="release_profile_artist"></div>
+          <h4>That Girl</h4>
+          <div><a>E</a><a>Duet</a><a>.</a><a>Asake</a></div>
+        </div>
+    </div>
+
+    <div class="search_index_container" id="searchTab">
+        <div class="search_index_content">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="closeSearchtab()">
+                    <path d="M19 12H5M11 6L5 12L11 18"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"/>
+                    </svg>
+
+                <div class="search_index"><input type="search" placeholder="Search songs, artist..."></div>
+
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="8" y="3" width="8" height="12" rx="4"
+                    stroke="currentColor" stroke-width="2"/>
+                    <path d="M5 11C5 14.866 8.134 18 12 18C15.866 18 19 14.866 19 11"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M12 18V21M9 21H15"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 12V10M8 16V8M12 20V4M16 16V8M20 12V10"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"/>
+                    </svg>
+        </div>
+    </div>
+
+    <div class="text_content" style="margin-top: 20px;">
+      <h4>Albums for you</h4>
+      <div class="back_icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 5L16 12L9 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+ 
+    <div class="release_container ">
+        <div class="release-content">
+          <div class="release_profile_album"></div>
+          <h4>Y2K!</h4>
+          <div><a>E</a><a>Album</a><a>.</a><a>Ice Spice</a></div>
+        </div>
+
+        <div class="release-content">
+          <div class="release_profile_album"></div>
+          <h4>No Excuses</h4>
+          <div><a>E</a><a>Album</a><a>.</a><a>Blaqbonez</a></div>
+        </div>
+
+        <div class="release-content">
+          <div class="release_profile_album"></div>
+          <h4>19 & Dangerous (Deluxe)</h4>
+          <div><a>E</a><a>Album</a><a>.</a><a>Ayra Starr</a></div>
+        </div>
+
+        <div class="release-content">
+          <div class="release_profile_album"></div>
+          <h4>5ive</h4>
+          <div><a>E</a><a>Album</a><a>.</a><a>Davido</a></div>
+        </div>
+
+        <div class="release-content">
+          <div class="release_profile_album"></div>
+          <h4>STREET THERAPIST</h4>
+          <div><a>E</a><a>Album</a><a>.</a><a>Famous..</a></div>
+        </div>
+    </div>
+
+    <div class="text_content" style="margin-top: 20px;">
+      <h4>Trending Now</h4>
+      <div class="back_icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 5L16 12L9 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+ 
+    <div class="music_scroll_container">
+      <!--first row music slot-->
+      <div class="music_scroll_content">
+        <!--MCBH-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>MCBH</h4>
+          <div><a>E</a><a>Asake</a><a>.</a><a>10M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <!--BloodStream-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>bloodstream</h4>
+          <div><a style="display: none;"></a><a>Alyssa Grace</a><a>.</a><a>21M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <!--Ice cream-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>Ice Cream</h4>
+          <div><a>E</a><a>Mavo</a><a>.</a><a>638K plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+        <!--Orekelewa-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>Orekelewa</h4>
+          <div><a style="display: none;">E</a><a>Abefe</a><a>.</a><a>363K plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+      </div>
+
+      <!--second row music slot-->
+      <div class="music_scroll_content">
+        <!--Earrings-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>Earrings</h4>
+          <div><a style="display: none;">E</a><a>Malcolm Todd</a><a>.</a><a>122M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+          <!--caricature-->
+            <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>caricature</h4>
+          <div><a>E</a><a>Fola</a><a>.</a><a>14M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+          <!--I Love You, I'm Sorry-->
+            <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>I Love You, I'm Sorry</h4>
+          <div><a>E</a><a>Gracie Abrams</a><a>.</a><a>182M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+          </div>
+          <!--Waist-->
+            <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>Waist</h4>
+          <div><a>E</a><a>Omah Lay</a><a>.</a><a>182M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>            
+            </div>
+      </div>
+      <!--third row music slot-->
+      <div class="music_scroll_content">
+        <!--B4 B4-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>B4 B4</h4>
+          <div><a>E</a><a>Davido, Mayorkun, & Fola</a><a>.</a><a>634K p..</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>   
+        </div>
+        <!--fine ting (fine $hit)-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>fine ting (fine $hit)</h4>
+          <div><a>E</a><a>Fola</a><a>.</a><a>3.4M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div> 
+        </div>
+        <!--Dandelions-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>Dandelions</h4>
+          <div><a style="display: none;">E</a><a>Ruth B</a><a>.</a><a>849M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div> 
+        </div>
+        <!--White Keys-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>White Keys</h4>
+          <div><a>E</a><a>White Keys</a><a>.</a><a>70M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div> 
+        </div>
+      </div>
+      <!--fourth row music slot-->
+      <div class="music_scroll_content">
+        <!--Commas-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>Commas</h4>
+          <div><a>E</a><a>Arya Starr</a><a>.</a><a>245M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>   
+        </div>
+        <!--Laho-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>Laho</h4>
+          <div><a style="display: none;">E</a><a>Shallipopi</a><a>.</a><a>12M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>   
+        </div>
+        <!--Feel-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>Feel</h4>
+          <div><a style="display: none;">E</a><a>Davido</a><a>.</a><a>70M plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>   
+        </div>
+        <!--Calm Down-->
+        <div class="music_content">
+          <div class="music_content_profile"></div>
+          <h4>Calm Down</h4>
+          <div><a style="display: none;">E</a><a>Rema</a><a>.</a><a>3B plays</a></div>
+            <div class="card_dots_icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="19" r="2" fill="currentColor"/>
+                </svg>
+            </div>   
+        </div>
+      </div>
+    </div>
+
+    <div class="onclick_music_content" id="MCBHCard">
+      <div class="artist_MCBH_onclick_profile"></div>
+      <div class="artist_MCBH_onclick_text">
+        <h4>MCBH</h4>
+        <a>Asake</a>
+      </div>
+      <div class="artist_MCBH_onclick_icons">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path d="M4 18V20H6C6 18.9 5.1 18 4 18Z" fill="currentColor"/>
+          <path d="M4 14V16C6.21 16 8 17.79 8 20H10C10 16.69 7.31 14 4 14Z" fill="currentColor"/>
+          <path d="M4 10V12C8.42 12 12 15.58 12 20H14C14 14.48 9.52 10 4 10Z" fill="currentColor"/>
+          <path d="M20 4H4V7H6V6H18V18H15V20H20V4Z" fill="currentColor"/>
+        </svg>
+        
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path d="M7 5H10V19H7V5Z" fill="currentColor"/>
+          <path d="M14 5H17V19H14V5Z" fill="currentColor"/>
+        </svg>
+      </div>
+
+           <div class="onclick_music_progress"></div>
+    </div>
+
+        <div class="onclick_music_content" id="bloodstreamCard">
+      <div class="artist_bloodstream_onclick_profile"></div>
+      <div class="artist_bloodstream_onclick_text">
+        <h4>bloodstream</h4>
+        <a>Alyssa Grace</a>
+      </div>
+      <div class="artist_MCBH_onclick_icons">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path d="M4 18V20H6C6 18.9 5.1 18 4 18Z" fill="currentColor"/>
+          <path d="M4 14V16C6.21 16 8 17.79 8 20H10C10 16.69 7.31 14 4 14Z" fill="currentColor"/>
+          <path d="M4 10V12C8.42 12 12 15.58 12 20H14C14 14.48 9.52 10 4 10Z" fill="currentColor"/>
+          <path d="M20 4H4V7H6V6H18V18H15V20H20V4Z" fill="currentColor"/>
+        </svg>
+        
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path d="M7 5H10V19H7V5Z" fill="currentColor"/>
+          <path d="M14 5H17V19H14V5Z" fill="currentColor"/>
+        </svg>
+      </div>
+
+           <div class="onclick_music_progress_bloodstream"></div>
+    </div>
+
+    <div class="bottom_container">
+        <div class="bottom_content">
+            <div class="bottom_home_icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 14L16 4L28 14V28H19V20H13V28H4V14Z"
+              stroke="white"
+              stroke-width="2.2"
+              stroke-linejoin="round"/>
+              </svg><a>Home</a>
+            </div>
+
+            <div class="bottom_search_icon" onclick="openSearchtab()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 24 24" fill="none">
+              <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2.2"/>
+              <path d="M16 16L20 20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              </svg><a>Search</a>
+            </div>
+
+           <!-- <div class="bottom_explore_icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="13"
+              stroke="white"
+              stroke-width="2.2"/>
+              <path d="M21.5 10.5L18.5 18.5L10.5 21.5L13.5 13.5L21.5 10.5Z"
+              stroke="white"
+              stroke-width="2.2"
+              stroke-linejoin="round"/>
+              <circle cx="16" cy="16" r="1.8" fill="white"/>
+              </svg><a>Explore</a>
+            </div>-->
+
+            <div class="bottom_favorite_icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 4H25V28L16 21.5L7 28V4Z"
+              stroke="white"
+              stroke-width="2.2"
+              stroke-linejoin="round"/>
+              </svg><a>Favorites</a>
+            </div>
+
+          <div class="bottom_cart_icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 7H5C3.9 7 3 7.9 3 9V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V9C21 7.9 20.1 7 19 7Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M3 10V6C3 4.9 3.9 4 5 4H17C18.1 4 19 4.9 19 6V7" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M21 12H16C14.9 12 14 12.9 14 14C14 15.1 14.9 16 16 16H21" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="16.5" cy="14" r=".8" fill="currentColor"/></svg><a>Wallet</a>
+          </div>  
+        </div>
+    </div>
+
+<audio id="MCBH" src="MCBH.mp3"></audio>
+<audio id="bloodstream" src="bloodstream.mp3"></audio>
+<script src="mood.js">
+</script>
+</body>
+</html>
+<!--
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M19 12H5M11 6L5 12L11 18"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+</svg>
+
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path d="M8 5L19 12L8 19V5Z" fill="currentColor"/>
+        </svg>
+
+
+              play.onclick = () => {
+              audio.pause();
+              audio.currentTime = 0 ;
+              audio.play();
+              };
+
+                const play1 =
+  document.getElementById("play1");
+  const play2 =
+  document.getElementById("play2");
+  const audio =
+  document.getElementById("audio");
+
+play1.onclick = () =>
+{ audio.src="MCBH.mp3";
+  audio.play();};
+play2.onclick = () =>
+{ audio.src="KNOWYOU";
+  audio.play();};
+
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="8" y="3" width="8" height="12" rx="4"
+        stroke="currentColor" stroke-width="2"/>
+  <path d="M5 11C5 14.866 8.134 18 12 18C15.866 18 19 14.866 19 11"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <path d="M12 18V21M9 21H15"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</svg>
+
+
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4 12V10M8 16V8M12 20V4M16 16V8M20 12V10"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"/>
+    </svg>
+
+
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M3 12A9 9 0 1 0 6 5"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"/>
+  <path d="M3 5V12H10"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+  <path d="M12 7V12L15 14"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+</svg>
+
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+     xmlns="http://www.w3.org/2000/svg">
+  <path d="M18 18L6 6M14 6H6V14"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+</svg>

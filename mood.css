@@ -204,6 +204,7 @@ body::-webkit-scrollbar{
         left: 77px;
         font-size: 11px;
         position: absolute;
+        color: white;
     }
 
     div:nth-child(3){
@@ -219,10 +220,10 @@ body::-webkit-scrollbar{
             font-size: 9px;
             padding: .2px 2px;
             margin-right: 5px;
-            margin-top: -1px;
-            height: 11px;
+            margin-top: 0px;
+            height: 10px;
             border-radius: 2px;
-            background-color: rgb(255, 255, 255);
+            background-color: rgb(174, 174, 174);
             color: #000000;
             font-weight: bolder;
         }
@@ -262,7 +263,7 @@ body::-webkit-scrollbar{
 }
 .music_content:hover{
     backdrop-filter: blur(5px);
-    background-color: rgba(132, 132, 132, 0.142);
+    background-color: #84848424;
 }
 .music_content_profile{
     width: 56px;
@@ -331,12 +332,20 @@ body::-webkit-scrollbar{
     display: none;
     background-color: hsl(0, 0%, 8%);
 
-    .onclick_music_progress{
+    .onclick_music_progress_content{
         width: 100%;
         display: flex;
         position: absolute;
         bottom: 0;
-        border-bottom: 1px solid gray;
+        border-bottom: 1.5px solid rgb(93, 93, 93);
+    }
+
+    .onclick_music_progress{
+        width: 100%;
+        display: flex;
+        position: absolute;
+        bottom: -1px;
+        border-bottom: 1.5px solid #ffffff;
         animation: MCBH_loading_music 176s ease;
     }
 
@@ -367,7 +376,9 @@ body::-webkit-scrollbar{
         position: absolute;
         right: 18px;
         bottom: 15px;
+        display: flex;
         svg {margin-left: 10px;}
+        svg:nth-child(3){display: none;}
     }
 }
 @keyframes MCBH_loading_music{
@@ -481,7 +492,7 @@ body::-webkit-scrollbar{
 
     div:nth-child(4) {
         display: grid;
-        a{font-size: 9px;}
+        a{font-size: 9px;margin-top: 2px;}
     svg{
         width: 24px;
         height: 24px;

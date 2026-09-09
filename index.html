@@ -97,9 +97,9 @@
       <!--first row music slot-->
       <div class="music_scroll_content">
         <!--MCBH-->
-        <div class="music_content" onclick="openMCBH(),MCBH()">
+        <div class="music_content" id="MCBH_hover" onclick="openMCBH(),MCBH(),MCBHh4()">
           <div class="music_content_profile"></div>
-          <h4>MCBH</h4>
+          <h4 id="MCBH_h4">MCBH</h4>
           <div><a>E</a><a>Asake</a><a>.</a><a>10M plays</a></div>
             <div class="card_dots_icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -110,9 +110,9 @@
             </div>
         </div>
         <!--BloodStream-->
-        <div class="music_content"  onclick="openbloodstream(),bloodstream()">
+        <div class="music_content" id="bloodstream_hover" onclick="openbloodstream(),bloodstream(),bloodstreamh4()">
           <div class="music_content_profile"></div>
-          <h4>bloodstream</h4>
+          <h4 id="bloodstream_h4">bloodstream</h4>
           <div><a style="display: none;"></a><a>Alyssa Grace</a><a>.</a><a>21M plays</a></div>
             <div class="card_dots_icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -717,13 +717,17 @@
           <path d="M20 4H4V7H6V6H18V18H15V20H20V4Z" fill="currentColor"/>
         </svg>
         
-        <svg viewBox="0 0 24 24" width="24" height="24">
+        <svg viewBox="0 0 24 24" width="24" height="24" onclick="pauseMCBH()" id="playMCBH">
           <path d="M7 5H10V19H7V5Z" fill="currentColor"/>
           <path d="M14 5H17V19H14V5Z" fill="currentColor"/>
         </svg>
+
+        <svg viewBox="0 0 24 24" width="24" height="24" onclick="playMCBH()" id="pauseMCBH">
+          <path d="M8 5L19 12L8 19V5Z" fill="currentColor"/>
+        </svg>
       </div>
 
-           <div class="onclick_music_progress"></div>
+           <div class="onclick_music_progress_content"><div class="onclick_music_progress"></div></div>
     </div>
 
         <div class="onclick_music_content" id="bloodstreamCard">
@@ -740,13 +744,17 @@
           <path d="M20 4H4V7H6V6H18V18H15V20H20V4Z" fill="currentColor"/>
         </svg>
         
-        <svg viewBox="0 0 24 24" width="24" height="24">
+        <svg viewBox="0 0 24 24" width="24" height="24" onclick="pausebloodstream()" id="playbloodstream">
           <path d="M7 5H10V19H7V5Z" fill="currentColor"/>
           <path d="M14 5H17V19H14V5Z" fill="currentColor"/>
         </svg>
+
+        <svg viewBox="0 0 24 24" width="24" height="24" onclick="playbloodstream()" id="pausebloodstream">
+          <path d="M8 5L19 12L8 19V5Z" fill="currentColor"/>
+        </svg>
       </div>
 
-           <div class="onclick_music_progress_bloodstream"></div>
+           <div class="onclick_music_progress_content"><div class="onclick_music_progress"></div></div>
     </div>
 
     <div class="bottom_container">

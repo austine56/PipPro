@@ -400,11 +400,11 @@ body::-webkit-scrollbar{
 
         h4{
             font-size: 13px;
-            font-weight: lighter;
         }
 
         a{
-            font-size: 13px;
+            font-size: 12px;
+            font-weight: lighter;
             color: rgba(204, 204, 204, 0.966)
         }
     }
@@ -481,9 +481,11 @@ body::-webkit-scrollbar{
 
     div:nth-child(4) {
         display: grid;
-        a{font-size: 9px;margin-left: 1px;}
+        a{font-size: 9px;}
     svg{
-        padding: 2px;
+        width: 24px;
+        height: 24px;
+        padding: 0.1px;
         margin-top: 2px;
             }
         }
